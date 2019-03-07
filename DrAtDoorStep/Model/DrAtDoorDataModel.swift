@@ -40,7 +40,5 @@ class DrAtDoorDataModel{
     
     var currentPassword : String?
     var newPassword : String?
-    
-    
-    
+
 }

@@ -39,6 +39,9 @@
 		B2A235C62227B75100546FF7 /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C52227B75100546FF7 /* CreatePasswordViewController.swift */; };
 		B2AC95C92230E52400713B1B /* DrAtDoorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC95C82230E52400713B1B /* DrAtDoorDataModel.swift */; };
 		B2AC95CB2230EB2F00713B1B /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */; };
+		B2D320CA223132E1005DF272 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D320C9223132E1005DF272 /* NotificationsViewController.swift */; };
+		B2D320CC22313338005DF272 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D320CB22313338005DF272 /* NotificationTableViewCell.swift */; };
+		B2D320CF22313A8D005DF272 /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D320CE22313A8D005DF272 /* NotificationDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		B2A235C52227B75100546FF7 /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
 		B2AC95C82230E52400713B1B /* DrAtDoorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrAtDoorDataModel.swift; sourceTree = "<group>"; };
 		B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
+		B2D320C9223132E1005DF272 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		B2D320CB22313338005DF272 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		B2D320CE22313A8D005DF272 /* NotificationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataModel.swift; sourceTree = "<group>"; };
 		E2AF5F1C7BDBA2715B1C781F /* Pods-DrAtDoorStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrAtDoorStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrAtDoorStep/Pods-DrAtDoorStep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +150,7 @@
 			children = (
 				B20EAA952226581400DBCD04 /* ViewController.swift */,
 				B2A235BE2227AED500546FF7 /* Login */,
+				B2D320CD22313340005DF272 /* Notifications */,
 				B20EAAB222269F2D00DBCD04 /* Appoinment */,
 				B20EAAB422269F6900DBCD04 /* Ambulance */,
 				B20EAAB522269F8900DBCD04 /* Pharmacy */,
@@ -167,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B2AC95C82230E52400713B1B /* DrAtDoorDataModel.swift */,
+				B2D320CE22313A8D005DF272 /* NotificationDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +276,15 @@
 				B2A235C52227B75100546FF7 /* CreatePasswordViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		B2D320CD22313340005DF272 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				B2D320C9223132E1005DF272 /* NotificationsViewController.swift */,
+				B2D320CB22313338005DF272 /* NotificationTableViewCell.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,9 +415,11 @@
 				B2A235C22227AEF100546FF7 /* RegisterViewController.swift in Sources */,
 				B2A235C02227AEE700546FF7 /* LoginViewController.swift in Sources */,
 				B2AC95C92230E52400713B1B /* DrAtDoorDataModel.swift in Sources */,
+				B2D320CC22313338005DF272 /* NotificationTableViewCell.swift in Sources */,
 				B23EC0FD2226B02800DDB908 /* FeedbackViewController.swift in Sources */,
 				B23EC0F42226AFBB00DDB908 /* AboutusViewController.swift in Sources */,
 				B2A235C42227AF1F00546FF7 /* ForgetPasswordViewController.swift in Sources */,
+				B2D320CF22313A8D005DF272 /* NotificationDataModel.swift in Sources */,
 				B20EAAB92226A0B900DBCD04 /* DoctorViewController.swift in Sources */,
 				B2AC95CB2230EB2F00713B1B /* AuthenticateViewController.swift in Sources */,
 				B23EC0E02226A63400DDB908 /* NursesViewController.swift in Sources */,
@@ -418,6 +437,7 @@
 				B23EC0FA2226B00900DDB908 /* HelpViewController.swift in Sources */,
 				B23EC0E82226AB9000DDB908 /* AmbulanceViewController.swift in Sources */,
 				B23EC0F82226AFE900DDB908 /* TermsConditionViewController.swift in Sources */,
+				B2D320CA223132E1005DF272 /* NotificationsViewController.swift in Sources */,
 				B20EAA942226581400DBCD04 /* AppDelegate.swift in Sources */,
 				B23EC0E32226A76E00DDB908 /* LabViewController.swift in Sources */,
 			);
