@@ -7,14 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E28ADA0A82E71ECB507B0B3 /* Pods_DrAtDoorStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76176DC87206888026BE86F7 /* Pods_DrAtDoorStep.framework */; };
 		B20EAA942226581400DBCD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAA932226581400DBCD04 /* AppDelegate.swift */; };
 		B20EAA962226581400DBCD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAA952226581400DBCD04 /* ViewController.swift */; };
 		B20EAA992226581400DBCD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA972226581400DBCD04 /* Main.storyboard */; };
 		B20EAA9B2226581600DBCD04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA9A2226581600DBCD04 /* Assets.xcassets */; };
 		B20EAA9E2226581600DBCD04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA9C2226581600DBCD04 /* LaunchScreen.storyboard */; };
+		B20EAAAA2226676F00DBCD04 /* Appoinments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAA92226676F00DBCD04 /* Appoinments.swift */; };
+		B20EAAAE22269D0F00DBCD04 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAAD22269D0E00DBCD04 /* More.swift */; };
+		B20EAAB92226A0B900DBCD04 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAB82226A0B900DBCD04 /* DoctorViewController.swift */; };
+		B23EC0E02226A63400DDB908 /* NursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0DF2226A63400DDB908 /* NursesViewController.swift */; };
+		B23EC0E32226A76E00DDB908 /* LabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E22226A76E00DDB908 /* LabViewController.swift */; };
+		B23EC0E62226A8D100DDB908 /* CaretakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */; };
+		B23EC0E82226AB9000DDB908 /* AmbulanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E72226AB9000DDB908 /* AmbulanceViewController.swift */; };
+		B23EC0EA2226AE6C00DDB908 /* PharmacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E92226AE6C00DDB908 /* PharmacyViewController.swift */; };
+		B23EC0EC2226AEEC00DDB908 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0EB2226AEEC00DDB908 /* CartViewController.swift */; };
+		B23EC0EE2226AF4400DDB908 /* BookingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0ED2226AF4400DDB908 /* BookingHistoryViewController.swift */; };
+		B23EC0F02226AF6000DDB908 /* OfferVochersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0EF2226AF6000DDB908 /* OfferVochersViewController.swift */; };
+		B23EC0F22226AF7400DDB908 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0F12226AF7400DDB908 /* WalletViewController.swift */; };
+		B23EC0F42226AFBB00DDB908 /* AboutusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0F32226AFBB00DDB908 /* AboutusViewController.swift */; };
+		B23EC0F62226AFCE00DDB908 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0F52226AFCE00DDB908 /* BlogViewController.swift */; };
+		B23EC0F82226AFE900DDB908 /* TermsConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0F72226AFE900DDB908 /* TermsConditionViewController.swift */; };
+		B23EC0FA2226B00900DDB908 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0F92226B00900DDB908 /* HelpViewController.swift */; };
+		B23EC0FD2226B02800DDB908 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0FC2226B02800DDB908 /* FeedbackViewController.swift */; };
+		B23EC0FF2226B0E000DDB908 /* AddPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0FE2226B0E000DDB908 /* AddPatientViewController.swift */; };
+		B23EC1012226B19B00DDB908 /* ViewPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC1002226B19B00DDB908 /* ViewPatientViewController.swift */; };
+		B23EC1032226B35700DDB908 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */; };
+		B2A235C02227AEE700546FF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235BF2227AEE600546FF7 /* LoginViewController.swift */; };
+		B2A235C22227AEF100546FF7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C12227AEF100546FF7 /* RegisterViewController.swift */; };
+		B2A235C42227AF1F00546FF7 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */; };
+		B2A235C62227B75100546FF7 /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C52227B75100546FF7 /* CreatePasswordViewController.swift */; };
+		B2AC95C92230E52400713B1B /* DrAtDoorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC95C82230E52400713B1B /* DrAtDoorDataModel.swift */; };
+		B2AC95CB2230EB2F00713B1B /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E4CBA2E767DCEFDA8024502 /* Pods-DrAtDoorStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrAtDoorStep.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrAtDoorStep/Pods-DrAtDoorStep.debug.xcconfig"; sourceTree = "<group>"; };
+		76176DC87206888026BE86F7 /* Pods_DrAtDoorStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrAtDoorStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20EAA902226581400DBCD04 /* DrAtDoorStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrAtDoorStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20EAA932226581400DBCD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B20EAA952226581400DBCD04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +51,33 @@
 		B20EAA9A2226581600DBCD04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B20EAA9D2226581600DBCD04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20EAA9F2226581600DBCD04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B20EAAA92226676F00DBCD04 /* Appoinments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appoinments.swift; sourceTree = "<group>"; };
+		B20EAAAD22269D0E00DBCD04 /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
+		B20EAAB82226A0B900DBCD04 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
+		B23EC0DF2226A63400DDB908 /* NursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursesViewController.swift; sourceTree = "<group>"; };
+		B23EC0E22226A76E00DDB908 /* LabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabViewController.swift; sourceTree = "<group>"; };
+		B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerViewController.swift; sourceTree = "<group>"; };
+		B23EC0E72226AB9000DDB908 /* AmbulanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceViewController.swift; sourceTree = "<group>"; };
+		B23EC0E92226AE6C00DDB908 /* PharmacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyViewController.swift; sourceTree = "<group>"; };
+		B23EC0EB2226AEEC00DDB908 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		B23EC0ED2226AF4400DDB908 /* BookingHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryViewController.swift; sourceTree = "<group>"; };
+		B23EC0EF2226AF6000DDB908 /* OfferVochersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferVochersViewController.swift; sourceTree = "<group>"; };
+		B23EC0F12226AF7400DDB908 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		B23EC0F32226AFBB00DDB908 /* AboutusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutusViewController.swift; sourceTree = "<group>"; };
+		B23EC0F52226AFCE00DDB908 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		B23EC0F72226AFE900DDB908 /* TermsConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewController.swift; sourceTree = "<group>"; };
+		B23EC0F92226B00900DDB908 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		B23EC0FC2226B02800DDB908 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		B23EC0FE2226B0E000DDB908 /* AddPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientViewController.swift; sourceTree = "<group>"; };
+		B23EC1002226B19B00DDB908 /* ViewPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPatientViewController.swift; sourceTree = "<group>"; };
+		B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		B2A235BF2227AEE600546FF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B2A235C12227AEF100546FF7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		B2A235C52227B75100546FF7 /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
+		B2AC95C82230E52400713B1B /* DrAtDoorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrAtDoorDataModel.swift; sourceTree = "<group>"; };
+		B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
+		E2AF5F1C7BDBA2715B1C781F /* Pods-DrAtDoorStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrAtDoorStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrAtDoorStep/Pods-DrAtDoorStep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +85,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E28ADA0A82E71ECB507B0B3 /* Pods_DrAtDoorStep.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DB6714D4C66024FFB72CADF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76176DC87206888026BE86F7 /* Pods_DrAtDoorStep.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		103E0648DA04F56BC872F013 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E4CBA2E767DCEFDA8024502 /* Pods-DrAtDoorStep.debug.xcconfig */,
+				E2AF5F1C7BDBA2715B1C781F /* Pods-DrAtDoorStep.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B20EAA872226581400DBCD04 = {
 			isa = PBXGroup;
 			children = (
 				B20EAA922226581400DBCD04 /* DrAtDoorStep */,
 				B20EAA912226581400DBCD04 /* Products */,
+				103E0648DA04F56BC872F013 /* Pods */,
+				0DB6714D4C66024FFB72CADF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +130,144 @@
 		B20EAA922226581400DBCD04 /* DrAtDoorStep */ = {
 			isa = PBXGroup;
 			children = (
+				B20EAAB122269EE200DBCD04 /* Model */,
+				B20EAAB022269ED300DBCD04 /* View */,
+				B20EAAAF22269EC000DBCD04 /* Controller */,
 				B20EAA932226581400DBCD04 /* AppDelegate.swift */,
-				B20EAA952226581400DBCD04 /* ViewController.swift */,
-				B20EAA972226581400DBCD04 /* Main.storyboard */,
-				B20EAA9A2226581600DBCD04 /* Assets.xcassets */,
-				B20EAA9C2226581600DBCD04 /* LaunchScreen.storyboard */,
 				B20EAA9F2226581600DBCD04 /* Info.plist */,
 			);
 			path = DrAtDoorStep;
+			sourceTree = "<group>";
+		};
+		B20EAAAF22269EC000DBCD04 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B20EAA952226581400DBCD04 /* ViewController.swift */,
+				B2A235BE2227AED500546FF7 /* Login */,
+				B20EAAB222269F2D00DBCD04 /* Appoinment */,
+				B20EAAB422269F6900DBCD04 /* Ambulance */,
+				B20EAAB522269F8900DBCD04 /* Pharmacy */,
+				B20EAAB622269FA600DBCD04 /* Cart */,
+				B20EAAB322269F4D00DBCD04 /* More */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B20EAAB022269ED300DBCD04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B20EAA972226581400DBCD04 /* Main.storyboard */,
+				B20EAA9A2226581600DBCD04 /* Assets.xcassets */,
+				B20EAA9C2226581600DBCD04 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B20EAAB122269EE200DBCD04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B2AC95C82230E52400713B1B /* DrAtDoorDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B20EAAB222269F2D00DBCD04 /* Appoinment */ = {
+			isa = PBXGroup;
+			children = (
+				B20EAAA92226676F00DBCD04 /* Appoinments.swift */,
+				B20EAAB72226A01000DBCD04 /* Doctor */,
+				B23EC0DE2226A61800DDB908 /* Nurses */,
+				B23EC0E12226A74B00DDB908 /* Lab */,
+				B23EC0E42226A8B200DDB908 /* Caretaker */,
+			);
+			path = Appoinment;
+			sourceTree = "<group>";
+		};
+		B20EAAB322269F4D00DBCD04 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				B20EAAAD22269D0E00DBCD04 /* More.swift */,
+				B23EC0FE2226B0E000DDB908 /* AddPatientViewController.swift */,
+				B23EC1002226B19B00DDB908 /* ViewPatientViewController.swift */,
+				B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */,
+				B23EC0ED2226AF4400DDB908 /* BookingHistoryViewController.swift */,
+				B23EC0EF2226AF6000DDB908 /* OfferVochersViewController.swift */,
+				B23EC0F12226AF7400DDB908 /* WalletViewController.swift */,
+				B23EC0F32226AFBB00DDB908 /* AboutusViewController.swift */,
+				B23EC0F52226AFCE00DDB908 /* BlogViewController.swift */,
+				B23EC0F72226AFE900DDB908 /* TermsConditionViewController.swift */,
+				B23EC0F92226B00900DDB908 /* HelpViewController.swift */,
+				B23EC0FC2226B02800DDB908 /* FeedbackViewController.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		B20EAAB422269F6900DBCD04 /* Ambulance */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0E72226AB9000DDB908 /* AmbulanceViewController.swift */,
+			);
+			path = Ambulance;
+			sourceTree = "<group>";
+		};
+		B20EAAB522269F8900DBCD04 /* Pharmacy */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0E92226AE6C00DDB908 /* PharmacyViewController.swift */,
+			);
+			path = Pharmacy;
+			sourceTree = "<group>";
+		};
+		B20EAAB622269FA600DBCD04 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0EB2226AEEC00DDB908 /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		B20EAAB72226A01000DBCD04 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				B20EAAB82226A0B900DBCD04 /* DoctorViewController.swift */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		B23EC0DE2226A61800DDB908 /* Nurses */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0DF2226A63400DDB908 /* NursesViewController.swift */,
+			);
+			path = Nurses;
+			sourceTree = "<group>";
+		};
+		B23EC0E12226A74B00DDB908 /* Lab */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0E22226A76E00DDB908 /* LabViewController.swift */,
+			);
+			path = Lab;
+			sourceTree = "<group>";
+		};
+		B23EC0E42226A8B200DDB908 /* Caretaker */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */,
+			);
+			path = Caretaker;
+			sourceTree = "<group>";
+		};
+		B2A235BE2227AED500546FF7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B2A235BF2227AEE600546FF7 /* LoginViewController.swift */,
+				B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */,
+				B2A235C12227AEF100546FF7 /* RegisterViewController.swift */,
+				B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */,
+				B2A235C52227B75100546FF7 /* CreatePasswordViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B20EAAA22226581600DBCD04 /* Build configuration list for PBXNativeTarget "DrAtDoorStep" */;
 			buildPhases = (
+				0E7D74345CF2E7AEBCBF1355 /* [CP] Check Pods Manifest.lock */,
 				B20EAA8C2226581400DBCD04 /* Sources */,
 				B20EAA8D2226581400DBCD04 /* Frameworks */,
 				B20EAA8E2226581400DBCD04 /* Resources */,
+				2D1C21AB6E2DF76A7791AE4C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +338,88 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E7D74345CF2E7AEBCBF1355 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DrAtDoorStep-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D1C21AB6E2DF76A7791AE4C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DrAtDoorStep/Pods-DrAtDoorStep-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrAtDoorStep/Pods-DrAtDoorStep-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B20EAA8C2226581400DBCD04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20EAAAE22269D0F00DBCD04 /* More.swift in Sources */,
+				B23EC0EA2226AE6C00DDB908 /* PharmacyViewController.swift in Sources */,
+				B23EC0E62226A8D100DDB908 /* CaretakerViewController.swift in Sources */,
+				B2A235C22227AEF100546FF7 /* RegisterViewController.swift in Sources */,
+				B2A235C02227AEE700546FF7 /* LoginViewController.swift in Sources */,
+				B2AC95C92230E52400713B1B /* DrAtDoorDataModel.swift in Sources */,
+				B23EC0FD2226B02800DDB908 /* FeedbackViewController.swift in Sources */,
+				B23EC0F42226AFBB00DDB908 /* AboutusViewController.swift in Sources */,
+				B2A235C42227AF1F00546FF7 /* ForgetPasswordViewController.swift in Sources */,
+				B20EAAB92226A0B900DBCD04 /* DoctorViewController.swift in Sources */,
+				B2AC95CB2230EB2F00713B1B /* AuthenticateViewController.swift in Sources */,
+				B23EC0E02226A63400DDB908 /* NursesViewController.swift in Sources */,
+				B23EC0F62226AFCE00DDB908 /* BlogViewController.swift in Sources */,
 				B20EAA962226581400DBCD04 /* ViewController.swift in Sources */,
+				B20EAAAA2226676F00DBCD04 /* Appoinments.swift in Sources */,
+				B23EC0FF2226B0E000DDB908 /* AddPatientViewController.swift in Sources */,
+				B23EC1032226B35700DDB908 /* ChangePasswordViewController.swift in Sources */,
+				B23EC1012226B19B00DDB908 /* ViewPatientViewController.swift in Sources */,
+				B23EC0F02226AF6000DDB908 /* OfferVochersViewController.swift in Sources */,
+				B2A235C62227B75100546FF7 /* CreatePasswordViewController.swift in Sources */,
+				B23EC0EE2226AF4400DDB908 /* BookingHistoryViewController.swift in Sources */,
+				B23EC0F22226AF7400DDB908 /* WalletViewController.swift in Sources */,
+				B23EC0EC2226AEEC00DDB908 /* CartViewController.swift in Sources */,
+				B23EC0FA2226B00900DDB908 /* HelpViewController.swift in Sources */,
+				B23EC0E82226AB9000DDB908 /* AmbulanceViewController.swift in Sources */,
+				B23EC0F82226AFE900DDB908 /* TermsConditionViewController.swift in Sources */,
 				B20EAA942226581400DBCD04 /* AppDelegate.swift in Sources */,
+				B23EC0E32226A76E00DDB908 /* LabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,9 +563,11 @@
 		};
 		B20EAAA32226581600DBCD04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4CBA2E767DCEFDA8024502 /* Pods-DrAtDoorStep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2ZV59BZA;
 				INFOPLIST_FILE = DrAtDoorStep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,9 +582,11 @@
 		};
 		B20EAAA42226581600DBCD04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2AF5F1C7BDBA2715B1C781F /* Pods-DrAtDoorStep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2ZV59BZA;
 				INFOPLIST_FILE = DrAtDoorStep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
