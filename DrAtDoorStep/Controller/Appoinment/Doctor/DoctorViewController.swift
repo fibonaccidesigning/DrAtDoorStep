@@ -7,9 +7,32 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class DoctorViewController: UIViewController {
-
+    
+    
+    // MARK: DataModel
+    
+    let loginDataModel = DrAtDoorDataModel()
+    
+    
+    // MARK: URL
+    
+    let Login_URL = "http://dratdoorstep.com/livemob/login"
+    
+    
+    //MARK: - ViewController
+    
+    @IBOutlet var SelectPatientTextField: UITextField!
+    @IBOutlet var ComplainTextField: UITextField!
+    @IBOutlet var DateTextField: UITextField!
+    @IBOutlet var TimeTextField: UITextField!
+    @IBOutlet var SelectDecotorTextField: UITextField!
+    @IBOutlet var AddressTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +46,19 @@ class DoctorViewController: UIViewController {
     }
 
     @objc func tapButton() {
-        
+        self.performSegue(withIdentifier: "goToChat", sender: self)
     }
 
+    @IBAction func BookAppoinment(_ sender: Any) {
+        
+        
+        
+    }
+    
+    @IBAction func AddToCart(_ sender: Any) {
+        
+        
+        
+    }
+    
 }

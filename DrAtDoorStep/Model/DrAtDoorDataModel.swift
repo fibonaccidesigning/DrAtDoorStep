@@ -21,6 +21,8 @@ class DrAtDoorDataModel{
     var deviceType : String?
     var message : String?
     var isSuccess : Bool?
+    var mobile : String?
+    var email : String?
     
     
     //MARK: - Registration
@@ -40,5 +42,22 @@ class DrAtDoorDataModel{
     
     var currentPassword : String?
     var newPassword : String?
+    
+    //MARK: - Add Patient
+    
+    var isToEdit : Bool?
+    var name : String?
+    var address : String?
+    var area : String?
+    var cityId : Int?
+    var age : Int?
+    var gender : String?
+
+    
+    //MARK: - Feedback
+    
+    var optionId : String?
+    var serviceId : String?
+    var feedback : String?
 
 }

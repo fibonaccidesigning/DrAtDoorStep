@@ -40,11 +40,11 @@ class AuthenticateViewController: UIViewController {
     @IBAction func Continue(_ sender: Any) {
         
         let passwordDM = PasswordTextField.text!
-        let mobileNumberDM = "903366660"
+        let mobileNumberDM = authenticationDataModel.mobile
         let deviceTypeDM = ""
         
         let parms : [String : String] = ["password" : passwordDM,
-                                         "mobileNumber" : mobileNumberDM,
+                                         "mobileNumber" : mobileNumberDM!,
                                          "deviceType" : deviceTypeDM]
         
         getData(url: Authenticate_URL, parameters: parms)
@@ -94,10 +94,10 @@ class AuthenticateViewController: UIViewController {
     
     @IBAction func ResendPassword(_ sender: Any) {
     
-        let mobileNumberDM = "903366660"
-        let deviceTypeDM = ""
+        let mobileNumberDM = authenticationDataModel.mobile
+        //let deviceTypeDM = ""
         
-        let parms : [String : String] = ["mobileNumber" : mobileNumberDM]
+        let parms : [String : String] = ["mobileNumber" : mobileNumberDM!]
         
         getResendData(url: ResendPassword_URL, parameters: parms)
         
@@ -138,6 +138,7 @@ class AuthenticateViewController: UIViewController {
         authenticationDataModel.mobileNumber = json["mobileNumber"].intValue
         authenticationDataModel.message = json["message"].stringValue
         authenticationDataModel.isSuccess = json["isSuccess"].boolValue
+        authenticationDataModel.mobile = json["mobile"].stringValue
         
     }
     

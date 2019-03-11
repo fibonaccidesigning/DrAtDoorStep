@@ -44,7 +44,7 @@ class CreatePasswordViewController: UIViewController {
     
     @IBAction func ResetPassword(_ sender: Any) {
         
-        let userIdDM = ""
+        let userIdDM = "5191"
         let isSkipDM = ""
         let passwordDM = ""
         let deviceTypeDM = ""

@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class NotificationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
+    
     // MARK: DataModel
     
     let notificationDataModel = DrAtDoorDataModel()
@@ -78,6 +79,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    
     // MARK: - Notification Table
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,6 +97,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         
         return cell
     }
+    
     
     // MARK: - Clear All Notification
     
@@ -135,5 +138,4 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
-
 }
