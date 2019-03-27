@@ -35,6 +35,8 @@ class CreatePasswordViewController: UIViewController {
         MessageLabel.text = ""
     }
     
+    //MARK: - SkipButton
+    
     @IBAction func Skip(_ sender: Any) {
         
         self.performSegue(withIdentifier: "GoToMenu", sender: self)
@@ -42,19 +44,28 @@ class CreatePasswordViewController: UIViewController {
         
     }
     
+      //MARK: - ResetButton
+    
     @IBAction func ResetPassword(_ sender: Any) {
         
-        let userIdDM = "5191"
-        let isSkipDM = ""
-        let passwordDM = ""
-        let deviceTypeDM = ""
+        if NewPasswordTextField.text == ConfirmPasswordTextField.text{
         
-        let parms : [String : String] = ["userId" : userIdDM,
-                                         "isSkip" : isSkipDM,
-                                         "password" : passwordDM,
-                                         "deviceType" : deviceTypeDM]
-        
-        getData(url: ResetPassword_URL, parameters: parms)
+            let userIdDM = "5191"
+            let isSkipDM = ""
+            let passwordDM = ""
+            
+    //        let deviceTypeDM = ""
+            
+            let parms : [String : String] = ["userId" : userIdDM,
+                                             "isSkip" : isSkipDM,
+                                             "password" : passwordDM]
+            
+            getData(url: ResetPassword_URL, parameters: parms)
+        }else{
+            
+           MessageLabel.text = "Password not Match"
+            
+        }
         
     }
     
@@ -95,6 +106,7 @@ class CreatePasswordViewController: UIViewController {
         CreatePasswordDataModel.isSkip = json["isSkip"].boolValue
         CreatePasswordDataModel.password = json["password"].stringValue
         CreatePasswordDataModel.deviceType = json["deviceType"].stringValue
+        
         CreatePasswordDataModel.message = json["message"].stringValue
         CreatePasswordDataModel.isSuccess = json["isSuccess"].boolValue
         

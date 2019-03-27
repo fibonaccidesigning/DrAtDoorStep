@@ -13,26 +13,25 @@ import SwiftyJSON
 class LoginViewController: UIViewController {
 
     
-    // MARK: DataModel
+    // MARK: - DataModel
     
     let loginDataModel = DrAtDoorDataModel()
     
     
-    // MARK: URL
+    // MARK: - URL
     
     let Login_URL = "http://dratdoorstep.com/livemob/login"
     
     
-    //MARK: - ViewController
+    // MARK: - ViewController
     
     @IBOutlet var UsernameTextField: UITextField!
     @IBOutlet var PasswordTextField: UITextField!
     @IBOutlet var LoginBtn: UIButton!
     @IBOutlet var ForgotPasswordBtn: UIButton!
     @IBOutlet var SignUpBtn: UIButton!
-    @IBOutlet var FacebookBtn: UIButton!
-    @IBOutlet var GoogleBtn: UIButton!
     @IBOutlet var MessageLabel: UILabel!
+    @IBOutlet var GifImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +46,10 @@ class LoginViewController: UIViewController {
         
         let emailDM = UsernameTextField.text!
         let passwordDM = PasswordTextField.text!
+        
+//        let socialId = ""
+//        let socialType = ""
+//        let deviceType = ""
         
         let parms : [String : String] = ["emailMobile" : emailDM,
                                          "password" : passwordDM]
@@ -90,6 +93,7 @@ class LoginViewController: UIViewController {
         
         loginDataModel.emailAddress = json["emailAddress"].stringValue
         loginDataModel.password = json["password"].stringValue
+        
         loginDataModel.message = json["message"].stringValue
         loginDataModel.isSuccess = json["isSuccess"].boolValue
         

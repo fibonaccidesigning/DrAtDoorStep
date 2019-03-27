@@ -13,17 +13,17 @@ import SwiftyJSON
 class RegisterViewController: UIViewController {
 
     
-    // MARK: DataModel
+    // MARK: - DataModel
     
     let registerDataModel = DrAtDoorDataModel()
     
     
-    // MARK: URL
+    // MARK: - URL
     
     let Register_URL = "http://dratdoorstep.com/livemob/registration"
     
     
-    //MARK: - ViewController
+    // MARK: - ViewController
     
     @IBOutlet var EmailTextField: UITextField!
     @IBOutlet var MobileTextField: UITextField!
@@ -37,12 +37,15 @@ class RegisterViewController: UIViewController {
         self.HideKeybord()
     }
     
+    // MARK: - Registration Button
     
     @IBAction func RegisterBtn(_ sender: Any) {
         
         let emailDM = EmailTextField.text!
         let mobileDM = MobileTextField.text!
         let referalDM = ReferalCodeTextFiels.text!
+        
+//        let deviceType = ""
         
         let parms : [String : String] = ["email" : emailDM,
                                          "mobileNumber" : mobileDM,
@@ -89,6 +92,7 @@ class RegisterViewController: UIViewController {
         registerDataModel.emailAddress = json["emailAddress"].stringValue
         registerDataModel.mobileNumber = json["mobileNumber"].intValue
         registerDataModel.referalCode = json["referalCode"].stringValue
+        
         registerDataModel.message = json["message"].stringValue
         registerDataModel.isSuccess = json["isSuccess"].boolValue
         

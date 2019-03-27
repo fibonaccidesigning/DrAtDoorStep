@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class AuthenticateViewController: UIViewController {
+    
 
     // MARK: - DataModel
     
@@ -41,11 +42,11 @@ class AuthenticateViewController: UIViewController {
         
         let passwordDM = PasswordTextField.text!
         let mobileNumberDM = authenticationDataModel.mobile
-        let deviceTypeDM = ""
+        
+//        let deviceTypeDM = ""
         
         let parms : [String : String] = ["password" : passwordDM,
-                                         "mobileNumber" : mobileNumberDM!,
-                                         "deviceType" : deviceTypeDM]
+                                         "mobileNumber" : mobileNumberDM!]
         
         getData(url: Authenticate_URL, parameters: parms)
         
@@ -85,6 +86,7 @@ class AuthenticateViewController: UIViewController {
     func updateAuthData(json : JSON)  {
         
         authenticationDataModel.password = json["password"].stringValue
+        
         authenticationDataModel.message = json["message"].stringValue
         authenticationDataModel.isSuccess = json["isSuccess"].boolValue
         
@@ -95,7 +97,7 @@ class AuthenticateViewController: UIViewController {
     @IBAction func ResendPassword(_ sender: Any) {
     
         let mobileNumberDM = authenticationDataModel.mobile
-        //let deviceTypeDM = ""
+//        let deviceTypeDM = ""
         
         let parms : [String : String] = ["mobileNumber" : mobileNumberDM!]
         
@@ -136,9 +138,11 @@ class AuthenticateViewController: UIViewController {
     func updateResendData(json : JSON)  {
         
         authenticationDataModel.mobileNumber = json["mobileNumber"].intValue
+        authenticationDataModel.mobile = json["mobile"].stringValue
+        
         authenticationDataModel.message = json["message"].stringValue
         authenticationDataModel.isSuccess = json["isSuccess"].boolValue
-        authenticationDataModel.mobile = json["mobile"].stringValue
+        
         
     }
     

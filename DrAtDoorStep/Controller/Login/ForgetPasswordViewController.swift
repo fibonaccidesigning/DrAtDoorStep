@@ -13,23 +13,28 @@ import SwiftyJSON
 class ForgetPasswordViewController: UIViewController {
 
     
-    // MARK: DataModel
+    // MARK: - DataModel
     
     let forgetPasswordDataModel = DrAtDoorDataModel()
     
     
-    // MARK: URL
+    // MARK: - URL
     
     let ForgotPassword_URL = "http://dratdoorstep.com/livemob/forgotPassword"
     
     @IBOutlet var EmailMobileTextField: UITextField!
     @IBOutlet var MessageLabel: UILabel!
+    @IBOutlet var GifImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
         MessageLabel.text = ""
+       // GifImage.loadGif(name: "994ae44a70b1239bd16b99642b7e883e")
     }
+    
+    
+    // MARK: - SendButton
     
     @IBAction func SendOTP(_ sender: Any) {
         
@@ -64,7 +69,7 @@ class ForgetPasswordViewController: UIViewController {
                         alert.addAction(action)
                         
                         self.present(alert, animated: true, completion: nil )
-                        
+                  
                     }
                     else{
                         self.MessageLabel.text = self.forgetPasswordDataModel.message
@@ -85,11 +90,14 @@ class ForgetPasswordViewController: UIViewController {
     func updateChangePassData(json : JSON)  {
         
         forgetPasswordDataModel.emailAddress = json["emailMobile"].stringValue
+        
         forgetPasswordDataModel.message = json["message"].stringValue
         forgetPasswordDataModel.isSuccess = json["isSuccess"].boolValue
         
     }
     
+    
+    // MARK: - CancelButton
     
     @IBAction func CancelBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
