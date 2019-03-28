@@ -59,5 +59,15 @@ class DrAtDoorDataModel{
     var optionId : String?
     var serviceId : String?
     var feedback : String?
+    
+    
+    //MARK: - Doctor
+    
+    var patientId : String?
+    var complain : String?
+    var typeId : String?
+    var date : String?
+    var timeSlot : String?
+    
 
 }

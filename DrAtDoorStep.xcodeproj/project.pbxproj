@@ -155,6 +155,7 @@
 				B20EAAAF22269EC000DBCD04 /* Controller */,
 				B20EAA932226581400DBCD04 /* AppDelegate.swift */,
 				B2BCEB49224B3C34004B11E8 /* CardView.swift */,
+				B2B7FEB9224A32A900C0B0EA /* UIImage+Gif.swift */,
 				B20EAA9F2226581600DBCD04 /* Info.plist */,
 			);
 			path = DrAtDoorStep;
@@ -181,7 +182,6 @@
 				B20EAA972226581400DBCD04 /* Main.storyboard */,
 				B20EAA9A2226581600DBCD04 /* Assets.xcassets */,
 				B20EAA9C2226581600DBCD04 /* LaunchScreen.storyboard */,
-				B2B7FEB9224A32A900C0B0EA /* UIImage+Gif.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

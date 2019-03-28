@@ -213,6 +213,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="SelectTimePic:" destination="gSV-yg-5WI" eventType="editingDidBegin" id="Hbv-dO-0FE"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gpb-5H-sel">
                                         <rect key="frame" x="11" y="125" width="320" height="30"/>
@@ -220,6 +223,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="SelectPatientPic:" destination="gSV-yg-5WI" eventType="editingDidBegin" id="wzK-Cy-E5H"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Complain" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tK5-2m-GBX">
                                         <rect key="frame" x="12" y="165" width="320" height="30"/>
@@ -234,6 +240,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="SelectDoctorPic:" destination="gSV-yg-5WI" eventType="editingDidBegin" id="EU5-G5-NBQ"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qap-vC-ohu">
                                         <rect key="frame" x="12" y="242" width="150" height="30"/>
@@ -241,6 +250,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="SelectDatePic:" destination="gSV-yg-5WI" eventType="editingDidBegin" id="CSB-Lf-avA"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gwM-n6-3KS">
                                         <rect key="frame" x="12" y="279" width="320" height="30"/>
@@ -270,25 +282,52 @@
                                         <state key="normal" title="Terms &amp; Condition"/>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4W-mV-afo">
-                                        <rect key="frame" x="-18" y="373" width="375" height="216"/>
+                                        <rect key="frame" x="-17" y="331" width="375" height="216"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJq-wa-tnW">
+                                                <rect key="frame" x="0.0" y="-10" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <items>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2cN-bV-Cfw"/>
+                                                    <barButtonItem title="Done" id="5PD-eU-ipn">
+                                                        <connections>
+                                                            <action selector="Done:" destination="gSV-yg-5WI" id="Eii-wv-aIG"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                            </toolbar>
                                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OHN-kP-pwU">
-                                                <rect key="frame" x="0.0" y="54" width="375" height="162"/>
+                                                <rect key="frame" x="0.0" y="34" width="375" height="172"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="gSV-yg-5WI" id="Sjn-DQ-WGQ"/>
                                                     <outlet property="delegate" destination="gSV-yg-5WI" id="M0R-yh-TaZ"/>
                                                 </connections>
                                             </pickerView>
-                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJq-wa-tnW">
-                                                <rect key="frame" x="0.0" y="-10" width="375" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                <items>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2cN-bV-Cfw"/>
-                                                    <barButtonItem title="Done" id="5PD-eU-ipn"/>
-                                                </items>
-                                            </toolbar>
+                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaD-ZD-M5U">
+                                                <rect key="frame" x="0.0" y="34" width="375" height="172"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="gSV-yg-5WI" id="KMh-h3-Yta"/>
+                                                    <outlet property="delegate" destination="gSV-yg-5WI" id="d3T-Eo-Gsg"/>
+                                                </connections>
+                                            </pickerView>
+                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aVW-j3-kEm">
+                                                <rect key="frame" x="0.0" y="34" width="375" height="172"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="gSV-yg-5WI" id="GNc-jg-Cqc"/>
+                                                    <outlet property="delegate" destination="gSV-yg-5WI" id="zZK-Qh-Inz"/>
+                                                </connections>
+                                            </pickerView>
+                                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fSk-Ne-935">
+                                                <rect key="frame" x="0.0" y="34" width="375" height="172"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="575448431.24012196">
+                                                    <!--2019-03-28 06:47:11 +0000-->
+                                                </date>
+                                            </datePicker>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -319,7 +358,10 @@
                         <outlet property="BookAppoinmentBtn" destination="im6-kB-s1n" id="J78-uM-lYW"/>
                         <outlet property="ComplainTextField" destination="tK5-2m-GBX" id="xMH-fz-nIt"/>
                         <outlet property="DONE" destination="5PD-eU-ipn" id="U48-u9-ZnQ"/>
+                        <outlet property="DatePic" destination="fSk-Ne-935" id="VJN-Br-QnM"/>
                         <outlet property="DateTextField" destination="qap-vC-ohu" id="R0b-eX-kyW"/>
+                        <outlet property="PickerView1" destination="IaD-ZD-M5U" id="LyD-eR-gtf"/>
+                        <outlet property="PickerView2" destination="aVW-j3-kEm" id="Asv-nE-pGT"/>
                         <outlet property="PickerViewController" destination="OHN-kP-pwU" id="wqY-Ce-Eta"/>
                         <outlet property="SelectDecotorTextField" destination="wOY-7e-sKt" id="0Ob-hC-33b"/>
                         <outlet property="SelectPatientTextField" destination="gpb-5H-sel" id="wRD-Rn-Nlc"/>
@@ -330,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXJ-Iz-AhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9503.2000000000007" y="3243.7781109445282"/>
+            <point key="canvasLocation" x="-9503.2000000000007" y="3243.3283358320841"/>
         </scene>
         <!--Nurses-->
         <scene sceneID="JkH-mp-YxB">
@@ -2250,7 +2292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1XC-RS-eUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3794" y="1665"/>
+            <point key="canvasLocation" x="-3092" y="1665"/>
         </scene>
         <!--Offers / Vouchers-->
         <scene sceneID="WKS-3b-hAO">
