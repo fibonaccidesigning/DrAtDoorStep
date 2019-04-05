@@ -1,21 +1,20 @@
 //
-//  PharmacyViewController.swift
+//  Appoinment.swift
 //  DrAtDoorStep
 //
-//  Created by Parth Mandaviya on 27/02/19.
+//  Created by Parth Mandaviya on 29/03/19.
 //  Copyright © 2019 Parth Mandaviya. All rights reserved.
 //
 
 import UIKit
 
-class PharmacyViewController: UIViewController {
+class Appoinment: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.HideKeybord()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
 
   
-
 }

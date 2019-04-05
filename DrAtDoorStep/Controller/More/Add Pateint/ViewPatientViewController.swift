@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-
 class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
@@ -26,7 +25,6 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
     
     let viewPatients_URL = "http://dratdoorstep.com/livemob/viewPatients"
     
-    
     //MARK: - ViewController
     
     @IBOutlet var PatientTableView: UITableView!
@@ -34,8 +32,10 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        PatientTableView.tableFooterView = UIView()
+        
         let userIdDM = "5191"
-        let deviceTypeDM = "android"
+        let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["userId" : userIdDM,
                                          "deviceType" : deviceTypeDM]
@@ -51,7 +51,7 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
             if respondse.result.isSuccess {
                 let LoginJSON : JSON = JSON(respondse.result.value!)
                 self.updateLoginData(json: LoginJSON)
-                print(respondse)
+            
             }
             else{
                 print("Error")
@@ -89,9 +89,7 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
         cell.NameLbl.text = PatientDataDictionary[indexPath.item].name
         cell.GenderLbl.text = PatientDataDictionary[indexPath.item].gender
         cell.AgeLbl.text = PatientDataDictionary[indexPath.item].age
-        cell.AreaLbl.text = PatientDataDictionary[indexPath.item].area
-        cell.AddressLbl.text = PatientDataDictionary[indexPath.item].address
-        
+      
         return cell
         
     }

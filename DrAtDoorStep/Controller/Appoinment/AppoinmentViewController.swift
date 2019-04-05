@@ -14,8 +14,5 @@ class AppoinmentViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
-
- 
 
 }

@@ -21,11 +21,21 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     // MARK: URL
     
     let AddPatient_URL = "http://dratdoorstep.com/livemob/addEditPatient"
-    
+    let Cities_URL = "http://dratdoorstep.com/livemob/cities"
     
     //MARK: - ViewController
     
-    let gender = ["Male","Female"]
+    let GenderS = ["Male","Female"]
+    
+    var cityPickData : [Dictionary<String, String>] = []
+    
+    var selectedItem  = ""
+    var selectedPatientId = ""
+    
+    var selectDrType = ""
+    
+    var selectTime = ""
+    var selectI = ""
     
     
     //MARK: - ViewController
@@ -36,18 +46,28 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var CityTextField: UITextField!
     @IBOutlet var AgeTxtField: UITextField!
     @IBOutlet var GenderTextField: UITextField!
+    @IBOutlet var ViewPetaint: UIButton!
+    
     @IBOutlet var saveBtn: UIButton!
+    
     @IBOutlet var ViewVC: UIView!
-    @IBOutlet var PickerViewVC: UIPickerView!
     @IBOutlet var TabBarVC: UIToolbar!
+    
+    @IBOutlet var PickerViewVC: UIPickerView!
+    @IBOutlet var CityPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.HideKeybord()
         
+        // MARK: - Rounded Button
+        
         saveBtn.layer.cornerRadius = 0.02 * saveBtn.bounds.size.width
         saveBtn.clipsToBounds = true
+        
+        
+        // MARK: - Hide Controller
         
         ViewVC.isHidden = true
         PickerViewVC.isHidden = true
@@ -55,7 +75,126 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
     }
     
-    //MARK: - Save
+    
+    // MARK: - Select Gender
+    
+    @IBAction func SelectGender(_ sender: Any) {
+        
+        ViewVC.isHidden = false
+        TabBarVC.isHidden = false
+        
+        PickerViewVC.isHidden = false
+        CityPicker.isHidden = true
+    }
+    
+    
+     // MARK: - Select City
+    
+    @IBAction func City(_ sender: Any) {
+        
+        ViewVC.isHidden = false
+        TabBarVC.isHidden = false
+        
+        PickerViewVC.isHidden = true
+        CityPicker.isHidden = false
+        
+        CityLoadData()
+    }
+    
+    func CityLoadData(){
+        
+        getCityData(url: Cities_URL)
+        
+    }
+    
+    func getCityData(url : String) {
+        
+        Alamofire.request(url, method: .get).responseJSON {
+            respondse in
+            if respondse.result.isSuccess {
+                
+                let CustomerJSON : JSON = JSON(respondse.result.value!)
+                self.updateCityData(json: CustomerJSON)
+                
+            }
+            else{
+                print("Error")
+            }
+        }
+    }
+    
+    func updateCityData(json : JSON)  {
+        
+        let countryyy = json["cities"].array
+        
+        let range = countryyy!.count
+        
+        for i in 0..<range{
+            
+            cityPickData.append(countryyy![i].dictionaryObject as! [String : String])
+            
+            selectedItem = cityPickData[i]["cityName"]!
+            selectI = cityPickData[i]["cityId"]!
+            
+            print(selectedItem)
+            
+            self.CityPicker.reloadAllComponents()
+            
+        }
+        
+    }
+    
+    // MARK: - Done
+    
+    @IBAction func Done(_ sender: Any) {
+        
+        ViewVC.isHidden = true
+        TabBarVC.isHidden = true
+        
+        PickerViewVC.isHidden = true
+        CityPicker.isHidden = true
+    }
+    
+    // MARK: - PickerView
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == PickerViewVC {
+            return self.GenderS.count
+        } else if pickerView == CityPicker{
+            return cityPickData.count
+        }
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        if pickerView == PickerViewVC{
+            return self.GenderS[row]
+        } else if pickerView == CityPicker{
+            return self.cityPickData[row]["cityName"]
+        }
+        return ""
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if pickerView == PickerViewVC{
+            GenderTextField.text = GenderS[row]
+            self.view.endEditing(false)
+        }else if pickerView == CityPicker{
+            CityTextField.text = selectedItem
+            self.view.endEditing(false)
+        }
+        
+    }
+    
+    
+    
+    // MARK: - Save
     
     @IBAction func Save(_ sender: Any) {
         
@@ -63,7 +202,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let nameDM = NameTextField.text!
         let buldingDM = BuldingTextField.text!
         let areaDM = AreaTextField.text!
-        let cityDM = CityTextField.text!
+        let cityDM = "139" // CityTextField.text!
         let ageDM = AgeTxtField.text!
         let genderDM = GenderTextField.text!
         let isToEditDM = "true"
@@ -129,42 +268,5 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         addPatientDataModel.message = json["message"].stringValue
         
     }
-    
-    
-    // MARK: - Select Gender
-    
-    @IBAction func SelectGender(_ sender: Any) {
-        ViewVC.isHidden = false
-        PickerViewVC.isHidden = false
-        TabBarVC.isHidden = false
-    }
-
-    
-    // MARK: - PickerView
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return gender.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return gender[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        GenderTextField.text = gender[row]
-    }
-
-    // MARK: - Done
-    
-    @IBAction func Done(_ sender: Any) {
-        ViewVC.isHidden = true
-        PickerViewVC.isHidden = true
-        TabBarVC.isHidden = true
-    }
-    
 
 }

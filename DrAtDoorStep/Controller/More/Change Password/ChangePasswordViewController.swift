@@ -97,6 +97,7 @@ class ChangePasswordViewController: UIViewController {
         
         changePasswordDataModel.newPassword = json["newPassword"].stringValue
         changePasswordDataModel.currentPassword = json["currentPassword"].stringValue
+        
         changePasswordDataModel.message = json["message"].stringValue
         changePasswordDataModel.isSuccess = json["isSuccess"].boolValue
         

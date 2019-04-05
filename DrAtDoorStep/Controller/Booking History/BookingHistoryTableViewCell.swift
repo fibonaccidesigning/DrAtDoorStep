@@ -13,10 +13,10 @@ class BookingHistoryTableViewCell: UITableViewCell {
     @IBOutlet var OrderLbl: UILabel!
     @IBOutlet var DateLbl: UILabel!
     @IBOutlet var TitleLbl: UILabel!
-    
+    @IBOutlet var CanceledLbl: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -11,7 +11,6 @@ import UIKit
 
 class DrAtDoorDataModel{
     
-    
     // MARK: Login
     
     var emailMobile : String?
@@ -43,6 +42,7 @@ class DrAtDoorDataModel{
     var currentPassword : String?
     var newPassword : String?
     
+    
     //MARK: - Add Patient
     
     var isToEdit : Bool?
@@ -68,6 +68,13 @@ class DrAtDoorDataModel{
     var typeId : String?
     var date : String?
     var timeSlot : String?
+    var days : String?
+    var condition : String?
+    var contactPerson : String?
+    var contactNumber : String?
+    var landlineNumber : String?
+    var walletBalance : String?
+    var flagcancel : String?
     
 
 }

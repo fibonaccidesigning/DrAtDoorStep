@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class BookingHistoryViewController: UIViewController {
+class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     // MARK: DataModel
@@ -37,7 +37,7 @@ class BookingHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userIdDM = "5191"
+        let userIdDM = "6"
         
         let parms : [String : String] = ["userId" : userIdDM ]
         
@@ -47,14 +47,14 @@ class BookingHistoryViewController: UIViewController {
     
     func getBookingHistoryData(url : String, parameters: [String : String]) {
         
-        Alamofire.request(url, method: .get, parameters : parameters).responseJSON {
+        Alamofire.request(url, method: .post, parameters : parameters).responseJSON {
             respondse in
             if respondse.result.isSuccess {
                 
-                let BookingJSON : JSON = JSON(respondse.result.value!)
-                self.updateBookingHistoryData(json: BookingJSON)
-                
+                let BookJSON : JSON = JSON(respondse.result.value!)
+                self.updateBookingHistoryData(json: BookJSON)
                 print(respondse)
+                
             }
             else{
                 print("Json Error")
@@ -67,20 +67,32 @@ class BookingHistoryViewController: UIViewController {
     func updateBookingHistoryData(json : JSON)  {
         
         let pro = json["bookingHistory"].array
-        let range = pro!.count
         
-        for i in 0..<range{
+        if pro != nil{
+        
+            let range = pro!.count
             
-            BookingHistoryDataDictionary.append(NotificationDataModel(json:(pro![i].dictionaryObject)!))
+            for i in 0..<range{
+                
+                BookingHistoryDataDictionary.append(NotificationDataModel(json:(pro![i].dictionaryObject)!))
+                
+                self.BookingHistoryTableView.reloadData()
+                
+            }
             
-            self.BookingHistoryTableView.reloadData()
-            
+        }else{
+        
         }
         
     }
     
     
     // MARK: - BookingHistory Table
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return BookingHistoryDataDictionary.count
@@ -94,6 +106,11 @@ class BookingHistoryViewController: UIViewController {
         cell.OrderLbl.text = BookingHistoryDataDictionary[indexPath.item].orderNo
         cell.TitleLbl.text = BookingHistoryDataDictionary[indexPath.item].title
         cell.DateLbl.text = BookingHistoryDataDictionary[indexPath.item].date
+        cell.CanceledLbl.text = BookingHistoryDataDictionary[indexPath.item].flagcancel
+    
+        if BookingHistoryDataDictionary[indexPath.item].flagcancel == nil{
+            cell.CanceledLbl.text = "Cancelled"
+        }
         
         return cell
     }

@@ -1,18 +1,18 @@
 //
-//  ViewPatientTableViewCell.swift
+//  WalletTableViewCell.swift
 //  DrAtDoorStep
 //
-//  Created by Parth Mandaviya on 08/03/19.
+//  Created by Parth Mandaviya on 02/04/19.
 //  Copyright © 2019 Parth Mandaviya. All rights reserved.
 //
 
 import UIKit
 
-class ViewPatientTableViewCell: UITableViewCell {
+class WalletTableViewCell: UITableViewCell {
 
-    @IBOutlet var NameLbl: UILabel!
-    @IBOutlet var GenderLbl: UILabel!
-    @IBOutlet var AgeLbl: UILabel!
+    @IBOutlet var OrderNoLbl: UILabel!
+    @IBOutlet var BalanceLbl: UILabel!
+    @IBOutlet var DateLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,7 @@ class ViewPatientTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+   
     }
 
 }

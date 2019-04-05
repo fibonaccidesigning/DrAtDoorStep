@@ -13,10 +13,8 @@
 		B20EAA992226581400DBCD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA972226581400DBCD04 /* Main.storyboard */; };
 		B20EAA9B2226581600DBCD04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA9A2226581600DBCD04 /* Assets.xcassets */; };
 		B20EAA9E2226581600DBCD04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA9C2226581600DBCD04 /* LaunchScreen.storyboard */; };
-		B20EAAAA2226676F00DBCD04 /* Appoinments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAA92226676F00DBCD04 /* Appoinments.swift */; };
 		B20EAAAE22269D0F00DBCD04 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAAD22269D0E00DBCD04 /* More.swift */; };
 		B20EAAB92226A0B900DBCD04 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAB82226A0B900DBCD04 /* DoctorViewController.swift */; };
-		B231728F224B5D4A00AFF2D6 /* AppoinmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231728E224B5D4A00AFF2D6 /* AppoinmentViewController.swift */; };
 		B23EC0E02226A63400DDB908 /* NursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0DF2226A63400DDB908 /* NursesViewController.swift */; };
 		B23EC0E32226A76E00DDB908 /* LabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E22226A76E00DDB908 /* LabViewController.swift */; };
 		B23EC0E62226A8D100DDB908 /* CaretakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */; };
@@ -34,6 +32,8 @@
 		B23EC0FF2226B0E000DDB908 /* AddPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0FE2226B0E000DDB908 /* AddPatientViewController.swift */; };
 		B23EC1012226B19B00DDB908 /* ViewPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC1002226B19B00DDB908 /* ViewPatientViewController.swift */; };
 		B23EC1032226B35700DDB908 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */; };
+		B26DE20A225736D6006E7A9F /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DE209225736D6006E7A9F /* CartTableViewCell.swift */; };
+		B26DE20C22573955006E7A9F /* CartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DE20B22573955006E7A9F /* CartDataModel.swift */; };
 		B2A235C02227AEE700546FF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235BF2227AEE600546FF7 /* LoginViewController.swift */; };
 		B2A235C22227AEF100546FF7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C12227AEF100546FF7 /* RegisterViewController.swift */; };
 		B2A235C42227AF1F00546FF7 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */; };
@@ -42,6 +42,7 @@
 		B2AC95CB2230EB2F00713B1B /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */; };
 		B2B7FEBA224A32AA00C0B0EA /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B7FEB9224A32A900C0B0EA /* UIImage+Gif.swift */; };
 		B2BCEB4A224B3C34004B11E8 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BCEB49224B3C34004B11E8 /* CardView.swift */; };
+		B2CF723C224E0B6C00C23804 /* Appoinment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CF723B224E0B6C00C23804 /* Appoinment.swift */; };
 		B2D320CA223132E1005DF272 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D320C9223132E1005DF272 /* NotificationsViewController.swift */; };
 		B2D320CC22313338005DF272 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D320CB22313338005DF272 /* NotificationTableViewCell.swift */; };
 		B2D320CF22313A8D005DF272 /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D320CE22313A8D005DF272 /* NotificationDataModel.swift */; };
@@ -49,6 +50,7 @@
 		B2D8A72C2232937400B2887F /* PatientDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8A72B2232937400B2887F /* PatientDataModel.swift */; };
 		B2DDFAFD22366A9500C87D6D /* BookingHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DDFAFC22366A9500C87D6D /* BookingHistoryTableViewCell.swift */; };
 		B2DDFB01223681CF00C87D6D /* FeedbackDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DDFB00223681CF00C87D6D /* FeedbackDataModel.swift */; };
+		B2FBBA7C225388BA0071EFED /* WalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBBA7B225388BA0071EFED /* WalletTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,10 +63,8 @@
 		B20EAA9A2226581600DBCD04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B20EAA9D2226581600DBCD04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20EAA9F2226581600DBCD04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B20EAAA92226676F00DBCD04 /* Appoinments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appoinments.swift; sourceTree = "<group>"; };
 		B20EAAAD22269D0E00DBCD04 /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
 		B20EAAB82226A0B900DBCD04 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
-		B231728E224B5D4A00AFF2D6 /* AppoinmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentViewController.swift; sourceTree = "<group>"; };
 		B23EC0DF2226A63400DDB908 /* NursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursesViewController.swift; sourceTree = "<group>"; };
 		B23EC0E22226A76E00DDB908 /* LabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabViewController.swift; sourceTree = "<group>"; };
 		B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +82,8 @@
 		B23EC0FE2226B0E000DDB908 /* AddPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientViewController.swift; sourceTree = "<group>"; };
 		B23EC1002226B19B00DDB908 /* ViewPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPatientViewController.swift; sourceTree = "<group>"; };
 		B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		B26DE209225736D6006E7A9F /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		B26DE20B22573955006E7A9F /* CartDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDataModel.swift; sourceTree = "<group>"; };
 		B2A235BF2227AEE600546FF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B2A235C12227AEF100546FF7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
 		B2B7FEB9224A32A900C0B0EA /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		B2BCEB49224B3C34004B11E8 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B2CF723B224E0B6C00C23804 /* Appoinment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appoinment.swift; sourceTree = "<group>"; };
 		B2D320C9223132E1005DF272 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		B2D320CB22313338005DF272 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		B2D320CE22313A8D005DF272 /* NotificationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataModel.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		B2D8A72B2232937400B2887F /* PatientDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDataModel.swift; sourceTree = "<group>"; };
 		B2DDFAFC22366A9500C87D6D /* BookingHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B2DDFB00223681CF00C87D6D /* FeedbackDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDataModel.swift; sourceTree = "<group>"; };
+		B2FBBA7B225388BA0071EFED /* WalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableViewCell.swift; sourceTree = "<group>"; };
 		E2AF5F1C7BDBA2715B1C781F /* Pods-DrAtDoorStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrAtDoorStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrAtDoorStep/Pods-DrAtDoorStep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,8 +172,8 @@
 				B2A235BE2227AED500546FF7 /* Login */,
 				B2D320CD22313340005DF272 /* Notifications */,
 				B20EAAB222269F2D00DBCD04 /* Appoinment */,
-				B20EAAB422269F6900DBCD04 /* Ambulance */,
-				B20EAAB522269F8900DBCD04 /* Pharmacy */,
+				B2DDFAFE22366AA000C87D6D /* Booking History */,
+				B2FBBA7A2253888B0071EFED /* Wallet */,
 				B20EAAB622269FA600DBCD04 /* Cart */,
 				B20EAAB322269F4D00DBCD04 /* More */,
 			);
@@ -192,6 +196,7 @@
 				B2AC95C82230E52400713B1B /* DrAtDoorDataModel.swift */,
 				B2D8A72B2232937400B2887F /* PatientDataModel.swift */,
 				B2D320CE22313A8D005DF272 /* NotificationDataModel.swift */,
+				B26DE20B22573955006E7A9F /* CartDataModel.swift */,
 				B2DDFB00223681CF00C87D6D /* FeedbackDataModel.swift */,
 			);
 			path = Model;
@@ -200,12 +205,13 @@
 		B20EAAB222269F2D00DBCD04 /* Appoinment */ = {
 			isa = PBXGroup;
 			children = (
-				B20EAAA92226676F00DBCD04 /* Appoinments.swift */,
-				B231728E224B5D4A00AFF2D6 /* AppoinmentViewController.swift */,
+				B2CF723B224E0B6C00C23804 /* Appoinment.swift */,
 				B20EAAB72226A01000DBCD04 /* Doctor */,
 				B23EC0DE2226A61800DDB908 /* Nurses */,
 				B23EC0E12226A74B00DDB908 /* Lab */,
 				B23EC0E42226A8B200DDB908 /* Caretaker */,
+				B20EAAB422269F6900DBCD04 /* Ambulance */,
+				B20EAAB522269F8900DBCD04 /* Pharmacy */,
 			);
 			path = Appoinment;
 			sourceTree = "<group>";
@@ -215,15 +221,13 @@
 			children = (
 				B20EAAAD22269D0E00DBCD04 /* More.swift */,
 				B2D8A7282232909A00B2887F /* Add Pateint */,
-				B2DDFAFE22366AA000C87D6D /* Booking History */,
+				B2FBBA7D225391710071EFED /* OfferVochers */,
+				B2FBBA7E2253924D0071EFED /* Change Password */,
+				B2977399225637C800A26073 /* Blog */,
+				B2977398225637B800A26073 /* About Us */,
+				B297739A225637FE00A26073 /* Help */,
+				B297739B2256381400A26073 /* Terms & Condition */,
 				B2DDFAFF22367E1000C87D6D /* Feedback */,
-				B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */,
-				B23EC0EF2226AF6000DDB908 /* OfferVochersViewController.swift */,
-				B23EC0F12226AF7400DDB908 /* WalletViewController.swift */,
-				B23EC0F32226AFBB00DDB908 /* AboutusViewController.swift */,
-				B23EC0F52226AFCE00DDB908 /* BlogViewController.swift */,
-				B23EC0F72226AFE900DDB908 /* TermsConditionViewController.swift */,
-				B23EC0F92226B00900DDB908 /* HelpViewController.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -248,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				B23EC0EB2226AEEC00DDB908 /* CartViewController.swift */,
+				B26DE209225736D6006E7A9F /* CartTableViewCell.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -282,6 +287,38 @@
 				B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */,
 			);
 			path = Caretaker;
+			sourceTree = "<group>";
+		};
+		B2977398225637B800A26073 /* About Us */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0F32226AFBB00DDB908 /* AboutusViewController.swift */,
+			);
+			path = "About Us";
+			sourceTree = "<group>";
+		};
+		B2977399225637C800A26073 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0F52226AFCE00DDB908 /* BlogViewController.swift */,
+			);
+			path = Blog;
+			sourceTree = "<group>";
+		};
+		B297739A225637FE00A26073 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0F92226B00900DDB908 /* HelpViewController.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		B297739B2256381400A26073 /* Terms & Condition */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0F72226AFE900DDB908 /* TermsConditionViewController.swift */,
+			);
+			path = "Terms & Condition";
 			sourceTree = "<group>";
 		};
 		B2A235BE2227AED500546FF7 /* Login */ = {
@@ -330,6 +367,31 @@
 				B23EC0FC2226B02800DDB908 /* FeedbackViewController.swift */,
 			);
 			path = Feedback;
+			sourceTree = "<group>";
+		};
+		B2FBBA7A2253888B0071EFED /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0F12226AF7400DDB908 /* WalletViewController.swift */,
+				B2FBBA7B225388BA0071EFED /* WalletTableViewCell.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		B2FBBA7D225391710071EFED /* OfferVochers */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC0EF2226AF6000DDB908 /* OfferVochersViewController.swift */,
+			);
+			path = OfferVochers;
+			sourceTree = "<group>";
+		};
+		B2FBBA7E2253924D0071EFED /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */,
+			);
+			path = "Change Password";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,19 +525,21 @@
 				B2A235C02227AEE700546FF7 /* LoginViewController.swift in Sources */,
 				B2D8A72C2232937400B2887F /* PatientDataModel.swift in Sources */,
 				B2AC95C92230E52400713B1B /* DrAtDoorDataModel.swift in Sources */,
+				B26DE20A225736D6006E7A9F /* CartTableViewCell.swift in Sources */,
+				B2CF723C224E0B6C00C23804 /* Appoinment.swift in Sources */,
 				B2D320CC22313338005DF272 /* NotificationTableViewCell.swift in Sources */,
 				B23EC0FD2226B02800DDB908 /* FeedbackViewController.swift in Sources */,
+				B2FBBA7C225388BA0071EFED /* WalletTableViewCell.swift in Sources */,
 				B23EC0F42226AFBB00DDB908 /* AboutusViewController.swift in Sources */,
 				B2A235C42227AF1F00546FF7 /* ForgetPasswordViewController.swift in Sources */,
 				B2D320CF22313A8D005DF272 /* NotificationDataModel.swift in Sources */,
 				B20EAAB92226A0B900DBCD04 /* DoctorViewController.swift in Sources */,
 				B2D8A72A223290E000B2887F /* ViewPatientTableViewCell.swift in Sources */,
+				B26DE20C22573955006E7A9F /* CartDataModel.swift in Sources */,
 				B2AC95CB2230EB2F00713B1B /* AuthenticateViewController.swift in Sources */,
 				B23EC0E02226A63400DDB908 /* NursesViewController.swift in Sources */,
 				B23EC0F62226AFCE00DDB908 /* BlogViewController.swift in Sources */,
 				B20EAA962226581400DBCD04 /* ViewController.swift in Sources */,
-				B20EAAAA2226676F00DBCD04 /* Appoinments.swift in Sources */,
-				B231728F224B5D4A00AFF2D6 /* AppoinmentViewController.swift in Sources */,
 				B23EC0FF2226B0E000DDB908 /* AddPatientViewController.swift in Sources */,
 				B23EC1032226B35700DDB908 /* ChangePasswordViewController.swift in Sources */,
 				B23EC1012226B19B00DDB908 /* ViewPatientViewController.swift in Sources */,

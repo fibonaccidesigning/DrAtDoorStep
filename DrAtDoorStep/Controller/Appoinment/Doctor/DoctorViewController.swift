@@ -23,19 +23,29 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     let Appoinment_URL = "http://dratdoorstep.com/livemob/appointment"
     let Patient_URL = "http://dratdoorstep.com/livemob/viewPatients"
     let Doctor_URL = "http://dratdoorstep.com/livemob/doctorTypes"
+    let Time_URL = "http://dratdoorstep.com/livemob/timeSlotsTime"
     
-    //MARK: - Arrays
+    
+    // MARK: - Arrays
     
     let TimeS = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
+    
     let DoctorS = ["Allopathy","Dentist", "Nutritionist","Homeopathy", "Physiotherapy"]
 
     
     var pickData : [Dictionary<String, String>] = []
+    var timePickData : [Dictionary<String, String>] = []
+    
     var selectedItem  = ""
     var selectedPatientId = ""
+    
     var selectDrType = ""
     
-    //MARK: - ViewController
+    var selectTime = ""
+    var selectI = ""
+    
+    
+    // MARK: - ViewController
 
     @IBOutlet var SelectPatientTextField: UITextField!
     @IBOutlet var ComplainTextField: UITextField!
@@ -60,21 +70,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ViewVC.isHidden = true
-        UIViewVC.isHidden = true
-        PickerViewController.isHidden = true
-        PickerView1.isHidden = true
-        PickerView2.isHidden = true
-   
-        
         self.HideKeybord()
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapButton) )
-   
-        let adButton = UIBarButtonItem(barButtonSystemItem: .action , target: self, action: #selector(tapButton) )
-        self.navigationItem.rightBarButtonItems = [addButton,adButton]
         
-    
         // MARK: - Rounded Button
         
         BookAppoinmentBtn.layer.cornerRadius = 0.02 * BookAppoinmentBtn.bounds.size.width
@@ -82,16 +79,27 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         AddToCartBtn.layer.cornerRadius = 0.02 * AddToCartBtn.bounds.size.width
         AddToCartBtn.clipsToBounds = true
-    }
-
-    @objc func tapButton() {
-        self.performSegue(withIdentifier: "goToChat", sender: self)
+        
+        
+        // MARK: - Hide Controller
+        
+        ViewVC.isHidden = true
+        UIViewVC.isHidden = true
+        
+        PickerViewController.isHidden = true
+        PickerView1.isHidden = true
+        PickerView2.isHidden = true
+   
     }
 
     
+    // MARK: - Select Patient
+    
     @IBAction func SelectPatientPic(_ sender: Any) {
+        
         ViewVC.isHidden = false
         UIViewVC.isHidden = false
+        
         PickerViewController.isHidden = false
         PickerView1.isHidden = true
         PickerView2.isHidden = true
@@ -102,6 +110,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func PatientloadData(){
+        
         let userIdDM = "5191"
         let parms : [String : String] = ["userId" : userIdDM]
         getPatientData(url: Patient_URL, parameters: parms)
@@ -113,8 +122,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             respondse in
             if respondse.result.isSuccess {
                 
-                let CustomerJSON : JSON = JSON(respondse.result.value!)
-                self.updatePatientData(json: CustomerJSON)
+                let PatientJSON : JSON = JSON(respondse.result.value!)
+                self.updatePatientData(json: PatientJSON)
                 
             }
             else{
@@ -135,66 +144,80 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             selectedItem = pickData[i]["name"]!
             selectedPatientId = pickData[i]["patientId"]!
-            
-            print(selectedItem)
-            print(selectedPatientId)
-            
+        
             self.PickerViewController.reloadAllComponents()
     
         }
         
     }
  
+    
+    // MARK: - Select Doctor Type
   
     @IBAction func SelectDoctorPic(_ sender: Any) {
+        
         ViewVC.isHidden = false
         UIViewVC.isHidden = false
+        
         PickerViewController.isHidden = true
         PickerView1.isHidden = false
         PickerView2.isHidden = true
         DatePic.isHidden = true
+        
     }
   
+    
+     // MARK: - Select Time
    
     @IBAction func SelectTimePic(_ sender: Any) {
+        
         ViewVC.isHidden = false
         UIViewVC.isHidden = false
+        
         PickerViewController.isHidden = true
         PickerView1.isHidden = true
         PickerView2.isHidden = false
         DatePic.isHidden = true
     }
     
+
+     // MARK: - Select Date
+    
     @IBAction func SelectDatePic(_ sender: Any) {
+        
+        ViewVC.isHidden = false
+        UIViewVC.isHidden = false
         
         PickerViewController.isHidden = true
         PickerView1.isHidden = true
         PickerView2.isHidden = true
-        ViewVC.isHidden = false
-        UIViewVC.isHidden = false
         DatePic.isHidden = false
         
         DatePic.datePickerMode = UIDatePicker.Mode.date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/M/yyyy"
         let selectedDate = dateFormatter.string(from: DatePic.date)
-        print(selectedDate)
+    
         DateTextField.text = selectedDate
     }
     
     
+     // MARK: - Done Button
+    
     @IBAction func Done(_ sender: Any) {
+        
         ViewVC.isHidden = true
         UIViewVC.isHidden = true
+        
         PickerViewController.isHidden = true
         PickerView1.isHidden = true
         PickerView2.isHidden = true
         DatePic.isHidden = true
+        
     }
     
     
-    
-    //MARK: - PickerView Delegate Method
+    // MARK: - PickerView Delegate Method
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -230,39 +253,55 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.view.endEditing(false)
         }else if pickerView == PickerView1{
             SelectDecotorTextField.text = DoctorS[row]
+            selectDrType = DoctorS[row]
             self.view.endEditing(false)
         }else if pickerView == PickerView2{
             TimeTextField.text = TimeS[row]
             self.view.endEditing(false)
+            selectI = TimeS[row]
         }
         
     }
     
  
-    
     // MARK: - BookAppoinment
     
     @IBAction func BookAppoinment(_ sender: Any) {
-        ViewVC.isHidden = true
-        UIViewVC.isHidden = true
-        PickerViewController.isHidden = true
-        PickerView1.isHidden = true
-        PickerView2.isHidden = true
-        DatePic.isHidden = true
-        dataSend()
+        
+        if SelectPatientTextField.text != "" && ComplainTextField.text != "" && SelectDecotorTextField.text != "" && DateTextField.text != "" && TimeTextField.text != "" && AddressTextField.text != ""{
+            self.dataSend()
+        }else{
+            
+            let alert = UIAlertController(title: "Oops!", message: "Required field missing", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil )
+            
+        }
+        
     }
     
     
     // MARK: - AddToCart
     
     @IBAction func AddToCart(_ sender: Any) {
-        ViewVC.isHidden = true
-        UIViewVC.isHidden = true
-        PickerViewController.isHidden = true
-        PickerView1.isHidden = true
-        PickerView2.isHidden = true
-        DatePic.isHidden = true
-        dataSend()
+        
+        if SelectPatientTextField.text != "" && ComplainTextField.text != "" && SelectDecotorTextField.text != "" && DateTextField.text != "" && TimeTextField.text != "" && AddressTextField.text != ""{
+            self.dataSend()
+        }else{
+            
+            let alert = UIAlertController(title: "Oops!", message: "Required field missing", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil )
+            
+        }
     }
    
     
@@ -270,17 +309,15 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func dataSend() {
         
-        
-        
-        if SelectDecotorTextField.text == "Allopathy"{
+        if selectDrType == "Allopathy"{
             selectDrType = "2"
-        }else if SelectDecotorTextField.text == "Dentist"{
+        }else if selectDrType == "Dentist"{
             selectDrType = "3"
-        }else if SelectDecotorTextField.text == "Nutritionist"{
+        }else if selectDrType == "Nutritionist"{
             selectDrType = "6"
-        }else if SelectDecotorTextField.text == "Homeopathy"{
+        }else if selectDrType == "Homeopathy"{
             selectDrType = "9"
-        }else if SelectDecotorTextField.text == "Physiotherapy"{
+        }else if selectDrType == "Physiotherapy"{
             selectDrType = "10"
         }
         
@@ -290,7 +327,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let complainDM = ComplainTextField.text!
         let selectDrDM = selectDrType
         let dateDM = DateTextField.text!
-        let timeDM = TimeTextField.text!
+        let timeDM = selectI
         let addressDM = AddressTextField.text!
         
         let parms : [String : String] = ["userId" : userIdDM,
@@ -303,6 +340,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                          "address" : addressDM]
         
         getData(url: Appoinment_URL, parameters: parms)
+        print(parms)
         
     }
     
@@ -325,6 +363,13 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     
                     self.present(alert, animated: true, completion: nil )
                     
+                    self.SelectPatientTextField.text = ""
+                    self.ComplainTextField.text = ""
+                    self.SelectDecotorTextField.text = ""
+                    self.DateTextField.text = ""
+                    self.TimeTextField.text = ""
+                    self.AddressTextField.text = ""
+                    
                 }else{
                     
                     let alert = UIAlertController(title: "Error", message: "\(String(describing: self.doctorDataModel.message!))", preferredStyle: .alert)
@@ -334,6 +379,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     alert.addAction(action)
                     
                     self.present(alert, animated: true, completion: nil )
+                    
                 }
             }
             
@@ -355,6 +401,5 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         doctorDataModel.message = json["message"].stringValue
         
     }
-    
 
 }
