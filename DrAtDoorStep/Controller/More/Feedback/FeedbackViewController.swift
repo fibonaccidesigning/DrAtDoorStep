@@ -27,15 +27,13 @@ class FeedbackViewController: UIViewController {
     @IBOutlet var OptionTextField: UITextField!
     @IBOutlet var ServiceTextField: UITextField!
     @IBOutlet var FeedbackTextField: UITextView!
+    
     @IBOutlet var SubmitBtn: UIButton!
-    @IBOutlet var MessageLabel: UILabel!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
-        SubmitBtn.layer.cornerRadius = 0.02 * SubmitBtn.bounds.size.width
-        SubmitBtn.clipsToBounds = true
-        MessageLabel.text = ""
     }
     
     @IBAction func Submit(_ sender: Any) {
@@ -69,9 +67,9 @@ class FeedbackViewController: UIViewController {
                 if self.OptionTextField.text != "" && self.ServiceTextField.text != "" && self.FeedbackTextField.text != ""  {
                     
                     if self.feedbackDataModel.isSuccess == true{
-                        self.MessageLabel.text = self.feedbackDataModel.message
+                       
                         
-                        let alert = UIAlertController(title: "Sent", message: "Feedback Posted Successfully.", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Sent", message: "\(self.feedbackDataModel.message!)", preferredStyle: .alert)
                         
                         let action = UIAlertAction(title: "Done", style: .default, handler: nil)
                         
@@ -81,11 +79,23 @@ class FeedbackViewController: UIViewController {
                         
                     }
                     else{
-                        self.MessageLabel.text = self.feedbackDataModel.message
+                        let alert = UIAlertController(title: "Error", message: "\(self.feedbackDataModel.message!)", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
                     }
                 }
                 else{
-                    self.MessageLabel.text = "Please enter required fields"
+                    let alert = UIAlertController(title: "Error", message: "\(self.feedbackDataModel.message!)", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
                 }
                 
             }

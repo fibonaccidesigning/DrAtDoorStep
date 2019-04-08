@@ -108,6 +108,9 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         cell.DateLbl.text = BookingHistoryDataDictionary[indexPath.item].date
         cell.CanceledLbl.text = BookingHistoryDataDictionary[indexPath.item].flagcancel
     
+        print("-----")
+        print(BookingHistoryDataDictionary[indexPath.row].date)
+        
         if BookingHistoryDataDictionary[indexPath.item].flagcancel == nil{
             cell.CanceledLbl.text = "Cancelled"
         }

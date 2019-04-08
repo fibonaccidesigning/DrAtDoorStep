@@ -32,7 +32,7 @@ class CartDataModel{
     var bookingtype : String?
     var particular : String?
     var patientId : String?
-    var walletBalance : String?
+    var walletBalance : Float?
     
     
     init(json: [String : Any?]) {
@@ -61,7 +61,7 @@ class CartDataModel{
         if let value = json[PatientIdDM] as? String {
             self.patientId = value
         }
-        if let value = json[WalletBalanceDM] as? String {
+        if let value = json[WalletBalanceDM] as? Float {
             self.walletBalance = value
         }
         

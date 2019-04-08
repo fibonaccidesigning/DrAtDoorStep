@@ -137,5 +137,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         notificationDataModel.isSuccess = json["isSuccess"].boolValue
         
     }
+    @IBAction func Back(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
     
 }

@@ -29,6 +29,7 @@ class PharmacyViewController: UIViewController {
     @IBOutlet var ContactNumberTextField: UITextField!
     @IBOutlet var LandlineTextField: UITextField!
     @IBOutlet var DeliveryAddressTextField: UITextField!
+    @IBOutlet var BackBtn: UIButton!
     
     @IBOutlet var OrderB: UIButton!
     
@@ -36,11 +37,7 @@ class PharmacyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
-        
-        // MARK: - Rounded Button
-        
-        OrderB.layer.cornerRadius = 0.05 * OrderB.bounds.size.width
-        OrderB.clipsToBounds = true
+ 
         
     }
 
@@ -54,6 +51,9 @@ class PharmacyViewController: UIViewController {
             
             
         }else{
+            
+            let impact = UIImpactFeedbackGenerator()
+            impact.impactOccurred()
             
             let alert = UIAlertController(title: "Oops!", message: "Required field missing", preferredStyle: .alert)
             
@@ -111,6 +111,9 @@ class PharmacyViewController: UIViewController {
                     
                 }else{
                     
+                    let impact = UIImpactFeedbackGenerator()
+                    impact.impactOccurred()
+                    
                     let alert = UIAlertController(title: "Error", message: "\(String(describing: self.doctorDataModel.message!))", preferredStyle: .alert)
                     
                     let action = UIAlertAction(title: "Done", style: .default, handler: nil)
@@ -137,4 +140,7 @@ class PharmacyViewController: UIViewController {
         
     }
     
+    @IBAction func Back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

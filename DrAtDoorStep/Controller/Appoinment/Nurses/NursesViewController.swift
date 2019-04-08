@@ -408,4 +408,29 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
+    
+    // MARK: - AddPatient
+    
+    @IBAction func AddPatient(_ sender: Any) {
+    }
+    
+    
+    // MARK: - CurrentAddress
+    
+    @IBAction func CurrentAddress(_ sender: Any) {
+    }
+    
+    
+    // MARK: - Back
+    
+    @IBAction func BackBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - TermsCondition
+    
+    @IBAction func TermsCondition(_ sender: Any) {
+    }
+    
 }

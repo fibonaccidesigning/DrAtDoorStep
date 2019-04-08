@@ -51,6 +51,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBOutlet var BookAppoinmentBtn: UIButton!
     @IBOutlet var AddToCartBtn: UIButton!
+    @IBOutlet var PrescriptionBtn: UIButton!
     
     @IBOutlet var PickerViewController: UIPickerView!
     @IBOutlet var PickerView1: UIPickerView!
@@ -74,6 +75,9 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         AddToCartBtn.layer.cornerRadius = 0.02 * AddToCartBtn.bounds.size.width
         AddToCartBtn.clipsToBounds = true
+        
+        PrescriptionBtn.layer.cornerRadius = 0.1 * PrescriptionBtn.bounds.size.width
+        PrescriptionBtn.clipsToBounds = true
     
         
         // MARK: - Hide Controller
@@ -382,5 +386,23 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         doctorDataModel.message = json["message"].stringValue
         
     }
-
+    
+    // MARK: - AddPatient
+    
+    @IBAction func AddPatient(_ sender: Any) {
+    }
+    
+    
+    // MARK: - Back
+    
+    @IBAction func BackBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - TermsCondition
+    
+    @IBAction func TermsCondition(_ sender: Any) {
+    }
+    
 }

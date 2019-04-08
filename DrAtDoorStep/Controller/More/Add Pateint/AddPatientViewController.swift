@@ -46,8 +46,8 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var CityTextField: UITextField!
     @IBOutlet var AgeTxtField: UITextField!
     @IBOutlet var GenderTextField: UITextField!
-    @IBOutlet var ViewPetaint: UIButton!
     
+    @IBOutlet var ViewPetaint: UIButton!
     @IBOutlet var saveBtn: UIButton!
     
     @IBOutlet var ViewVC: UIView!
@@ -268,5 +268,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         addPatientDataModel.message = json["message"].stringValue
         
     }
+    
+
 
 }

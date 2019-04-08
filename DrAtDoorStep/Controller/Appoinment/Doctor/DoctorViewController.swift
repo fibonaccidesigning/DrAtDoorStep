@@ -31,6 +31,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     let TimeS = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
     
     let DoctorS = ["Allopathy","Dentist", "Nutritionist","Homeopathy", "Physiotherapy"]
+    
+    let notification = UINotificationFeedbackGenerator()
 
     
     var pickData : [Dictionary<String, String>] = []
@@ -280,6 +282,10 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             present(alert, animated: true, completion: nil )
             
+           
+             notification.notificationOccurred(.error)
+            
+            
         }
         
     }
@@ -300,6 +306,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             alert.addAction(action)
             
             present(alert, animated: true, completion: nil )
+            
+            notification.notificationOccurred(.success)
             
         }
     }
@@ -402,4 +410,29 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
 
+    
+    // MARK: - AddPatient
+    
+    @IBAction func AddPatient(_ sender: Any) {
+    }
+    
+    
+    // MARK: - CurrentAddress
+    
+    @IBAction func CurrentAddress(_ sender: Any) {
+    }
+    
+    
+    // MARK: - Back
+    
+    @IBAction func BackBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - TermsCondition
+    
+    @IBAction func TermsCondition(_ sender: Any) {
+    }
+    
 }

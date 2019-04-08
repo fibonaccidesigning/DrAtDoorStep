@@ -30,13 +30,12 @@ class LoginViewController: UIViewController {
     @IBOutlet var LoginBtn: UIButton!
     @IBOutlet var ForgotPasswordBtn: UIButton!
     @IBOutlet var SignUpBtn: UIButton!
-    @IBOutlet var MessageLabel: UILabel!
+
     @IBOutlet var GifImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
-        MessageLabel.text = ""
 
     }
     
@@ -70,15 +69,30 @@ class LoginViewController: UIViewController {
                 if self.UsernameTextField.text != "" && self.PasswordTextField.text != ""{
                     
                     if self.loginDataModel.isSuccess == true{
-                        self.MessageLabel.text = self.loginDataModel.message
                         self.performSegue(withIdentifier: "goToAppoinment", sender: self)
                     }
                     else{
-                        self.MessageLabel.text = self.loginDataModel.message
+            
+                        let alert = UIAlertController(title: "Error", message: "\(self.loginDataModel.message!)", preferredStyle: .alert)
+                            
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                            
+                        alert.addAction(action)
+                            
+                        self.present(alert, animated: true, completion: nil )
+                        
                     }
                 }
                 else{
-                    self.MessageLabel.text = "Please enter required fields"
+                  
+                    let alert = UIAlertController(title: "Error", message: "\(self.loginDataModel.message!)", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
+                    
                 }
                 
             }

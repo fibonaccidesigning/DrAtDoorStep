@@ -81,6 +81,8 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 self.WalletTableView.reloadData()
                 
+                
+                
             }
         }else{
             
@@ -100,9 +102,11 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WalletTableViewCell
         
         
-        cell.OrderNoLbl.text = WalletDataDictionary[indexPath.item].orderNo
-        cell.BalanceLbl.text = WalletDataDictionary[indexPath.item].walletBalance
-        cell.DateLbl.text = WalletDataDictionary[indexPath.item].date
+        cell.OrderNoLbl.text = WalletDataDictionary[indexPath.row].orderNo
+        cell.BalanceLbl.text = WalletDataDictionary[indexPath.row].walletBalance
+        cell.DateLbl.text = WalletDataDictionary[indexPath.row].date
+        
+        print(WalletDataDictionary[indexPath.row].walletBalance as Any)
         
         
         return cell

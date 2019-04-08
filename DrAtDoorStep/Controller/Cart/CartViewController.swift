@@ -28,16 +28,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
      // MARK: - Variables
     
     var pickData : [Dictionary<String, String>] = []
-    var timePickData : [Dictionary<String, String>] = []
-    
+   
     var selectedItem  = ""
     var selectedPatientId = ""
-    
-    var selectDrType = ""
-    
-    var selectTime = ""
-    var selectI = ""
-    
     
     //MARK: - ViewController
 
@@ -113,6 +106,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.AppoinmentForLbl.text = CartDataDictionary[indexPath.item].bookingtype
         cell.AppoinmentTypeLbl.text = CartDataDictionary[indexPath.item].particular
         
+        print(CartDataDictionary[indexPath.item].appointmentDate)
     
         //AmountLbl.text = CartDataDictionary[indexPath.item].walletBalance
 

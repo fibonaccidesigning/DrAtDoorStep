@@ -68,7 +68,7 @@ class ChangePasswordViewController: UIViewController {
                     if self.changePasswordDataModel.isSuccess == true{
                         self.MessageLabel.text = self.changePasswordDataModel.message
                         
-                            let alert = UIAlertController(title: "Sent", message: "Password Information Successfully Send to you.", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Successfull", message: "\(self.changePasswordDataModel.message!)", preferredStyle: .alert)
                             
                             let action = UIAlertAction(title: "Done", style: .default, handler: nil)
                             
@@ -78,11 +78,27 @@ class ChangePasswordViewController: UIViewController {
                         
                     }
                     else{
-                        self.MessageLabel.text = self.changePasswordDataModel.message
+                   
+                        let alert = UIAlertController(title: "Error", message: "\(self.changePasswordDataModel.message!)", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done!", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                       self.present(alert, animated: true, completion: nil )
+                        
+                        
                     }
                 }
                 else{
-                    self.MessageLabel.text = "Please enter required fields"
+                  
+                    let alert = UIAlertController(title: "Error", message: "\(self.changePasswordDataModel.message!)", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done!", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
                 }
                 
             }
