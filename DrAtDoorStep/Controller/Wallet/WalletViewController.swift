@@ -71,22 +71,31 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
         
         let pro = json["wallet"]["transactions"].array
         
-        if pro != nil{
-            
-            let range = pro!.count
-            
-            for i in 0..<range{
-                
-                WalletDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
-                
-                self.WalletTableView.reloadData()
-                
-                
-                
-            }
-        }else{
-            
+//        if pro != nil{
+//
+//            let range = pro!.count
+//
+//            for i in 0..<range{
+//
+//                WalletDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
+//
+//                self.WalletTableView.reloadData()
+//
+//
+//
+//            }
+//        }else{
+//
+//        }
+        
+        if let walletBalance = json["wallet"].dictionaryObject!["walletBalance"] as? String
+        {
+            print(walletBalance)
+            BalanceLbl.text = walletBalance
+            print(json["wallet"].dictionaryObject!["id"] as? Int as Any)
+            print(json["wallet"].dictionaryObject!["date"] as? String as Any)
         }
+        
  
     }
     
@@ -104,7 +113,8 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.OrderNoLbl.text = WalletDataDictionary[indexPath.row].orderNo
         cell.BalanceLbl.text = WalletDataDictionary[indexPath.row].walletBalance
-        cell.DateLbl.text = WalletDataDictionary[indexPath.row].date
+       // cell.DateLbl.text = WalletDataDictionary[indexPath.row].date
+        
         
         print(WalletDataDictionary[indexPath.row].walletBalance as Any)
         
@@ -146,3 +156,4 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 }
+

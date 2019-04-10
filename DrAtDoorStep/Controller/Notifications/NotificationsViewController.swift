@@ -91,9 +91,21 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NotificationTableViewCell
         
         
-        cell.DateTextField.text = NotificationDataDictionary[indexPath.item].date
-        cell.TitleTextField.text = NotificationDataDictionary[indexPath.item].title
-        cell.DescriptionTextField.text = NotificationDataDictionary[indexPath.item].description
+        var DateResult = NotificationDataDictionary[indexPath.row].date!
+        
+        let Sdate = Date(timeIntervalSince1970: TimeInterval(DateResult))
+        let SdateFormatter = DateFormatter()
+        SdateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        SdateFormatter.locale = NSLocale.current
+        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM aa" //Specify your format that you want
+        let SstrDate = SdateFormatter.string(from: Sdate)
+        
+        print(SstrDate)
+
+        
+        cell.DateTextField.text = "\(SstrDate)"
+        cell.TitleTextField.text = NotificationDataDictionary[indexPath.row].title
+        cell.DescriptionTextField.text = NotificationDataDictionary[indexPath.row].description
         
         return cell
     }
@@ -133,6 +145,11 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func updateLoginData(json : JSON)  {
         
+        notificationDataModel.date = json["notifications"]["date"].stringValue
+        
+        print("---------")
+        print(notificationDataModel.date)
+        
         notificationDataModel.message = json["message"].stringValue
         notificationDataModel.isSuccess = json["isSuccess"].boolValue
         
@@ -144,3 +161,5 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
 }
+
+

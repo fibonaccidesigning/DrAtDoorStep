@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     // MARK: - URL
     
     let Login_URL = "http://dratdoorstep.com/livemob/login"
+    let View_Patient_URL = "http://dratdoorstep.com/livemob/viewPatients"
     
     
     // MARK: - ViewController
@@ -33,11 +34,14 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var GifImage: UIImageView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
-
+        
+       
     }
+    
     
      //MARK: - Login
 
@@ -45,10 +49,6 @@ class LoginViewController: UIViewController {
         
         let emailDM = UsernameTextField.text!
         let passwordDM = PasswordTextField.text!
-        
-//        let socialId = ""
-//        let socialType = ""
-//        let deviceType = ""
         
         let parms : [String : String] = ["emailMobile" : emailDM,
                                          "password" : passwordDM]
@@ -69,7 +69,9 @@ class LoginViewController: UIViewController {
                 if self.UsernameTextField.text != "" && self.PasswordTextField.text != ""{
                     
                     if self.loginDataModel.isSuccess == true{
+                        
                         self.performSegue(withIdentifier: "goToAppoinment", sender: self)
+                  
                     }
                     else{
             
@@ -107,13 +109,29 @@ class LoginViewController: UIViewController {
         
         loginDataModel.emailAddress = json["emailAddress"].stringValue
         loginDataModel.password = json["password"].stringValue
+        loginDataModel.userId = json["user"]["userId"].intValue
         
         loginDataModel.message = json["message"].stringValue
         loginDataModel.isSuccess = json["isSuccess"].boolValue
         
+        updateUIData()
+        
+    }
+    
+    func updateUIData() {
+    
+        
+        let dataUserId = "\(loginDataModel.userId!)"
+        
+        let y =  UserDefaults.standard.set(dataUserId, forKey: "userID")
+
+        
     }
     
 }
+
+
+//MARK: - Hide Keybord
 
 extension UIViewController{
     

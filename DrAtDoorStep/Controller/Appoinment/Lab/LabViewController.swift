@@ -9,13 +9,15 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
-class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
 
     
     // MARK: DataModel
     
     let doctorDataModel = DrAtDoorDataModel()
+    var locationManager = CLLocationManager()
     
     
     // MARK: URL
@@ -27,8 +29,10 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: - Arrays
     
     let TimeS = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
+    
     let DoctorS = ["XRAY(Portable)","ECG", "Blood Test","Other Test"]
     
+    let notification = UINotificationFeedbackGenerator()
     
     var pickData : [Dictionary<String, String>] = []
     var timePickData : [Dictionary<String, String>] = []
@@ -40,6 +44,19 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     var selectTime = ""
     var selectI = ""
+    
+    var RetriveFechData = 0
+    
+    var languAdd : Double = 0
+    var latitAdd : Double = 0
+    
+    var flag = 0
+    var appoinmetnFlag = 0
+    
+    var UNIXDate : Double = 0
+    
+    var isToEditFlag = ""
+    var isForBookFlag = ""
     
     
     //MARK: - ViewController
@@ -70,12 +87,6 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         // MARK: - Rounded Button
         
-        BookAppoinmentBtn.layer.cornerRadius = 0.02 * BookAppoinmentBtn.bounds.size.width
-        BookAppoinmentBtn.clipsToBounds = true
-        
-        AddToCartBtn.layer.cornerRadius = 0.02 * AddToCartBtn.bounds.size.width
-        AddToCartBtn.clipsToBounds = true
-        
         PrescriptionBtn.layer.cornerRadius = 0.1 * PrescriptionBtn.bounds.size.width
         PrescriptionBtn.clipsToBounds = true
     
@@ -88,14 +99,22 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         PickerViewController.isHidden = true
         PickerView1.isHidden = true
         PickerView2.isHidden = true
+        
+        //MARK: - UserDefult
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+        
     }
     
     
     // MARK: - Select Patient
     
     @IBAction func SelectPatientPic(_ sender: Any) {
+        
         ViewVC.isHidden = false
         UIViewVC.isHidden = false
+        
         PickerViewController.isHidden = false
         PickerView1.isHidden = true
         PickerView2.isHidden = true
@@ -106,7 +125,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func PatientloadData(){
         
-        let userIdDM = "5191"
+        let userIdDM = "\(RetriveFechData)"
         let parms : [String : String] = ["userId" : userIdDM]
         getPatientData(url: Patient_URL, parameters: parms)
     }
@@ -135,14 +154,18 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         for i in 0..<range{
             
-            pickData.append(countryyy![i].dictionaryObject as! [String : String])
-            
-            selectedItem = pickData[i]["name"]!
-            selectedPatientId = pickData[i]["patientId"]!
-            
-            self.PickerViewController.reloadAllComponents()
-            
+            if flag == 0 {
+                pickData.append(countryyy![i].dictionaryObject as! [String : String])
+                
+                selectedItem = pickData[i]["name"]!
+                selectedPatientId = pickData[i]["patientId"]!
+                
+                self.PickerViewController.reloadAllComponents()
+                
+            }
         }
+        
+        flag = 1
         
     }
     
@@ -179,6 +202,14 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let selectedDate = dateFormatter.string(from: DatePic.date)
  
         DateTextField.text = selectedDate
+        
+        // MARK: - Date to UNIXTime
+        
+        let dateString = dateFormatter.date(from: selectedDate)
+        
+        let dateTimeStamp  = dateString!.timeIntervalSince1970
+        
+        UNIXDate = dateTimeStamp
     }
     
     
@@ -262,6 +293,9 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBAction func BookingAppoinment(_ sender: Any) {
    
         if SelectPatientTextField.text != "" && SelectTypeTextField.text != "" && DateTextField.text != "" && TimeTextField.text != ""{
+            appoinmetnFlag = 1
+            isToEditFlag = "false"
+            isForBookFlag = "true"
             self.dataSend()
         }else{
             
@@ -273,6 +307,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             
             present(alert, animated: true, completion: nil )
             
+            notification.notificationOccurred(.warning)
         }
    
     }
@@ -283,6 +318,8 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBAction func AddToCart(_ sender: Any) {
         
         if SelectPatientTextField.text != "" && SelectTypeTextField.text != "" && DateTextField.text != "" && TimeTextField.text != ""{
+            isToEditFlag = "false"
+            isForBookFlag = "false"
             self.dataSend()
         }else{
             
@@ -293,6 +330,8 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             alert.addAction(action)
             
             present(alert, animated: true, completion: nil )
+            
+             notification.notificationOccurred(.warning)
             
         }
     }
@@ -312,20 +351,23 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             selectDrType = "13"
         }
         
-        let userIdDM = "5191"
+        let userIdDM = "\(RetriveFechData)"
         let appointmentTypeDM = "lab"
         let patientDM = "1845"//selectedPatientId
-       
         let selectDrDM = selectDrType
-        let dateDM = DateTextField.text!
+        let dateDM = "\(UNIXDate)"
         let timeDM = selectI
+        let isToEditDM = isToEditFlag
+        let isForBookDM = isForBookFlag
 
         
         let parms : [String : String] = ["userId" : userIdDM,
                                          "patientId" : patientDM,
                                          "typeId" : selectDrDM,
                                          "date" : dateDM,
-                                         "timeSlot" : timeDM,
+                                         "time" : timeDM,
+                                         "isToEdit" : isToEditDM,
+                                         "isForBook" : isForBookDM,
                                          "appointmentType" : appointmentTypeDM]
         
         getData(url: Appoinment_URL, parameters: parms)
@@ -343,19 +385,35 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 
                 if self.doctorDataModel.isSuccess == true{
                     
-                    let alert = UIAlertController(title: "Successfully Add", message: "\(self.doctorDataModel.message!)", preferredStyle: .alert)
-                    
-                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
-                    
-                    alert.addAction(action)
-                    
-                    self.present(alert, animated: true, completion: nil )
-                    
-                    self.SelectPatientTextField.text = ""
-                    self.DateTextField.text = ""
-                    self.TimeTextField.text = ""
-                    self.SelectTypeTextField.text = ""
-                    
+                    if self.appoinmetnFlag == 1{
+                        
+                        self.SelectPatientTextField.text = ""
+                        self.DateTextField.text = ""
+                        self.TimeTextField.text = ""
+                        self.SelectTypeTextField.text = ""
+                        
+                        let main = UIStoryboard(name: "Main", bundle: nil)
+                        let second = main.instantiateViewController(withIdentifier: "CartVC")
+                        self.present(second, animated: true, completion: nil)
+                        self.notification.notificationOccurred(.success)
+                    }else{
+                        
+                        self.SelectPatientTextField.text = ""
+                        self.DateTextField.text = ""
+                        self.TimeTextField.text = ""
+                        self.SelectTypeTextField.text = ""
+                        
+                        let alert = UIAlertController(title: "Add", message: "\(String(describing: self.doctorDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.success)
+                    }
+     
                 }else{
                     
                     let alert = UIAlertController(title: "Error", message: "\(String(describing: self.doctorDataModel.message!))", preferredStyle: .alert)
@@ -365,6 +423,8 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     alert.addAction(action)
                     
                     self.present(alert, animated: true, completion: nil )
+                    
+                      self.notification.notificationOccurred(.warning)
                 }
             }
             
@@ -373,7 +433,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func updateLabData(json : JSON)  {
         
-        doctorDataModel.patientId = json["patientId"].stringValue
+        doctorDataModel.patientId = json["patientId"].intValue
         doctorDataModel.address = json["address"].stringValue
         doctorDataModel.complain = json["complain"].stringValue
         doctorDataModel.typeId = json["typeId"].stringValue
@@ -396,13 +456,18 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     // MARK: - Back
     
     @IBAction func BackBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "initController")
+        self.present(second, animated: true, completion: nil)
     }
     
     
     // MARK: - TermsCondition
     
     @IBAction func TermsCondition(_ sender: Any) {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
+        self.present(second, animated: true, completion: nil)
     }
     
 }

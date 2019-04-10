@@ -45,13 +45,14 @@ class DrAtDoorDataModel{
     
     //MARK: - Add Patient
     
-    var isToEdit : Bool?
+    var isToEdit : String?
     var name : String?
     var address : String?
     var area : String?
     var cityId : Int?
     var age : Int?
     var gender : String?
+    var isForBook : String?
 
     
     //MARK: - Feedback
@@ -63,7 +64,7 @@ class DrAtDoorDataModel{
     
     //MARK: - Doctor
     
-    var patientId : String?
+    var patientId : Int?
     var complain : String?
     var typeId : String?
     var date : String?

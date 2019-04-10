@@ -19,7 +19,7 @@ class CartDataModel{
     var TimeDM = "time"
     var BookingtypeDM = "bookingtype"
     var ParticularDM = "particular"
-    var PatientIdDM = "patientId"
+    //var PatientIdDM = "patientId"
     var WalletBalanceDM = "walletBalance"
     
     
@@ -31,7 +31,7 @@ class CartDataModel{
     var time : String?
     var bookingtype : String?
     var particular : String?
-    var patientId : String?
+  //  var patientId : Int?
     var walletBalance : Float?
     
     
@@ -58,9 +58,9 @@ class CartDataModel{
         if let value = json[ParticularDM] as? String {
             self.particular = value
         }
-        if let value = json[PatientIdDM] as? String {
-            self.patientId = value
-        }
+//        if let value = json[PatientIdDM] as? Int {
+//            self.patientId = value
+//        }
         if let value = json[WalletBalanceDM] as? Float {
             self.walletBalance = value
         }

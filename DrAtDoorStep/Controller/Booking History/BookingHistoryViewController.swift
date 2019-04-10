@@ -84,6 +84,8 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         
         }
         
+        
+        
     }
     
     
@@ -105,7 +107,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.OrderLbl.text = BookingHistoryDataDictionary[indexPath.item].orderNo
         cell.TitleLbl.text = BookingHistoryDataDictionary[indexPath.item].title
-        cell.DateLbl.text = BookingHistoryDataDictionary[indexPath.item].date
+     //   cell.DateLbl.text = BookingHistoryDataDictionary[indexPath.item].date
         cell.CanceledLbl.text = BookingHistoryDataDictionary[indexPath.item].flagcancel
     
         print("-----")

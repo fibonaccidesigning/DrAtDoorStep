@@ -9,13 +9,15 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
-class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
 
     
     // MARK: DataModel
     
     let doctorDataModel = DrAtDoorDataModel()
+    var locationManager = CLLocationManager()
     
     
     // MARK: URL
@@ -30,7 +32,9 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     let DoctorS = ["HomeCare Attendant","Nursing Care"]
     
-    let TimeSlotS = ["Two Hour","Full Day"]
+    let TimeSlotS = ["twoHour","Full day"]
+    
+    let notification = UINotificationFeedbackGenerator()
     
     var pickData : [Dictionary<String, String>] = []
     var timePickData : [Dictionary<String, String>] = []
@@ -39,9 +43,23 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var selectedPatientId = ""
     
     var selectDrType = ""
+    var selectSlotType = ""
     
     var selectTime = ""
     var selectI = ""
+    
+    var RetriveFechData = 0
+    
+    var languAdd : Double = 0
+    var latitAdd : Double = 0
+    
+    var flag = 0
+    var appoinmetnFlag = 0
+    
+    var UNIXDate : Double = 0
+    
+    var isToEditFlag = ""
+    var isForBookFlag = ""
     
     
     //MARK: - ViewController
@@ -73,16 +91,7 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         super.viewDidLoad()
         
         self.HideKeybord()
-        
-        // MARK: - Rounded Button
-        
-        BookAppoinmentBtn.layer.cornerRadius = 0.02 * BookAppoinmentBtn.bounds.size.width
-        BookAppoinmentBtn.clipsToBounds = true
-        
-        AddToCartBtn.layer.cornerRadius = 0.02 * AddToCartBtn.bounds.size.width
-        AddToCartBtn.clipsToBounds = true
-
-        
+    
         // MARK: - Hide Controller
         
         ViewVC.isHidden = true
@@ -92,6 +101,12 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         PickerView1.isHidden = true
         TimeSloatPickVC.isHidden = true
         TimePickVC.isHidden = true
+        
+        
+        //MARK: - UserDefult
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
         
     }
     
@@ -114,7 +129,7 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func PatientloadData(){
         
-        let userIdDM = "5191"
+        let userIdDM = "\(RetriveFechData)"
         let parms : [String : String] = ["userId" : userIdDM]
         getPatientData(url: Patient_URL, parameters: parms)
     }
@@ -143,15 +158,18 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         for i in 0..<range{
             
-            pickData.append(countryyy![i].dictionaryObject as! [String : String])
-            
-            selectedItem = pickData[i]["name"]!
-            selectedPatientId = pickData[i]["patientId"]!
-
-            self.PickerViewController.reloadAllComponents()
-            
+            if flag == 0 {
+                pickData.append(countryyy![i].dictionaryObject as! [String : String])
+                
+                selectedItem = pickData[i]["name"]!
+                selectedPatientId = pickData[i]["patientId"]!
+                
+                self.PickerViewController.reloadAllComponents()
+                
+            }
         }
         
+        flag = 1
     }
     
     
@@ -189,6 +207,14 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let selectedDate = dateFormatter.string(from: DatePic.date)
         
         DateTextField.text = selectedDate
+        
+        // MARK: - Date to UNIXTime
+        
+        let dateString = dateFormatter.date(from: selectedDate)
+        
+        let dateTimeStamp  = dateString!.timeIntervalSince1970
+        
+        UNIXDate = dateTimeStamp
     }
     
     
@@ -295,6 +321,9 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func BookAppoinment(_ sender: Any) {
         
         if SelectPatientTextField.text != "" && ComplainTextField.text != "" && SelectType.text != "" && DateTextField.text != "" && DaysTextField.text != "" && AddressTextField.text != ""{
+            appoinmetnFlag = 1
+            isToEditFlag = "false"
+            isForBookFlag = "true"
             self.dataSend()
         }else{
             
@@ -306,13 +335,18 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             
             present(alert, animated: true, completion: nil )
             
+            notification.notificationOccurred(.warning)
         }
         
     }
     
+    // MARK: - AddToCart
+    
     @IBAction func AddToCart(_ sender: Any) {
         
         if SelectPatientTextField.text != "" && ComplainTextField.text != "" && SelectType.text != "" && DateTextField.text != "" && DaysTextField.text != "" && AddressTextField.text != ""{
+            isToEditFlag = "false"
+            isForBookFlag = "false"
             self.dataSend()
         }else{
             
@@ -323,32 +357,43 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             alert.addAction(action)
             
             present(alert, animated: true, completion: nil )
+            
+            notification.notificationOccurred(.warning)
             
         }
 
     }
     
+
     
     // MARK: - SendData
     
     func dataSend() {
         
         if SelectType.text == "HomeCare Attendant"{
-            selectDrType = "1"
+            selectDrType = "4"
         }else if SelectType.text == "Nursing Care"{
-            selectDrType = "2"
+            selectDrType = "5"
         }
         
-        let userIdDM = "5191"
+        if TimeSlotTextField.text == "twoHour"{
+            selectSlotType = "4"
+        }else if TimeSlotTextField.text == "Full day"{
+            selectSlotType = "5"
+        }
+        
+        let userIdDM = "\(RetriveFechData)"
         let appointmentTypeDM = "homecare"
         let patientDM = "1845"//selectedPatientId
         let complainDM = ComplainTextField.text!
-        let selectDrDM = selectDrType
-        let dateDM = DateTextField.text!
+        let selectDrDM = "\(selectDrType)"
+        let dateDM = "\(UNIXDate)"
         let addressDM = AddressTextField.text!
         let daysDM = DaysTextField.text!
-        let timeSlotDM = TimeSlotTextField.text!
-        let timeDM = TimeTextField.text!
+        let timeSlotDM = "\(selectSlotType)"
+        let timeDM = selectI
+        let isToEditDM = isToEditFlag
+        let isForBookDM = isForBookFlag
         
         let parms : [String : String] = ["userId" : userIdDM,
                                          "patientId" : patientDM,
@@ -359,9 +404,13 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                                          "appointmentType" : appointmentTypeDM,
                                          "address" : addressDM,
                                          "timeSlot" : timeSlotDM,
-                                         "time" : timeDM,]
+                                         "isToEdit" : isToEditDM,
+                                         "isForBook" : isForBookDM,
+                                         "time" : timeDM]
         
         getData(url: Appoinment_URL, parameters: parms)
+        
+        print(parms)
         
     }
     
@@ -376,22 +425,45 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 
                 if self.doctorDataModel.isSuccess == true{
                     
-                    let alert = UIAlertController(title: "Successfully Add", message: "\(self.doctorDataModel.message!)", preferredStyle: .alert)
+                     if self.appoinmetnFlag == 1{
+                     
+                        self.SelectPatientTextField.text = ""
+                        self.ComplainTextField.text = ""
+                        self.DateTextField.text = ""
+                        self.DaysTextField.text = ""
+                        self.SelectType.text = ""
+                        self.AddressTextField.text = ""
+                        self.TimeSlotTextField.text = ""
+                        self.TimeTextField.text = ""
+                        
+                        let main = UIStoryboard(name: "Main", bundle: nil)
+                        let second = main.instantiateViewController(withIdentifier: "CartVC")
+                        self.present(second, animated: true, completion: nil)
+                        self.notification.notificationOccurred(.success)
+                        
+                     }else{
+                        
+                        self.SelectPatientTextField.text = ""
+                        self.ComplainTextField.text = ""
+                        self.DateTextField.text = ""
+                        self.DaysTextField.text = ""
+                        self.SelectType.text = ""
+                        self.AddressTextField.text = ""
+                        self.TimeSlotTextField.text = ""
+                        self.TimeTextField.text = ""
+                        
+                        let alert = UIAlertController(title: "Add", message: "\(String(describing: self.doctorDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.success)
+                    }
                     
-                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
-                    
-                    alert.addAction(action)
-                    
-                    self.present(alert, animated: true, completion: nil )
-                    
-                    self.SelectPatientTextField.text = ""
-                    self.ComplainTextField.text = ""
-                    self.DateTextField.text = ""
-                    self.DaysTextField.text = ""
-                    self.SelectType.text = ""
-                    self.AddressTextField.text = ""
-                    self.TimeSlotTextField.text = ""
-                    self.TimeTextField.text = ""
+                  
                     
                 }else{
                     
@@ -402,6 +474,8 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     alert.addAction(action)
                     
                     self.present(alert, animated: true, completion: nil )
+                    
+                     self.notification.notificationOccurred(.warning)
                 }
             }
             
@@ -410,7 +484,7 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func updateDoctorData(json : JSON)  {
         
-        doctorDataModel.patientId = json["patientId"].stringValue
+        doctorDataModel.patientId = json["patientId"].intValue
         doctorDataModel.address = json["address"].stringValue
         doctorDataModel.complain = json["complain"].stringValue
         doctorDataModel.typeId = json["typeId"].stringValue
@@ -435,19 +509,56 @@ class CaretakerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // MARK: - CurrentAddress
     
     @IBAction func CurrentAddress(_ sender: Any) {
+        notification.notificationOccurred(.success)
+        //determineMyCurrentLocation()
     }
     
+    func determineMyCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            //locationManager.startUpdatingHeading()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
+        
+        print("user latitude = \(userLocation.coordinate.latitude)")
+        print("user longitude = \(userLocation.coordinate.longitude)")
+        
+        languAdd = userLocation.coordinate.longitude
+        latitAdd = userLocation.coordinate.latitude
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        print("Error \(error)")
+    }
     
     // MARK: - Back
     
     @IBAction func BackBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "initController")
+        self.present(second, animated: true, completion: nil)
     }
     
     
     // MARK: - TermsCondition
     
     @IBAction func TermsCondition(_ sender: Any) {
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
+        self.present(second, animated: true, completion: nil)
+
     }
     
 }

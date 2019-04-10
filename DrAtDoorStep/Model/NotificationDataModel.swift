@@ -21,6 +21,7 @@ class NotificationDataModel{
     var WalletBalanceDM = "walletBalance"
     var CanceledDM = "flagcancel"
     var InvoiceUrlDM = "invoiceUrl"
+    var IdDM = "id"
     
     
     
@@ -28,11 +29,12 @@ class NotificationDataModel{
     var title : String?
     var description : String?
     var orderNo : String?
-    var date : String?
+    var date : Int?
     var userId : Int?
     var walletBalance : String?
     var flagcancel : String?
     var invoiceUrl : String?
+    var id : Int?
     
     
     init(json: [String : Any?]) {
@@ -49,7 +51,7 @@ class NotificationDataModel{
         if let value = json[OrderDM] as? String {
             self.orderNo = value
         }
-        if let value = json[DateDM] as? String {
+        if let value = json[DateDM] as? Int {
             self.date = value
         }
         if let value = json[UserIdDM] as? Int {
@@ -63,6 +65,9 @@ class NotificationDataModel{
         }
         if let value = json[InvoiceUrlDM] as? String {
             self.invoiceUrl = value
+        }
+        if let value = json[IdDM] as? Int {
+            self.id = value
         }
     }
 

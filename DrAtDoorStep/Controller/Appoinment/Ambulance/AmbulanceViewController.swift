@@ -11,12 +11,13 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
 
     
     // MARK: DataModel
     
     let doctorDataModel = DrAtDoorDataModel()
+       var locationManager = CLLocationManager()
     
     
     // MARK: URL
@@ -31,20 +32,39 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     let TimeS = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
+    
     let DoctorS = ["One Way","With Return (Within 1 hour)"]
+    
     let GenderS = ["Male","Female"]
     
+     let notification = UINotificationFeedbackGenerator()
     
     var cityPickData : [Dictionary<String, String>] = []
     var timePickData : [Dictionary<String, String>] = []
     
     var selectedItem  = ""
     var selectedPatientId = ""
+    var selectGenderType = ""
     
     var selectDrType = ""
     
     var selectTime = ""
     var selectI = ""
+    var selectCity = ""
+    
+    
+    var RetriveFechData = 0
+    
+    var languAdd : Double = 0
+    var latitAdd : Double = 0
+    
+    var flag = 0
+    var appoinmetnFlag = 0
+    
+    var UNIXDate : Double = 0
+    
+    var isToEditFlag = ""
+    var isForBookFlag = ""
     
     
     // MARK: - ViewControllers
@@ -79,15 +99,6 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         self.HideKeybord()
         
-        // MARK: - Rounded Button
-        
-        BookAppoinmentBtn.layer.cornerRadius = 0.05 * BookAppoinmentBtn.bounds.size.width
-        BookAppoinmentBtn.clipsToBounds = true
-        
-        AddToCartBtn.layer.cornerRadius = 0.05 * AddToCartBtn.bounds.size.width
-        AddToCartBtn.clipsToBounds = true
-        
-        
         // MARK: - Hide Controller
         
         UIViewVC.isHidden = true
@@ -99,6 +110,11 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         TypePicker.isHidden = true
         DatePicker.isHidden = true
        
+        
+        //MARK: - UserDefult
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
         
         // MARK: - Current Location
         
@@ -179,17 +195,18 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         for i in 0..<range{
             
-            cityPickData.append(countryyy![i].dictionaryObject as! [String : String])
-            
-            selectedItem = cityPickData[i]["cityName"]!
-            selectI = cityPickData[i]["cityId"]!
-            
-            print(selectedItem)
-            
-            self.CityPicker.reloadAllComponents()
-            
+             if flag == 0 {
+                cityPickData.append(countryyy![i].dictionaryObject as! [String : String])
+                
+                selectedItem = cityPickData[i]["cityName"]!
+                selectCity = cityPickData[i]["cityId"]!
+                
+                self.CityPicker.reloadAllComponents()
+                
+                print(selectI)
+            }
         }
-        
+        flag = 1
     }
     
     // MARK: - Select Date
@@ -209,8 +226,16 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/M/yyyy"
         let selectedDate = dateFormatter.string(from: DatePicker.date)
-        1
+        
         DateTextField.text = selectedDate
+        
+        // MARK: - Date to UNIXTime
+        
+        let dateString = dateFormatter.date(from: selectedDate)
+        
+        let dateTimeStamp  = dateString!.timeIntervalSince1970
+        
+        UNIXDate = dateTimeStamp
         
     }
     
@@ -319,6 +344,9 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func BookAppoinment(_ sender: Any) {
 
         if ContactPersonTextField.text != "" && AgeTextField.text != "" && GenderTextField.text != "" && MobileTextField.text != "" && LandlineTextField.text != "" && AddressTextField.text != "" && SelectCityTextField.text != "" && DateTextField.text != "" && SelectTimeTextField.text != "" && ConditionTextField.text != "" && SelectTypeTextField.text != "" && FromTextField.text != ""{
+            appoinmetnFlag = 1
+            isToEditFlag = "false"
+            isForBookFlag = "true"
             self.dataSend()
         }else{
             
@@ -329,12 +357,16 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             alert.addAction(action)
             
             present(alert, animated: true, completion: nil )
+            
+            notification.notificationOccurred(.warning)
         }
     }
     
     @IBAction func AddToCart(_ sender: Any) {
         
         if ContactPersonTextField.text != "" && AgeTextField.text != "" && GenderTextField.text != "" && MobileTextField.text != "" && LandlineTextField.text != "" && AddressTextField.text != "" && SelectCityTextField.text != "" && DateTextField.text != "" && SelectTimeTextField.text != "" && ConditionTextField.text != "" && SelectTypeTextField.text != "" && FromTextField.text != ""{
+            isToEditFlag = "false"
+            isForBookFlag = "false"
             self.dataSend()
         }else{
             
@@ -345,8 +377,12 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             alert.addAction(action)
             
             present(alert, animated: true, completion: nil )
+            
+              notification.notificationOccurred(.warning)
         }
     }
+    
+    // MARK: - SendData
     
     func dataSend() {
         
@@ -356,21 +392,28 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             selectDrType = "2"
         }
         
-        let userIdDM = "5191"
+        if GenderTextField.text == "Male"{
+            selectGenderType = "M"
+        }else if GenderTextField.text == "Female"{
+            selectGenderType = "F"
+        }
+        
+        let userIdDM =  "\(RetriveFechData)"
         let contactPersonDM = ContactPersonTextField.text!
         let ageDM = AgeTextField.text!
-        let genderDrDM = "M" //GenderTextField.text!
+        let genderDrDM = selectGenderType
         let mobileNumberDM = MobileTextField.text!
         let landlineNumberDM = LandlineTextField.text!
-        let addressPatientDM = AddressTextField.text!
-        let cityIdDM = "163"
+        let addressPatientDM = FromTextField.text!
+        let cityIdDM = selectCity
         let conditionDM = ConditionTextField.text!
         let typeDM = SelectTypeTextField.text!
-        let dateDM = "1554316200" //DateTextField.text!
-        let timeDM = SelectTimeTextField.text!
+        let dateDM = "\(UNIXDate)"
+        let timeDM = selectI
         let addressDM = AddressTextField.text!
-        let isToEditDM = "false"
         let deviceTypeDM = "ios"
+        let isToEditDM = isToEditFlag
+        let isForBookDM = isForBookFlag
         
         let parms : [String : String] = ["userId" : userIdDM,
                                          "contactPerson" : contactPersonDM,
@@ -385,10 +428,13 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                                          "date" : dateDM,
                                          "time" : timeDM,
                                          "address" : addressDM,
+                                         "isForBook" : isForBookDM,
                                          "deviceType" : deviceTypeDM,
                                          "isToEdit" : isToEditDM ]
         
         getData(url: CallAmbulance_URL, parameters: parms)
+        
+        print(parms)
         
     }
     
@@ -403,27 +449,51 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 
                 if self.doctorDataModel.isSuccess == true{
                     
-                    let alert = UIAlertController(title: "Successfully Add", message: "\(self.doctorDataModel.message!)", preferredStyle: .alert)
-                    
-                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
-                    
-                    alert.addAction(action)
-                    
-                    self.present(alert, animated: true, completion: nil )
-                    
-                    self.ContactPersonTextField.text = ""
-                    self.AgeTextField.text = ""
-                    self.GenderTextField.text = ""
-                    self.MobileTextField.text = ""
-                    self.LandlineTextField.text = ""
-                    self.AddressTextField.text = ""
-                    self.SelectCityTextField.text = ""
-                    self.DateTextField.text = ""
-                    self.SelectTimeTextField.text = ""
-                    self.ConditionTextField.text = ""
-                    self.SelectTypeTextField.text = ""
-                    self.FromTextField.text = ""
+                     if self.appoinmetnFlag == 1{
+
+                        self.ContactPersonTextField.text = ""
+                        self.AgeTextField.text = ""
+                        self.GenderTextField.text = ""
+                        self.MobileTextField.text = ""
+                        self.LandlineTextField.text = ""
+                        self.AddressTextField.text = ""
+                        self.SelectCityTextField.text = ""
+                        self.DateTextField.text = ""
+                        self.SelectTimeTextField.text = ""
+                        self.ConditionTextField.text = ""
+                        self.SelectTypeTextField.text = ""
+                        self.FromTextField.text = ""
                         
+                        let main = UIStoryboard(name: "Main", bundle: nil)
+                        let second = main.instantiateViewController(withIdentifier: "CartVC")
+                        self.present(second, animated: true, completion: nil)
+                        self.notification.notificationOccurred(.success)
+                        
+                     }else{
+                        
+                        self.ContactPersonTextField.text = ""
+                        self.AgeTextField.text = ""
+                        self.GenderTextField.text = ""
+                        self.MobileTextField.text = ""
+                        self.LandlineTextField.text = ""
+                        self.AddressTextField.text = ""
+                        self.SelectCityTextField.text = ""
+                        self.DateTextField.text = ""
+                        self.SelectTimeTextField.text = ""
+                        self.ConditionTextField.text = ""
+                        self.SelectTypeTextField.text = ""
+                        self.FromTextField.text = ""
+                        
+                        let alert = UIAlertController(title: "Add", message: "\(String(describing: self.doctorDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.success)
+                    }
                     
                 }else{
                     
@@ -434,6 +504,9 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     alert.addAction(action)
                     
                     self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
+                    
                 }
             }
             
@@ -442,7 +515,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func updateDoctorData(json : JSON)  {
         
-        doctorDataModel.patientId = json["patientId"].stringValue
+        doctorDataModel.patientId = json["patientId"].intValue
         doctorDataModel.address = json["contactPerson"].stringValue
         doctorDataModel.complain = json["age"].stringValue
         doctorDataModel.typeId = json["type"].stringValue
@@ -453,7 +526,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         doctorDataModel.timeSlot = json["condition"].stringValue
         doctorDataModel.address = json["addressPatient"].stringValue
         doctorDataModel.name = json["address"].stringValue
-        doctorDataModel.isToEdit = json["isToEdit"].boolValue
+        doctorDataModel.isToEdit = json["isToEdit"].stringValue
         
         doctorDataModel.isSuccess = json["isSuccess"].boolValue
         doctorDataModel.message = json["message"].stringValue
@@ -471,19 +544,27 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // MARK: - CurrentAddress
     
     @IBAction func CurrentAddress(_ sender: Any) {
+        notification.notificationOccurred(.success)
+        //determineMyCurrentLocation()
     }
     
     
     // MARK: - Back
     
     @IBAction func BackBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "initController")
+        self.present(second, animated: true, completion: nil)
     }
     
     
     // MARK: - TermsCondition
     
     @IBAction func TermsCondition(_ sender: Any) {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
+        self.present(second, animated: true, completion: nil)
+
     }
     
 }

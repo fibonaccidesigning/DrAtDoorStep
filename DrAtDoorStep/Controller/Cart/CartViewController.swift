@@ -32,6 +32,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var selectedItem  = ""
     var selectedPatientId = ""
     
+    var RetriveFechData = 0
+    
     //MARK: - ViewController
 
     @IBOutlet var CartTable: UITableView!
@@ -46,7 +48,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         CartTable.tableFooterView = UIView()
         
-        let userIdDM = "6"
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+        
+        let userIdDM = "\(RetriveFechData)"
         let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["userId" : userIdDM,
@@ -115,5 +120,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
-
+    @IBAction func Back(_ sender: Any) {
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "initController")
+        self.present(second, animated: true, completion: nil)
+        
+        
+    }
+    
 }

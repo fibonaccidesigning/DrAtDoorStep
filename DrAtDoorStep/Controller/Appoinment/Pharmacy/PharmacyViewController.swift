@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 class PharmacyViewController: UIViewController {
 
@@ -34,10 +35,25 @@ class PharmacyViewController: UIViewController {
     @IBOutlet var OrderB: UIButton!
     
     
+    //MARK: - Variables
+    
+    let notification = UINotificationFeedbackGenerator()
+    
+    var RetriveFechData = 0
+    
+  
+    var isToEditFlag = ""
+    var isForBookFlag = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.HideKeybord()
  
+        //MARK: - UserDefult
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
         
     }
 
@@ -47,8 +63,10 @@ class PharmacyViewController: UIViewController {
         
         if ContactPersonTextField.text != "" && ContactNumberTextField.text != "" && LandlineTextField.text != "" && DeliveryAddressTextField.text != "" {
             
-            self.dataSend()
+            isToEditFlag = "false"
+            isForBookFlag = "true"
             
+            self.dataSend()
             
         }else{
             
@@ -63,20 +81,25 @@ class PharmacyViewController: UIViewController {
             
             present(alert, animated: true, completion: nil )
             
+            notification.notificationOccurred(.warning)
         }
         
     }
     
     func dataSend() {
         
-        let userIdDM = "5191"
+        let userIdDM = "\(RetriveFechData)"
         let contactPersonDM = ContactPersonTextField.text!
         let contactNumberDM = ContactNumberTextField.text!
         let addressDM = DeliveryAddressTextField.text!
         let landlineNumberDM = LandlineTextField.text!
+        let isToEditDM = isToEditFlag
+        let isForBookDM = isForBookFlag
         
         let parms : [String : String] = ["userId" : userIdDM,
                                          "contactPerson" : contactPersonDM,
+                                         "isToEdit" : isToEditDM,
+                                         "isForBook" : isForBookDM,
                                          "contactNumber" : contactNumberDM,
                                          "address" : addressDM,
                                          "landlineNumber" : landlineNumberDM]
@@ -107,7 +130,8 @@ class PharmacyViewController: UIViewController {
                     self.ContactNumberTextField.text = ""
                     self.LandlineTextField.text = ""
                     self.DeliveryAddressTextField.text = ""
-                        
+                    
+                    self.notification.notificationOccurred(.success)
                     
                 }else{
                     
@@ -121,6 +145,8 @@ class PharmacyViewController: UIViewController {
                     alert.addAction(action)
                     
                     self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
                 }
             }
             
@@ -129,7 +155,7 @@ class PharmacyViewController: UIViewController {
     
     func updateDoctorData(json : JSON)  {
         
-        doctorDataModel.patientId = json["patientId"].stringValue
+        doctorDataModel.patientId = json["patientId"].intValue
         doctorDataModel.address = json["contactPerson"].stringValue
         doctorDataModel.complain = json["contactNumber"].stringValue
         doctorDataModel.typeId = json["address"].stringValue
@@ -141,6 +167,8 @@ class PharmacyViewController: UIViewController {
     }
     
     @IBAction func Back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "initController")
+        self.present(second, animated: true, completion: nil)
     }
 }

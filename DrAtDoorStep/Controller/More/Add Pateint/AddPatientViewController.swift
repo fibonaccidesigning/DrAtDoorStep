@@ -262,7 +262,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         addPatientDataModel.cityId = json["cityId"].intValue
         addPatientDataModel.age = json["age"].intValue
         addPatientDataModel.gender = json["gender"].stringValue
-        addPatientDataModel.isToEdit = json["isToEdit"].boolValue
+        addPatientDataModel.isToEdit = json["isToEdit"].stringValue
         
         addPatientDataModel.isSuccess = json["isSuccess"].boolValue
         addPatientDataModel.message = json["message"].stringValue
