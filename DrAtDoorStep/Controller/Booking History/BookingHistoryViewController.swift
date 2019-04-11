@@ -16,6 +16,9 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: DataModel
     
     let bookingHistoryDataModel = DrAtDoorDataModel()
+    var selectedProduct : NotificationDataModel?
+    var BookingHistoryDataDictionary : [NotificationDataModel] = []
+    
     
     
     // MARK: URL
@@ -25,8 +28,10 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: Variable
     
-    var selectedProduct : NotificationDataModel?
-    var BookingHistoryDataDictionary : [NotificationDataModel] = []
+    let notification = UINotificationFeedbackGenerator()
+    
+    var RetriveFechData = 0
+    
     
     
     //MARK: - ViewController
@@ -37,12 +42,15 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userIdDM = "6"
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+        
+        let userIdDM = "6"//"\(RetriveFechData)"
         
         let parms : [String : String] = ["userId" : userIdDM ]
         
         getBookingHistoryData(url: BookingHistory_URL, parameters: parms)
-
+        
     }
     
     func getBookingHistoryData(url : String, parameters: [String : String]) {
@@ -80,11 +88,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
                 
             }
             
-        }else{
-        
         }
-        
-        
         
     }
     
@@ -107,11 +111,23 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.OrderLbl.text = BookingHistoryDataDictionary[indexPath.item].orderNo
         cell.TitleLbl.text = BookingHistoryDataDictionary[indexPath.item].title
-     //   cell.DateLbl.text = BookingHistoryDataDictionary[indexPath.item].date
+        
+        let DateResult = BookingHistoryDataDictionary[indexPath.row].date!
+        
+        let Sdate = Date(timeIntervalSince1970: TimeInterval(DateResult))
+        let SdateFormatter = DateFormatter()
+        SdateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        SdateFormatter.locale = NSLocale.current
+        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM aa" //Specify your format that you want
+        let SstrDate = SdateFormatter.string(from: Sdate)
+        
+        print(SstrDate)
+        
+        cell.DateLbl.text = "\(SstrDate)"
+        
         cell.CanceledLbl.text = BookingHistoryDataDictionary[indexPath.item].flagcancel
     
-        print("-----")
-        print(BookingHistoryDataDictionary[indexPath.row].date)
+ 
         
         if BookingHistoryDataDictionary[indexPath.item].flagcancel == nil{
             cell.CanceledLbl.text = "Cancelled"

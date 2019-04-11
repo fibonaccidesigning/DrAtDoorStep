@@ -437,7 +437,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         doctorDataModel.address = json["address"].stringValue
         doctorDataModel.complain = json["complain"].stringValue
         doctorDataModel.typeId = json["typeId"].stringValue
-        doctorDataModel.date = json["date"].stringValue
+        //doctorDataModel.date = json["date"].stringValue
         doctorDataModel.timeSlot = json["timeSlot"].stringValue
         doctorDataModel.address = json["address"].stringValue
         doctorDataModel.name = json["name"].stringValue

@@ -52,7 +52,6 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var selectI = ""
     var selectCity = ""
     
-    
     var RetriveFechData = 0
     
     var languAdd : Double = 0
@@ -519,7 +518,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         doctorDataModel.address = json["contactPerson"].stringValue
         doctorDataModel.complain = json["age"].stringValue
         doctorDataModel.typeId = json["type"].stringValue
-        doctorDataModel.date = json["date"].stringValue
+       // doctorDataModel.date = json["date"].stringValue
         doctorDataModel.timeSlot = json["landlineNumber"].stringValue
         doctorDataModel.address = json["addressPatient"].stringValue
         doctorDataModel.name = json["cityId"].stringValue

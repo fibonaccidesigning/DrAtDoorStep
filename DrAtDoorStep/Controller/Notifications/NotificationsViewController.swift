@@ -29,6 +29,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     var selectedProduct : NotificationDataModel?
     var NotificationDataDictionary : [NotificationDataModel] = []
     
+    let notification = UINotificationFeedbackGenerator()
+    
+    var RetriveFechData = 0
+    
     
     //MARK: - ViewController
     
@@ -37,7 +41,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userIdDM = "100"
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+        
+        let userIdDM = "\(RetriveFechData)"
         
         let parms : [String : String] = ["userId" : userIdDM ]
         
@@ -115,11 +122,11 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func ClearAll(_ sender: Any) {
         
-        let emailDM = "99"
-        let passwordDM = ""
+        let userIdDM = "\(RetriveFechData)"
+        let devicesDM = "ios"
         
-        let parms : [String : String] = ["userId" : emailDM,
-                                         "deviceType" : passwordDM]
+        let parms : [String : String] = ["userId" : userIdDM,
+                                         "deviceType" : devicesDM]
         
         getData(url: NotificationClearAll_URL, parameters: parms)
         
@@ -134,7 +141,21 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
                 let LoginJSON : JSON = JSON(respondse.result.value!)
                 self.updateLoginData(json: LoginJSON)
                 self.NotificationTableView.reloadData()
-                print(respondse)
+                
+                 if self.notificationDataModel.isSuccess == true{
+                    
+                    let alert = UIAlertController(title: "Clear All Notification", message: "\(String(describing: self.notificationDataModel.message!))", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.success)
+                    
+                }
+                
             }
             else{
                 print("Error")
@@ -144,12 +165,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func updateLoginData(json : JSON)  {
-        
-        notificationDataModel.date = json["notifications"]["date"].stringValue
-        
-        print("---------")
-        print(notificationDataModel.date)
-        
+    
         notificationDataModel.message = json["message"].stringValue
         notificationDataModel.isSuccess = json["isSuccess"].boolValue
         

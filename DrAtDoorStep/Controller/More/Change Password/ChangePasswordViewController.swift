@@ -22,6 +22,7 @@ class ChangePasswordViewController: UIViewController {
     
     let ChangePassword_URL = "http://dratdoorstep.com/livemob/changePassword"
     
+    let notification = UINotificationFeedbackGenerator()
     
     //MARK: - ViewController
     
@@ -39,8 +40,8 @@ class ChangePasswordViewController: UIViewController {
     
     @IBAction func ChangePassword(_ sender: Any) {
         
-        let userIdDM = ""
-        let deviceTypeDM = ""
+        let userIdDM = "5191"
+        let deviceTypeDM = "ios"
         let currentPasswordDM = OldPasswordTextField.text!
         let newPasswordDM = NewPasswordTextField.text!
         
@@ -76,6 +77,13 @@ class ChangePasswordViewController: UIViewController {
                             
                             self.present(alert, animated: true, completion: nil )
                         
+                        self.notification.notificationOccurred(.success)
+                        
+                        self.OldPasswordTextField.text = ""
+                        self.NewPasswordTextField.text = ""
+                        self.ConfirmPasswordTextField.text = ""
+                        
+                        
                     }
                     else{
                    
@@ -87,6 +95,7 @@ class ChangePasswordViewController: UIViewController {
                         
                        self.present(alert, animated: true, completion: nil )
                         
+                        self.notification.notificationOccurred(.warning)
                         
                     }
                 }
@@ -101,6 +110,7 @@ class ChangePasswordViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil )
                 }
                 
+                self.notification.notificationOccurred(.warning)
             }
             else{
                 print("Error")

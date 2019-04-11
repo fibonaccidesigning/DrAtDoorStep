@@ -27,15 +27,24 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     let GenderS = ["Male","Female"]
     
+    let notification = UINotificationFeedbackGenerator()
+    
     var cityPickData : [Dictionary<String, String>] = []
     
     var selectedItem  = ""
     var selectedPatientId = ""
+    var selectGenderType = ""
+    
+    var RetriveFechData = 0
     
     var selectDrType = ""
     
     var selectTime = ""
     var selectI = ""
+    
+    var selectCity = ""
+    
+    var flag = 0
     
     
     //MARK: - ViewController
@@ -72,6 +81,9 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         ViewVC.isHidden = true
         PickerViewVC.isHidden = true
         TabBarVC.isHidden = true
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
         
     }
     
@@ -131,16 +143,19 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         for i in 0..<range{
             
-            cityPickData.append(countryyy![i].dictionaryObject as! [String : String])
-            
-            selectedItem = cityPickData[i]["cityName"]!
-            selectI = cityPickData[i]["cityId"]!
-            
-            print(selectedItem)
-            
-            self.CityPicker.reloadAllComponents()
-            
+            if flag == 0 {
+                cityPickData.append(countryyy![i].dictionaryObject as! [String : String])
+                
+                selectedItem = cityPickData[i]["cityName"]!
+                selectCity = cityPickData[i]["cityId"]!
+                
+                self.CityPicker.reloadAllComponents()
+                
+                print(selectI)
+            }
         }
+        flag = 1
+
         
     }
     
@@ -198,14 +213,21 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBAction func Save(_ sender: Any) {
         
-        let userIdDM = "4"
+        if GenderTextField.text == "Male"{
+            selectGenderType = "M"
+        }else if GenderTextField.text == "Female"{
+            selectGenderType = "F"
+        }
+        
+        let userIdDM = "\(RetriveFechData)"
         let nameDM = NameTextField.text!
         let buldingDM = BuldingTextField.text!
         let areaDM = AreaTextField.text!
-        let cityDM = "139" // CityTextField.text!
+        let cityDM = selectCity
         let ageDM = AgeTxtField.text!
-        let genderDM = GenderTextField.text!
-        let isToEditDM = "true"
+        let genderDM = selectGenderType
+        let isToEditDM = "false"
+        let patientIdDM = "1845"
         
         let parms : [String : String] = ["userId" : userIdDM,
                                          "name" : nameDM,
@@ -214,6 +236,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
                                          "cityId" : cityDM,
                                          "age" : ageDM,
                                          "gender" : genderDM,
+                                         "patientId" : patientIdDM,
                                          "isToEdit" : isToEditDM]
         
         getData(url: AddPatient_URL, parameters: parms)
@@ -231,6 +254,14 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 
                 if self.addPatientDataModel.isSuccess == true{
                    
+                    self.NameTextField.text = ""
+                    self.BuldingTextField.text = ""
+                    self.AreaTextField.text = ""
+                    self.CityTextField.text = ""
+                    self.AgeTxtField.text = ""
+                    self.GenderTextField.text = ""
+                    
+                    
                     let alert = UIAlertController(title: "Add", message: "\(self.addPatientDataModel.message!)", preferredStyle: .alert)
                         
                         let action = UIAlertAction(title: "Done", style: .default, handler: nil)
@@ -238,6 +269,8 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         alert.addAction(action)
                         
                         self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.success)
                     
                 }else{
                     
@@ -248,6 +281,8 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     alert.addAction(action)
                     
                     self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
                 }
             }
         

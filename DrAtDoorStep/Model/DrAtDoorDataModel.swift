@@ -67,15 +67,23 @@ class DrAtDoorDataModel{
     var patientId : Int?
     var complain : String?
     var typeId : String?
-    var date : String?
+    var date : Int?
     var timeSlot : String?
     var days : String?
     var condition : String?
     var contactPerson : String?
     var contactNumber : String?
     var landlineNumber : String?
-    var walletBalance : String?
+    var walletBalance : Int?
     var flagcancel : String?
+    var orderNumber : Int?
+    var amount : Int?
     
+    //MARK: - Cart
+    
+    var totalAmount : Int?
+    var particular : String?
+    var appointmentDate : Int?
+    var patientName : String?
 
 }

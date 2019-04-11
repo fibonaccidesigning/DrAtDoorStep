@@ -22,12 +22,26 @@ class NotificationDataModel{
     var CanceledDM = "flagcancel"
     var InvoiceUrlDM = "invoiceUrl"
     var IdDM = "id"
+    var orderNumberDM = "orderNumber"
+    var AppointmentDateDM = "appointmentDate"
+    var PatientNameDM = "patientName"
+    var AmountDM = "amount"
+    var BookingtypeDM = "bookingtype"
+    var ParticularDM = "particular"
+    var typeDM = "type"
+    var totalAmountDM = "totalAmount"
     
     
-    
+    var type : String?
+    var totalAmount : Int?
+    var appointmentDate : Int?
+       var patientName : String?
     var notificationId : Int?
+     var amount : String?
     var title : String?
+      var bookingtype : String?
     var description : String?
+      var particular : String?
     var orderNo : String?
     var date : Int?
     var userId : Int?
@@ -35,12 +49,34 @@ class NotificationDataModel{
     var flagcancel : String?
     var invoiceUrl : String?
     var id : Int?
+    var orderNumber : Int?
     
     
     init(json: [String : Any?]) {
         
         if let value = json[NotifiIdDM] as? Int {
             self.notificationId = value
+        }
+        if let value = json[totalAmountDM] as? Int {
+            self.totalAmount = value
+        }
+        if let value = json[typeDM] as? String {
+            self.type = value
+        }
+        if let value = json[ParticularDM] as? String {
+            self.particular = value
+        }
+        if let value = json[PatientNameDM] as? String {
+            self.patientName = value
+        }
+        if let value = json[BookingtypeDM] as? String {
+            self.bookingtype = value
+        }
+        if let value = json[AmountDM] as? String {
+            self.amount = value
+        }
+        if let value = json[AppointmentDateDM] as? Int {
+            self.appointmentDate = value
         }
         if let value = json[TitleDM] as? String {
             self.title = value
@@ -68,6 +104,9 @@ class NotificationDataModel{
         }
         if let value = json[IdDM] as? Int {
             self.id = value
+        }
+        if let value = json[orderNumberDM] as? Int {
+            self.orderNumber = value
         }
     }
 

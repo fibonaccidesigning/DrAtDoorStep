@@ -159,7 +159,7 @@ class PharmacyViewController: UIViewController {
         doctorDataModel.address = json["contactPerson"].stringValue
         doctorDataModel.complain = json["contactNumber"].stringValue
         doctorDataModel.typeId = json["address"].stringValue
-        doctorDataModel.date = json["landlineNumber"].stringValue
+       // doctorDataModel.date = json["landlineNumber"].stringValue
     
         doctorDataModel.isSuccess = json["isSuccess"].boolValue
         doctorDataModel.message = json["message"].stringValue

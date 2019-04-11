@@ -5,17 +5,16 @@
 //  Created by Parth Mandaviya on 27/02/19.
 //  Copyright © 2019 Parth Mandaviya. All rights reserved.
 //
-
 import UIKit
 import Alamofire
 import SwiftyJSON
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
+    
     // MARK: - DataModel
     
     let cartDataModel = DrAtDoorDataModel()
-    var CartDataDictionary : [CartDataModel] = []
+    var CartDataDictionary : [NotificationDataModel] = []
     
     //    var selectedProduct : PatientDataModel?
     
@@ -25,17 +24,16 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     let viewCart_URL = "http://dratdoorstep.com/livemob/cart"
     
     
-     // MARK: - Variables
+    // MARK: - Variables
     
     var pickData : [Dictionary<String, String>] = []
-   
+    
     var selectedItem  = ""
     var selectedPatientId = ""
     
     var RetriveFechData = 0
     
     //MARK: - ViewController
-
     @IBOutlet var CartTable: UITableView!
     @IBOutlet var MakePayment: UIButton!
     @IBOutlet var AmountLbl: UILabel!
@@ -58,7 +56,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                                          "deviceType" : deviceTypeDM]
         
         getData(url: viewCart_URL, parameters: parms)
-       
+        
     }
     
     func getData(url : String, parameters: [String : String]) {
@@ -71,7 +69,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.updateLoginData(json: CartJSON)
                 
                 print(respondse)
-            
+                
             }
             else{
                 print("Error")
@@ -86,12 +84,21 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for i in 0..<range{
             
-            CartDataDictionary.append(CartDataModel(json: (pro![i].dictionaryObject)!))
+            CartDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
             
             self.CartTable.reloadData()
-        
+            
         }
- 
+        
+        if let walletBalance = json["cart"].dictionaryObject!["totalAmount"] as? String
+        {
+            
+            AmountLbl.text = "Total Amount : \(walletBalance)"
+            
+        }
+        
+        
+        
     }
     
     
@@ -107,19 +114,27 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.NameLbl.text = CartDataDictionary[indexPath.item].patientName
         cell.PriceLbl.text = CartDataDictionary[indexPath.item].amount
-        cell.DateLbl.text = CartDataDictionary[indexPath.item].appointmentDate
+        
+        let DateResult = CartDataDictionary[indexPath.item].appointmentDate!
+        
+        let Sdate = Date(timeIntervalSince1970: TimeInterval(DateResult))
+        let SdateFormatter = DateFormatter()
+        SdateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        SdateFormatter.locale = NSLocale.current
+        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM aa" //Specify your format that you want
+        let SstrDate = SdateFormatter.string(from: Sdate)
+        
+        print(SstrDate)
+        
+        cell.DateLbl.text = "\(SstrDate)"
+        
         cell.AppoinmentForLbl.text = CartDataDictionary[indexPath.item].bookingtype
         cell.AppoinmentTypeLbl.text = CartDataDictionary[indexPath.item].particular
-        
-        print(CartDataDictionary[indexPath.item].appointmentDate)
-    
-        //AmountLbl.text = CartDataDictionary[indexPath.item].walletBalance
-
         
         return cell
     }
     
-
+    
     @IBAction func Back(_ sender: Any) {
         
         let main = UIStoryboard(name: "Main", bundle: nil)

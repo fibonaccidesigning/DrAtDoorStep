@@ -10,23 +10,30 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class WalletViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WalletViewController: UIViewController{
 
     // MARK: - DataModel
     
     let walletDataModel = DrAtDoorDataModel()
-     var WalletDataDictionary : [NotificationDataModel] = []
+    var WalletDataDictionary : [NotificationDataModel] = []
     
     // MARK: - URL
     
     let wallet_URL = "http://dratdoorstep.com/livemob/wallet"
     
+    let notification = UINotificationFeedbackGenerator()
+    
+    var RetriveFechData = 0
+    
+    
     
     // MARK: - ViewController
     
-    @IBOutlet var WalletTableView: UITableView!
     @IBOutlet var BalanceLbl: UILabel!
     @IBOutlet var Recharge: UIButton!
+    @IBOutlet var OrderNumber: UILabel!
+    @IBOutlet var AmountLabel: UILabel!
+    @IBOutlet var DateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +41,11 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
         Recharge.layer.cornerRadius = 0.1 * Recharge.bounds.size.width
         Recharge.clipsToBounds = true
         
-        WalletTableView.tableFooterView = UIView()
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+        
+        //let userIdDM = "\(RetriveFechData)"
         
         let userIdDM = "6"
         let deviceTypeDM = "ios"
@@ -54,10 +65,9 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 let WalletJSON : JSON = JSON(respondse.result.value!)
                 self.updateWalletData(json: WalletJSON)
+//                self.uiUpdate(json: WalletJSON)
                 print(respondse)
-                
-                
-   
+       
             }
             else{
                 print("Json Error")
@@ -69,57 +79,57 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
     
     func updateWalletData(json : JSON)  {
         
-        let pro = json["wallet"]["transactions"].array
         
-//        if pro != nil{
-//
-//            let range = pro!.count
-//
-//            for i in 0..<range{
-//
-//                WalletDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
-//
-//                self.WalletTableView.reloadData()
-//
-//
-//
-//            }
-//        }else{
-//
-//        }
+        let pro = json["wallet"].array
         
+        if pro != nil{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
+                
+                WalletDataDictionary.append(NotificationDataModel(json:(pro![i].dictionaryObject)!))
+            
+                
+            }
+            
+        }
+        
+        walletDataModel.orderNumber = json["wallet"]["transactions"][0]["orderNumber"].intValue
+        walletDataModel.amount = json["wallet"]["transactions"][0]["amount"].intValue
+        walletDataModel.date = json["wallet"]["transactions"][0]["date"].intValue
+
+        OrderNumber.text = "ORDER NO. : \(walletDataModel.orderNumber!)"
+        AmountLabel.text = "AMOUNT : \(walletDataModel.amount!)"
+        DateLabel.text = ""
+
         if let walletBalance = json["wallet"].dictionaryObject!["walletBalance"] as? String
         {
             print(walletBalance)
             BalanceLbl.text = walletBalance
-            print(json["wallet"].dictionaryObject!["id"] as? Int as Any)
-            print(json["wallet"].dictionaryObject!["date"] as? String as Any)
+      
         }
         
- 
-    }
-    
-    // MARK: - Wallet Table
+        
+        
+        var DateResult = "\(walletDataModel.date!)"
+            
+        
+        
+        let Sdate = Date(timeIntervalSince1970: TimeInterval(DateResult) as! TimeInterval)
+        let SdateFormatter = DateFormatter()
+        SdateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        SdateFormatter.locale = NSLocale.current
+        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM aa" //Specify your format that you want
+        let SstrDate = SdateFormatter.string(from: Sdate)
+        
+        print(SstrDate)
+        
+        
+        DateLabel.text = "\(SstrDate)"
 
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WalletDataDictionary.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WalletTableViewCell
-        
-        
-        cell.OrderNoLbl.text = WalletDataDictionary[indexPath.row].orderNo
-        cell.BalanceLbl.text = WalletDataDictionary[indexPath.row].walletBalance
-       // cell.DateLbl.text = WalletDataDictionary[indexPath.row].date
-        
-        
-        print(WalletDataDictionary[indexPath.row].walletBalance as Any)
-        
-        
-        return cell
+       
     }
     
     

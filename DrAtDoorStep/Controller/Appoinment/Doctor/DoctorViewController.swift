@@ -362,7 +362,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let dateDM = "\(UNIXDate)"
         let timeDM = selectI
         let addressDM = AddressTextField.text!
-        let isToEditDM = isToEditFlag
+        let isToEditDM = "false"//isToEditFlag
         let isForBookDM = isForBookFlag
         
         let parms : [String : String] = ["userId" : userIdDM,
@@ -450,7 +450,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         doctorDataModel.address = json["address"].stringValue
         doctorDataModel.complain = json["complain"].stringValue
         doctorDataModel.typeId = json["typeId"].stringValue
-        doctorDataModel.date = json["date"].stringValue
+       // doctorDataModel.date = json["date"].stringValue
         doctorDataModel.timeSlot = json["timeSlot"].stringValue
         doctorDataModel.address = json["address"].stringValue
         doctorDataModel.name = json["name"].stringValue

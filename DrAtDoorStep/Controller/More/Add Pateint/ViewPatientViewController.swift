@@ -87,7 +87,14 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewPatientTableViewCell
         
         cell.NameLbl.text = PatientDataDictionary[indexPath.item].name
-        cell.GenderLbl.text = PatientDataDictionary[indexPath.item].gender
+        //cell.GenderLbl.text = PatientDataDictionary[indexPath.item].gender
+        
+        if PatientDataDictionary[indexPath.row].gender == "M"{
+            cell.GenderLbl.text = "Male"
+        }else{
+            cell.GenderLbl.text = "Female"
+        }
+        
         cell.AgeLbl.text = PatientDataDictionary[indexPath.item].age
       
         return cell
