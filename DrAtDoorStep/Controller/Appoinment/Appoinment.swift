@@ -27,13 +27,25 @@ class Appoinment: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         let RetriveFechData = UserDefaults.standard.integer(forKey: "userId")
-     
+        
         let userIdDM = "\(RetriveFechData)"
-        let parms : [String : String] = ["userId" : userIdDM]
-        getPatientData(url: View_Patient_URL, parameters: parms)
-                                        
+        
+        if userIdDM == "" {
+            
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let second = main.instantiateViewController(withIdentifier: "LoginVC")
+            self.present(second, animated: true, completion: nil)
+            
+        }else{
+            
+           let parms : [String : String] = ["userId" : userIdDM]
+           getPatientData(url: View_Patient_URL, parameters: parms)
+            
+        }
+        
     }
     
+   
     
     func getPatientData(url : String, parameters: [String : String]) {
         

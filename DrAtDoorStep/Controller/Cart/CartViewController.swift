@@ -28,6 +28,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var pickData : [Dictionary<String, String>] = []
     
+    let notification = UINotificationFeedbackGenerator()
+
+    
     var selectedItem  = ""
     var selectedPatientId = ""
     
@@ -49,7 +52,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
         print(RetriveFechData)
         
-        let userIdDM = "\(RetriveFechData)"
+        let userIdDM = "5191"//"\(RetriveFechData)"
         let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["userId" : userIdDM,
@@ -80,22 +83,43 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     func updateLoginData(json : JSON)  {
         
         let pro = json["cart"]["cartBookings"].array
-        let range = pro!.count
         
-        for i in 0..<range{
+        if pro == nil{
             
-            CartDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
+            let alert = UIAlertController(title: "Empty", message: "No Items Found In Cart", preferredStyle: .alert)
             
-            self.CartTable.reloadData()
+            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil )
+            
+            self.notification.notificationOccurred(.warning )
+            
+        }else{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
+                
+                CartDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
+                
+                self.CartTable.reloadData()
+                
+            }
+            
+            if let walletBalance = json["cart"].dictionaryObject!["totalAmount"] as? String
+            {
+                
+                AmountLbl.text = "Total Amount : \(walletBalance)"
+                
+            }
+            
             
         }
         
-        if let walletBalance = json["cart"].dictionaryObject!["totalAmount"] as? String
-        {
-            
-            AmountLbl.text = "Total Amount : \(walletBalance)"
-            
-        }
+        
+        
         
         
         

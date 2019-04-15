@@ -15,6 +15,7 @@
 		B20EAA9E2226581600DBCD04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA9C2226581600DBCD04 /* LaunchScreen.storyboard */; };
 		B20EAAAE22269D0F00DBCD04 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAAD22269D0E00DBCD04 /* More.swift */; };
 		B20EAAB92226A0B900DBCD04 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAB82226A0B900DBCD04 /* DoctorViewController.swift */; };
+		B21F4DBF22606A0A00FBB28D /* SignoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F4DBE22606A0A00FBB28D /* SignoutViewController.swift */; };
 		B23EC0E02226A63400DDB908 /* NursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0DF2226A63400DDB908 /* NursesViewController.swift */; };
 		B23EC0E32226A76E00DDB908 /* LabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E22226A76E00DDB908 /* LabViewController.swift */; };
 		B23EC0E62226A8D100DDB908 /* CaretakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */; };
@@ -65,6 +66,7 @@
 		B20EAA9F2226581600DBCD04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B20EAAAD22269D0E00DBCD04 /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
 		B20EAAB82226A0B900DBCD04 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
+		B21F4DBE22606A0A00FBB28D /* SignoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignoutViewController.swift; sourceTree = "<group>"; };
 		B23EC0DF2226A63400DDB908 /* NursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursesViewController.swift; sourceTree = "<group>"; };
 		B23EC0E22226A76E00DDB908 /* LabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabViewController.swift; sourceTree = "<group>"; };
 		B23EC0E52226A8D100DDB908 /* CaretakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				B297739A225637FE00A26073 /* Help */,
 				B297739B2256381400A26073 /* Terms & Condition */,
 				B2DDFAFF22367E1000C87D6D /* Feedback */,
+				B21F4DBE22606A0A00FBB28D /* SignoutViewController.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -325,9 +328,9 @@
 			isa = PBXGroup;
 			children = (
 				B2A235BF2227AEE600546FF7 /* LoginViewController.swift */,
+				B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */,
 				B2A235C12227AEF100546FF7 /* RegisterViewController.swift */,
 				B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */,
-				B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */,
 				B2A235C52227B75100546FF7 /* CreatePasswordViewController.swift */,
 			);
 			path = Login;
@@ -554,6 +557,7 @@
 				B2DDFB01223681CF00C87D6D /* FeedbackDataModel.swift in Sources */,
 				B23EC0F82226AFE900DDB908 /* TermsConditionViewController.swift in Sources */,
 				B2D320CA223132E1005DF272 /* NotificationsViewController.swift in Sources */,
+				B21F4DBF22606A0A00FBB28D /* SignoutViewController.swift in Sources */,
 				B20EAA942226581400DBCD04 /* AppDelegate.swift in Sources */,
 				B23EC0E32226A76E00DDB908 /* LabViewController.swift in Sources */,
 			);

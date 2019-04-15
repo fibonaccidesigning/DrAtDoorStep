@@ -45,9 +45,7 @@ class WalletViewController: UIViewController{
         RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
         print(RetriveFechData)
         
-        //let userIdDM = "\(RetriveFechData)"
-        
-        let userIdDM = "6"
+        let userIdDM = "5191" //"\(RetriveFechData)"
         let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["userId" : userIdDM,
@@ -80,7 +78,7 @@ class WalletViewController: UIViewController{
     func updateWalletData(json : JSON)  {
         
         
-        let pro = json["wallet"].array
+        let pro = json["walle"].array
         
         if pro != nil{
             
@@ -93,15 +91,20 @@ class WalletViewController: UIViewController{
                 
             }
             
+        }else{
+            OrderNumber.text = "---"
+            AmountLabel.text = "---"
+            DateLabel.text = "---"
         }
         
         walletDataModel.orderNumber = json["wallet"]["transactions"][0]["orderNumber"].intValue
         walletDataModel.amount = json["wallet"]["transactions"][0]["amount"].intValue
         walletDataModel.date = json["wallet"]["transactions"][0]["date"].intValue
-
+        
+        
         OrderNumber.text = "ORDER NO. : \(walletDataModel.orderNumber!)"
         AmountLabel.text = "AMOUNT : \(walletDataModel.amount!)"
-        DateLabel.text = ""
+        DateLabel.text = "---"
 
         if let walletBalance = json["wallet"].dictionaryObject!["walletBalance"] as? String
         {
@@ -112,7 +115,7 @@ class WalletViewController: UIViewController{
         
         
         
-        var DateResult = "\(walletDataModel.date!)"
+        let DateResult = "\(walletDataModel.date!)"
             
         
         
@@ -128,6 +131,9 @@ class WalletViewController: UIViewController{
         
         DateLabel.text = "\(SstrDate)"
 
+        if SstrDate == "01/00/1970 00:01 AM"{
+            DateLabel.text = "---"
+        }
         
        
     }

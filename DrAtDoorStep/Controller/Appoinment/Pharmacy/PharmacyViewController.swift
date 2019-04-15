@@ -24,7 +24,7 @@ class PharmacyViewController: UIViewController {
     let ePharmacy_URL = "http://dratdoorstep.com/livemob/ePharmacy"
 
     
-    //MARK: - ViewControllers
+    //MARK: - IBOutles
     
     @IBOutlet var ContactPersonTextField: UITextField!
     @IBOutlet var ContactNumberTextField: UITextField!
@@ -56,7 +56,24 @@ class PharmacyViewController: UIViewController {
         print(RetriveFechData)
         
     }
-
+    
+    @IBAction func ContactPerson(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func Contact(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func Landline(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func Address(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    
     // MARK: - Order
     
     @IBAction func OrderBtn(_ sender: Any) {

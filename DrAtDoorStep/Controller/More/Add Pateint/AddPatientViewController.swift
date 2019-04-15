@@ -47,7 +47,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var flag = 0
     
     
-    //MARK: - ViewController
+    //MARK: - IBOutles
     
     @IBOutlet var NameTextField: UITextField!
     @IBOutlet var BuldingTextField: UITextField!
@@ -64,6 +64,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet var PickerViewVC: UIPickerView!
     @IBOutlet var CityPicker: UIPickerView!
+    @IBOutlet var BarLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +87,19 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         print(RetriveFechData)
         
     }
+   
     
+    @IBAction func NameField(_ sender: UITextField) {
+         sender.resignFirstResponder()
+    }
+    
+    @IBAction func BlockBuliding(_ sender: UITextField) {
+         sender.resignFirstResponder()
+    }
+    
+    @IBAction func AreaField(_ sender: UITextField) {
+         sender.resignFirstResponder()
+    }
     
     // MARK: - Select Gender
     
@@ -97,6 +110,10 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         PickerViewVC.isHidden = false
         CityPicker.isHidden = true
+        
+        BarLabel.text = "Select Gender"
+        
+        self.view.endEditing(true)
     }
     
     
@@ -111,6 +128,11 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         CityPicker.isHidden = false
         
         CityLoadData()
+        
+        BarLabel.text = "Select City"
+        
+        self.view.endEditing(true)
+
     }
     
     func CityLoadData(){
@@ -137,25 +159,36 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func updateCityData(json : JSON)  {
         
-        let countryyy = json["cities"].array
+        let pro = json["cities"].array
         
-        let range = countryyy!.count
-        
-        for i in 0..<range{
+        if pro == nil{
             
-            if flag == 0 {
-                cityPickData.append(countryyy![i].dictionaryObject as! [String : String])
+            dismiss(animated: true, completion: nil)
+            
+            CityTextField.text = "No city's found"
+            
+            HideVC()
+            
+        }else{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
                 
-                selectedItem = cityPickData[i]["cityName"]!
-                selectCity = cityPickData[i]["cityId"]!
-                
-                self.CityPicker.reloadAllComponents()
-                
-                print(selectI)
+                if flag == 0 {
+                    cityPickData.append(pro![i].dictionaryObject as! [String : String])
+                    
+                    selectedItem = cityPickData[i]["cityName"]!
+                    selectCity = cityPickData[i]["cityId"]!
+                    
+                    self.CityPicker.reloadAllComponents()
+                    
+                    print(selectI)
+                }
             }
+            flag = 1
+            
         }
-        flag = 1
-
         
     }
     
@@ -291,6 +324,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func updateLoginData(json : JSON)  {
         
+        
         addPatientDataModel.name = json["name"].stringValue
         addPatientDataModel.address = json["address"].stringValue
         addPatientDataModel.area = json["area"].stringValue
@@ -304,6 +338,17 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
     }
     
-
+    // MARK: - HideVC
+    
+    func HideVC()  {
+        
+        ViewVC.isHidden = true
+        PickerViewVC.isHidden = true
+        TabBarVC.isHidden = true
+        
+        
+        self.view.endEditing(true)
+        
+    }
 
 }

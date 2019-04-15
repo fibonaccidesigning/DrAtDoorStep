@@ -78,11 +78,12 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet var PickerView1: UIPickerView!
     @IBOutlet var PickerView2: UIPickerView!
     @IBOutlet var DatePic: UIDatePicker!
-    @IBOutlet var UIViewVC: UIView!
     
     @IBOutlet var DONE: UIBarButtonItem!
     @IBOutlet var ViewVC: UIToolbar!
-  
+    @IBOutlet var UIViewVC: UIView!
+    @IBOutlet var BarTextField: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +91,21 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.HideKeybord()
         
         // MARK: - Hide Controller
+        
+        HideVC()
+        
+        DaysTextField.isEnabled = false
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+
+    }
+    
+    
+    //MARK: - Complain
+    
+    @IBAction func Complain(_ sender: UITextField) {
+        
         
         ViewVC.isHidden = true
         UIViewVC.isHidden = true
@@ -99,14 +115,21 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         PickerView2.isHidden = true
         DatePic.isHidden = true
         
-        DaysTextField.isEnabled = false
+        sender.resignFirstResponder()
         
-        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
-        print(RetriveFechData)
-
     }
     
-     // MARK: - Select Patient
+    
+    //MARK: - Address
+    
+    @IBAction func Address(_ sender: UITextField) {
+        
+         sender.resignFirstResponder()
+        
+    }
+    
+    
+    // MARK: - Select Patient
     
     @IBAction func SelectPatient(_ sender: Any) {
         
@@ -117,6 +140,10 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         PickerView1.isHidden = true
         PickerView2.isHidden = true
         DatePic.isHidden = true
+    
+        BarTextField.text = "Select Patient"
+        
+        self.view.endEditing(true)
         
         PatientloadData()
     }
@@ -147,25 +174,36 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func updatePatientData(json : JSON)  {
         
-        let countryyy = json["patients"].array
+        let pro = json["patients"].array
         
-        let range = countryyy!.count
-        
-        for i in 0..<range{
+        if pro == nil{
             
-            if flag == 0 {
-                pickData.append(countryyy![i].dictionaryObject as! [String : String])
+            dismiss(animated: true, completion: nil)
+            
+            SelectPatientTextField.text = "No Patient found"
+            
+            HideVC()
+            
+        }else{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
                 
-                selectedItem = pickData[i]["name"]!
-                selectedPatientId = pickData[i]["patientId"]!
-                
-                self.PickerViewController.reloadAllComponents()
-                
+                if flag == 0 {
+                    pickData.append(pro![i].dictionaryObject as! [String : String])
+                    
+                    selectedItem = pickData[i]["name"]!
+                    selectedPatientId = pickData[i]["patientId"]!
+                    
+                    self.PickerViewController.reloadAllComponents()
+                    
+                }
             }
+            
+            flag = 1
         }
-        
-        flag = 1
-       
+    
     }
     
     
@@ -180,6 +218,10 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         PickerView1.isHidden = false
         PickerView2.isHidden = true
         DatePic.isHidden = true
+        
+         BarTextField.text = "Select Doctor Type"
+        
+        self.view.endEditing(true)
         
         if SelectDecotorTextField.text == "Intermediate" || SelectDecotorTextField.text == "Daily"{
             DaysTextField.isEnabled = true
@@ -218,6 +260,10 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         UNIXDate = dateTimeStamp
         
+        self.view.endEditing(true)
+        
+        BarTextField.text = "Select Date"
+        
     }
     
     
@@ -233,6 +279,10 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         PickerView1.isHidden = true
         PickerView2.isHidden = false
         DatePic.isHidden = true
+        
+         BarTextField.text = "Select Time"
+        
+        self.view.endEditing(true)
     }
     
     
@@ -240,13 +290,7 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func Done(_ sender: Any) {
         
-        ViewVC.isHidden = true
-        UIViewVC.isHidden = true
-        
-        PickerViewController.isHidden = true
-        PickerView1.isHidden = true
-        PickerView2.isHidden = true
-        DatePic.isHidden = true
+        HideVC()
         
         if SelectDecotorTextField.text == "Intermediate" || SelectDecotorTextField.text == "Daily"{
             DaysTextField.isEnabled = true
@@ -479,7 +523,17 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // MARK: - CurrentAddress
     
     @IBAction func CurrentAddress(_ sender: Any) {
-        notification.notificationOccurred(.success)
+        
+        let alert = UIAlertController(title: "Error", message: "Unable To Get Your Current Location", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil )
+        
+        
+        notification.notificationOccurred(.error)
         //determineMyCurrentLocation()
     }
     
@@ -527,6 +581,23 @@ class NursesViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let main = UIStoryboard(name: "Main", bundle: nil)
         let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
         self.present(second, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - HideVC
+    
+    func HideVC()  {
+        
+        ViewVC.isHidden = true
+        UIViewVC.isHidden = true
+        
+        PickerViewController.isHidden = true
+        PickerView1.isHidden = true
+        PickerView2.isHidden = true
+        DatePic.isHidden = true
+        
+        self.view.endEditing(true)
+        
     }
     
 }

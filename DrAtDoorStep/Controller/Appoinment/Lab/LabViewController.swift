@@ -59,7 +59,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var isForBookFlag = ""
     
     
-    //MARK: - ViewController
+    //MARK: - IBOulets
     
     @IBOutlet var SelectPatientTextField: UITextField!
     @IBOutlet var DateTextField: UITextField!
@@ -78,6 +78,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet var DONE: UIBarButtonItem!
     @IBOutlet var ViewVC: UIToolbar!
     @IBOutlet var UIViewVC: UIView!
+    @IBOutlet var BarLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -93,12 +94,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         // MARK: - Hide Controller
         
-        ViewVC.isHidden = true
-        UIViewVC.isHidden = true
-        
-        PickerViewController.isHidden = true
-        PickerView1.isHidden = true
-        PickerView2.isHidden = true
+        HideVC()
         
         //MARK: - UserDefult
         
@@ -121,6 +117,10 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         DatePic.isHidden = true
         
         PatientloadData()
+        
+        BarLabel.text = "Select Patient"
+        
+        self.view.endEditing(true)
     }
     
     func PatientloadData(){
@@ -148,25 +148,36 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func updatePatientData(json : JSON)  {
         
-        let countryyy = json["patients"].array
+        let pro = json["patients"].array
         
-        let range = countryyy!.count
-        
-        for i in 0..<range{
+        if pro == nil{
             
-            if flag == 0 {
-                pickData.append(countryyy![i].dictionaryObject as! [String : String])
+            dismiss(animated: true, completion: nil)
+            
+            SelectPatientTextField.text = "No Patient found"
+            
+            HideVC()
+            
+        }else{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
                 
-                selectedItem = pickData[i]["name"]!
-                selectedPatientId = pickData[i]["patientId"]!
-                
-                self.PickerViewController.reloadAllComponents()
-                
+                if flag == 0 {
+                    pickData.append(pro![i].dictionaryObject as! [String : String])
+                    
+                    selectedItem = pickData[i]["name"]!
+                    selectedPatientId = pickData[i]["patientId"]!
+                    
+                    self.PickerViewController.reloadAllComponents()
+                    
+                }
             }
+            
+            flag = 1
         }
-        
-        flag = 1
-        
+ 
     }
     
     
@@ -181,6 +192,9 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         PickerView1.isHidden = false
         PickerView2.isHidden = true
         DatePic.isHidden = true
+        BarLabel.text = "Select Type"
+        
+        self.view.endEditing(true)
     }
     
     
@@ -210,6 +224,10 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let dateTimeStamp  = dateString!.timeIntervalSince1970
         
         UNIXDate = dateTimeStamp
+        
+        BarLabel.text = "Select Date"
+        
+        self.view.endEditing(true)
     }
     
     
@@ -224,6 +242,10 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         PickerView1.isHidden = true
         PickerView2.isHidden = false
         DatePic.isHidden = true
+        
+        BarLabel.text = "Select Time"
+        
+        self.view.endEditing(true)
     }
     
     
@@ -468,6 +490,21 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let main = UIStoryboard(name: "Main", bundle: nil)
         let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
         self.present(second, animated: true, completion: nil)
+    }
+    
+    // MARK: - HideVC
+    
+    func HideVC()  {
+        
+        ViewVC.isHidden = true
+        UIViewVC.isHidden = true
+        
+        PickerViewController.isHidden = true
+        PickerView1.isHidden = true
+        PickerView2.isHidden = true
+        
+        self.view.endEditing(true)
+        
     }
     
 }

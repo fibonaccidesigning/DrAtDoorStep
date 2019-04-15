@@ -24,6 +24,8 @@ class ChangePasswordViewController: UIViewController {
     
     let notification = UINotificationFeedbackGenerator()
     
+    var RetriveFechData = 0
+    
     //MARK: - ViewController
     
     @IBOutlet var OldPasswordTextField: UITextField!
@@ -38,9 +40,23 @@ class ChangePasswordViewController: UIViewController {
         MessageLabel.text = ""
     }
     
+    
+    @IBAction func OldPassword(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func NewPassword(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func ConfirmPassword(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    
     @IBAction func ChangePassword(_ sender: Any) {
         
-        let userIdDM = "5191"
+        let userIdDM =  "\(RetriveFechData)"
         let deviceTypeDM = "ios"
         let currentPasswordDM = OldPasswordTextField.text!
         let newPasswordDM = NewPasswordTextField.text!

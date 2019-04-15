@@ -17,6 +17,8 @@ class AuthenticateViewController: UIViewController {
     
     let authenticationDataModel = DrAtDoorDataModel()
     
+     let notification = UINotificationFeedbackGenerator()
+    
     
     // MARK: - URL
     
@@ -27,13 +29,11 @@ class AuthenticateViewController: UIViewController {
     // MARK: - ViewController
     
     @IBOutlet var PasswordTextField: UITextField!
-    @IBOutlet var MessageLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
-        MessageLabel.text = ""
     }
     
     // MARK: - Continue
@@ -42,10 +42,10 @@ class AuthenticateViewController: UIViewController {
         
         let passwordDM = PasswordTextField.text!
         let mobileNumberDM = authenticationDataModel.mobile
-        
-//        let deviceTypeDM = ""
+        let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["password" : passwordDM,
+                                         "deviceType" : deviceTypeDM,
                                          "mobileNumber" : mobileNumberDM!]
         
         getData(url: Authenticate_URL, parameters: parms)
@@ -64,15 +64,36 @@ class AuthenticateViewController: UIViewController {
                 if self.PasswordTextField.text != ""{
                     
                     if self.authenticationDataModel.isSuccess == true{
-                        self.MessageLabel.text = self.authenticationDataModel.message
-                        self.performSegue(withIdentifier: "GoToCreatePassword", sender: self)
+                       
+                        let main = UIStoryboard(name: "Main", bundle: nil)
+                        let second = main.instantiateViewController(withIdentifier: "GoToCreatePasswordVC")
+                        self.present(second, animated: true, completion: nil)
+                        self.notification.notificationOccurred(.success)
                     }
                     else{
-                        self.MessageLabel.text = self.authenticationDataModel.message
+                        
+                        let alert = UIAlertController(title: "Error", message: "\(String(describing: self.authenticationDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.warning)
                     }
                 }
                 else{
-                    self.MessageLabel.text = "Please enter Password"
+                    
+                    let alert = UIAlertController(title: "Error", message: "\(String(describing: self.authenticationDataModel.message!))", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
                 }
                 
             }
@@ -117,19 +138,53 @@ class AuthenticateViewController: UIViewController {
                 if self.PasswordTextField.text != ""{
                     
                     if self.authenticationDataModel.isSuccess == true{
-                        self.MessageLabel.text = self.authenticationDataModel.message
+                       
+                        let alert = UIAlertController(title: "Sent", message: "\(String(describing: self.authenticationDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.success)
+                        
                     }
                     else{
-                        self.MessageLabel.text = self.authenticationDataModel.message
+                        let alert = UIAlertController(title: "Error", message: "\(String(describing: self.authenticationDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.warning)
                     }
                 }
                 else{
-                    self.MessageLabel.text = "Error"
+                    let alert = UIAlertController(title: "Error", message: "\(String(describing: self.authenticationDataModel.message!))", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
                 }
                 
             }
             else{
-                print("Error")
+                let alert = UIAlertController(title: "Error", message: "\(String(describing: self.authenticationDataModel.message!))", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil )
+                
+                self.notification.notificationOccurred(.warning)
             }
         }
         
@@ -149,7 +204,12 @@ class AuthenticateViewController: UIViewController {
     // MARK: - Cancel
     
     @IBAction func Cancel(_ sender: Any) {
-         dismiss(animated: true, completion: nil)
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "LoginVC")
+        self.present(second, animated: true, completion: nil)
+        
+        self.notification.notificationOccurred(.success)
     }
     
 }

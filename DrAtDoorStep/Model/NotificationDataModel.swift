@@ -30,6 +30,7 @@ class NotificationDataModel{
     var ParticularDM = "particular"
     var typeDM = "type"
     var totalAmountDM = "totalAmount"
+    var confirmDM = "confirm"
     
     
     var type : String?
@@ -50,12 +51,16 @@ class NotificationDataModel{
     var invoiceUrl : String?
     var id : Int?
     var orderNumber : Int?
+    var confirm : Int?
     
     
     init(json: [String : Any?]) {
         
         if let value = json[NotifiIdDM] as? Int {
             self.notificationId = value
+        }
+        if let value = json[confirmDM] as? Int {
+            self.confirm = value
         }
         if let value = json[totalAmountDM] as? Int {
             self.totalAmount = value

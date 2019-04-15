@@ -45,7 +45,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
         print(RetriveFechData)
         
-        let userIdDM = "6"//"\(RetriveFechData)"
+        let userIdDM = "\(RetriveFechData)"
         
         let parms : [String : String] = ["userId" : userIdDM ]
         
@@ -88,6 +88,17 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
                 
             }
             
+        }else{
+            
+            let alert = UIAlertController(title: "Error", message: "No Booking Found.", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil )
+            
+            self.notification.notificationOccurred(.warning)
         }
         
     }
@@ -118,7 +129,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         let SdateFormatter = DateFormatter()
         SdateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
         SdateFormatter.locale = NSLocale.current
-        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM aa" //Specify your format that you want
+        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM:SS aa" //Specify your format that you want
         let SstrDate = SdateFormatter.string(from: Sdate)
         
         print(SstrDate)
@@ -126,11 +137,13 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         cell.DateLbl.text = "\(SstrDate)"
         
         cell.CanceledLbl.text = BookingHistoryDataDictionary[indexPath.item].flagcancel
-    
- 
+
         
-        if BookingHistoryDataDictionary[indexPath.item].flagcancel == nil{
+        if BookingHistoryDataDictionary[indexPath.item].confirm == nil{
             cell.CanceledLbl.text = "Cancelled"
+        }
+        else{
+            cell.CanceledLbl.text = ""
         }
         
         return cell

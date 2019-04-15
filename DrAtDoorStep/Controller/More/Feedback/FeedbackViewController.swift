@@ -50,7 +50,7 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var isForBookFlag = ""
     
     
-    //MARK: - ViewController
+    //MARK: - IBOutlets
     
     @IBOutlet var OptionTextField: UITextField!
     @IBOutlet var ServiceTextField: UITextField!
@@ -63,6 +63,7 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet var UIViewVC: UIView!
     @IBOutlet var BarVC: UIToolbar!
+    @IBOutlet var BatLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -94,6 +95,10 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         UIViewVC.isHidden = false
         BarVC.isHidden = false
+        
+        BatLabel.text = "Select Option"
+        
+        self.view.endEditing(true)
     }
     
     
@@ -106,6 +111,10 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         UIViewVC.isHidden = false
         BarVC.isHidden = false
+        
+        BatLabel.text = "Select Services"
+        
+        self.view.endEditing(true)
         
     }
     
@@ -171,10 +180,11 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             selectOption = "2"
         }
         
+        let userIdDM = "\(RetriveFechData)"
         let optionIdDM = selectOption
         let serviceIdDM = selectService
         let feedbackDM = FeedbackTextField.text!
-        let userIdDM = "\(RetriveFechData)"
+        
         
         
         let parms : [String : String] = ["optionId" : optionIdDM,

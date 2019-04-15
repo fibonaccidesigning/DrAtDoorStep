@@ -66,7 +66,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var isForBookFlag = ""
     
     
-    // MARK: - ViewControllers
+    // MARK: - IBOutles
     
     @IBOutlet var ContactPersonTextField: UITextField!
     @IBOutlet var AgeTextField: UITextField!
@@ -86,6 +86,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBOutlet var UIViewVC: UIView!
     @IBOutlet var ToolBarVC: UIToolbar!
+    @IBOutlet var BarLabels: UILabel!
     
     @IBOutlet var GenderPicker: UIPickerView!
     @IBOutlet var CityPicker: UIPickerView!
@@ -100,15 +101,8 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         // MARK: - Hide Controller
         
-        UIViewVC.isHidden = true
-        ToolBarVC.isHidden = true
+        HideVC()
         
-        GenderPicker.isHidden = true
-        CityPicker.isHidden = true
-        TimePicker.isHidden = true
-        TypePicker.isHidden = true
-        DatePicker.isHidden = true
-       
         
         //MARK: - UserDefult
         
@@ -131,7 +125,31 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
     }
     
-
+    // MARK: - Contact Person
+    
+    @IBAction func ContactPerson(_ sender: UITextField) {
+          sender.resignFirstResponder()
+    }
+    
+    
+    // MARK: - From Address
+    
+    @IBAction func FromField(_ sender: UITextField) {
+         sender.resignFirstResponder()
+    }
+    
+   
+    // MARK: - Conditions
+    
+    @IBAction func ConditionField(_ sender: UITextField) {
+         sender.resignFirstResponder()
+    }
+    
+    
+    @IBAction func Address(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
     // MARK: - Select Gender
     
     @IBAction func SelectGender(_ sender: Any) {
@@ -144,6 +162,10 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         TimePicker.isHidden = true
         TypePicker.isHidden = true
         DatePicker.isHidden = true
+        
+        BarLabels.text = "Select Gender"
+        
+        self.view.endEditing(true)
         
     }
     
@@ -161,6 +183,10 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         DatePicker.isHidden = true
         
         CityLoadData()
+        
+        BarLabels.text = "Select City"
+        
+        self.view.endEditing(true)
         
     }
     
@@ -188,24 +214,37 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func updateCityData(json : JSON)  {
         
-        let countryyy = json["cities"].array
+        let pro = json["cities"].array
         
-        let range = countryyy!.count
-        
-        for i in 0..<range{
+        if pro == nil{
             
-             if flag == 0 {
-                cityPickData.append(countryyy![i].dictionaryObject as! [String : String])
+            dismiss(animated: true, completion: nil)
+            
+            SelectCityTextField.text = "No city's found"
+            
+            HideVC()
+            
+        }else{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
                 
-                selectedItem = cityPickData[i]["cityName"]!
-                selectCity = cityPickData[i]["cityId"]!
-                
-                self.CityPicker.reloadAllComponents()
-                
-                print(selectI)
+                if flag == 0 {
+                    cityPickData.append(pro![i].dictionaryObject as! [String : String])
+                    
+                    selectedItem = cityPickData[i]["cityName"]!
+                    selectCity = cityPickData[i]["cityId"]!
+                    
+                    self.CityPicker.reloadAllComponents()
+                    
+                    print(selectI)
+                }
             }
+            flag = 1
         }
-        flag = 1
+        
+        
     }
     
     // MARK: - Select Date
@@ -236,6 +275,10 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         UNIXDate = dateTimeStamp
         
+        BarLabels.text = "Select Date"
+        
+        self.view.endEditing(true)
+        
     }
     
     // MARK: - Select Time
@@ -251,6 +294,11 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         TypePicker.isHidden = true
         DatePicker.isHidden = true
         
+        BarLabels.text = "Select Time"
+        
+        self.view.endEditing(true)
+        
+        
     }
     
     // MARK: - Select Type
@@ -265,6 +313,11 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         TimePicker.isHidden = true
         TypePicker.isHidden = false
         DatePicker.isHidden = true
+        
+        BarLabels.text = "Select Type"
+        
+        self.view.endEditing(true)
+        
         
     }
     
@@ -543,7 +596,17 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // MARK: - CurrentAddress
     
     @IBAction func CurrentAddress(_ sender: Any) {
-        notification.notificationOccurred(.success)
+        
+        let alert = UIAlertController(title: "Error", message: "Unable To Get Your Current Location", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil )
+        
+        notification.notificationOccurred(.error)
+        
         //determineMyCurrentLocation()
     }
     
@@ -564,6 +627,26 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
         self.present(second, animated: true, completion: nil)
 
+    }
+    
+    
+    // MARK: - HideVC
+    
+    func HideVC()  {
+        
+       
+        UIViewVC.isHidden = true
+        ToolBarVC.isHidden = true
+        
+        GenderPicker.isHidden = true
+        CityPicker.isHidden = true
+        TimePicker.isHidden = true
+        TypePicker.isHidden = true
+        DatePicker.isHidden = true
+        
+        
+        self.view.endEditing(true)
+        
     }
     
 }

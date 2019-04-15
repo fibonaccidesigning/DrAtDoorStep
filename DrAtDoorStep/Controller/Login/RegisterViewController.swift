@@ -28,12 +28,12 @@ class RegisterViewController: UIViewController {
     @IBOutlet var EmailTextField: UITextField!
     @IBOutlet var MobileTextField: UITextField!
     @IBOutlet var ReferalCodeTextFiels: UITextField!
-    @IBOutlet var MessageLabel: UILabel!
+    
+    let notification = UINotificationFeedbackGenerator()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MessageLabel.text = ""
         self.HideKeybord()
     }
     
@@ -44,11 +44,13 @@ class RegisterViewController: UIViewController {
         let emailDM = EmailTextField.text!
         let mobileDM = MobileTextField.text!
         let referalDM = ReferalCodeTextFiels.text!
+        let deviceTypeDM = "ios"
         
 //        let deviceType = ""
         
         let parms : [String : String] = ["email" : emailDM,
                                          "mobileNumber" : mobileDM,
+                                         "deviceType" : deviceTypeDM,
                                          "referalCode" : referalDM]
                                          
         
@@ -68,20 +70,49 @@ class RegisterViewController: UIViewController {
                 if self.EmailTextField.text != "" && self.MobileTextField.text != ""{
                     
                     if self.registerDataModel.isSuccess == true{
-                        self.performSegue(withIdentifier: "GoToAuthenticate", sender: self)
-                        self.MessageLabel.text = self.registerDataModel.message
+                        
+                        let main = UIStoryboard(name: "Main", bundle: nil)
+                        let second = main.instantiateViewController(withIdentifier: "GoToAuthenticate")
+                        self.present(second, animated: true, completion: nil)
+                        
+                        self.notification.notificationOccurred(.success)
+                        
                     }
                     else{
-                        self.MessageLabel.text = self.registerDataModel.message
+                        let alert = UIAlertController(title: "Error", message: "\(String(describing: self.registerDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.warning)
                     }
                 }
                 else{
-                    self.MessageLabel.text = "Please enter required fields"
+                    let alert = UIAlertController(title: "Error", message: "\(String(describing: self.registerDataModel.message!))", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
                 }
             
             }
             else{
-                print("Error")
+                let alert = UIAlertController(title: "Error", message: "\(String(describing: self.registerDataModel.message!))", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil )
+                
+                self.notification.notificationOccurred(.warning)
             }
         }
         
@@ -103,7 +134,12 @@ class RegisterViewController: UIViewController {
     //MARK: - Cancel Button
     
     @IBAction func CancelBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "LoginVC")
+        self.present(second, animated: true, completion: nil)
+        
+        self.notification.notificationOccurred(.success)
     }
     
 }

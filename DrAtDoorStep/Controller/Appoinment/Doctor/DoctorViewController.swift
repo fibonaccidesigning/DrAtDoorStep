@@ -61,7 +61,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var isForBookFlag = ""
     
     
-    // MARK: - ViewController
+    // MARK: - IBOutles
 
     @IBOutlet var SelectPatientTextField: UITextField!
     @IBOutlet var ComplainTextField: UITextField!
@@ -81,6 +81,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet var DONE: UIBarButtonItem!
     @IBOutlet var ViewVC: UIToolbar!
     @IBOutlet var UIViewVC: UIView!
+    @IBOutlet var BarTextField: UILabel!
     
     
     override func viewDidLoad() {
@@ -90,12 +91,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // MARK: - Hide Controller
         
-        ViewVC.isHidden = true
-        UIViewVC.isHidden = true
-        
-        PickerViewController.isHidden = true
-        PickerView1.isHidden = true
-        PickerView2.isHidden = true
+        HideVC()
         
         //MARK: - UserDefult
         
@@ -104,6 +100,30 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
    
     }
 
+    
+    //MARK: - Complain
+    
+    @IBAction func Compline(_ sender: UITextField) {
+        
+        ViewVC.isHidden = true
+        UIViewVC.isHidden = true
+        
+        PickerViewController.isHidden = true
+        PickerView1.isHidden = true
+        PickerView2.isHidden = true
+        DatePic.isHidden = true
+        
+        sender.resignFirstResponder()
+        
+    }
+    
+    
+    //MARK: - Address
+    
+    @IBAction func Address(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
     
     // MARK: - Select Patient
     
@@ -118,6 +138,10 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         DatePic.isHidden = true
   
         PatientloadData()
+        
+        BarTextField.text = "Select Patient"
+        
+        self.view.endEditing(true)
     }
     
     func PatientloadData(){
@@ -146,24 +170,37 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     func updatePatientData(json : JSON)  {
         
-        let countryyy = json["patients"].array
+        let pro = json["patients"].array
 
-        let range = countryyy!.count
-    
-        for i in 0..<range{
+        if pro == nil{
             
-            if flag == 0 {
-                pickData.append(countryyy![i].dictionaryObject as! [String : String])
+            dismiss(animated: true, completion: nil)
+            
+            SelectPatientTextField.text = "No Patient found"
+            
+            HideVC()
+            
+        }else{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
                 
-                selectedItem = pickData[i]["name"]!
-                selectedPatientId = pickData[i]["patientId"]!
-                
-                self.PickerViewController.reloadAllComponents()
-                
+                if flag == 0 {
+                    
+                    pickData.append(pro![i].dictionaryObject as! [String : String])
+                    
+                    selectedItem = pickData[i]["name"]!
+                    selectedPatientId = pickData[i]["patientId"]!
+                    
+                    self.PickerViewController.reloadAllComponents()
+                    
+                }
             }
+            
+            flag = 1
         }
         
-        flag = 1
     }
  
     
@@ -179,6 +216,10 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         PickerView2.isHidden = true
         DatePic.isHidden = true
         
+        BarTextField.text = "Select Doctor Type"
+        
+        self.view.endEditing(true)
+        
     }
   
     
@@ -193,6 +234,10 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         PickerView1.isHidden = true
         PickerView2.isHidden = false
         DatePic.isHidden = true
+        
+        BarTextField.text = "Select Time"
+        
+        self.view.endEditing(true)
     }
     
 
@@ -222,24 +267,13 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let dateTimeStamp  = dateString!.timeIntervalSince1970
     
         UNIXDate = dateTimeStamp
+        
+        BarTextField.text = "Select Date"
+        
+        self.view.endEditing(true)
        
     }
-    
-    
-     // MARK: - Done Button
-    
-    @IBAction func Done(_ sender: Any) {
-        
-        ViewVC.isHidden = true
-        UIViewVC.isHidden = true
-        
-        PickerViewController.isHidden = true
-        PickerView1.isHidden = true
-        PickerView2.isHidden = true
-        DatePic.isHidden = true
-        
-    }
-    
+
     
     // MARK: - PickerView Delegate Method
     
@@ -285,6 +319,15 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             selectI = TimeS[row]
         }
         
+    }
+    
+    
+    // MARK: - Done Button
+    
+    @IBAction func Done(_ sender: Any) {
+        
+        HideVC()
+    
     }
     
  
@@ -471,11 +514,22 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // MARK: - CurrentAddress
     
     @IBAction func CurrentAddress(_ sender: Any) {
-         notification.notificationOccurred(.success)
+        
+        let alert = UIAlertController(title: "Error", message: "Unable To Get Your Current Location", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil )
+        
+        
+         notification.notificationOccurred(.error)
       //determineMyCurrentLocation()
     }
     
     func determineMyCurrentLocation() {
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -522,6 +576,23 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
        let main = UIStoryboard(name: "Main", bundle: nil)
         let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
         self.present(second, animated: true, completion: nil)
+        
+    }
+    
+    
+    // MARK: - HideVC
+    
+    func HideVC()  {
+        
+        ViewVC.isHidden = true
+        UIViewVC.isHidden = true
+        
+        PickerViewController.isHidden = true
+        PickerView1.isHidden = true
+        PickerView2.isHidden = true
+        DatePic.isHidden = true
+        
+        self.view.endEditing(true)
         
     }
     

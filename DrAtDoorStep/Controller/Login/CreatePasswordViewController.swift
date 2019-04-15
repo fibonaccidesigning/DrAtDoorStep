@@ -15,16 +15,18 @@ class CreatePasswordViewController: UIViewController {
     // MARK: DataModel
     
     let CreatePasswordDataModel = DrAtDoorDataModel()
+    let notification = UINotificationFeedbackGenerator()
     
     
     // MARK: URL
     
     let ResetPassword_URL = "http://dratdoorstep.com/livemob/resetPassword"
     
+    var RetriveFechData = 0
+    
     
     //MARK: - ViewController
-    
-    @IBOutlet var MessageLabel: UILabel!
+
     @IBOutlet var NewPasswordTextField: UITextField!
     @IBOutlet var ConfirmPasswordTextField: UITextField!
     
@@ -32,17 +34,15 @@ class CreatePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
-        MessageLabel.text = ""
+        
+        //MARK: - UserDefult
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+       
     }
     
-    //MARK: - SkipButton
-    
-    @IBAction func Skip(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "GoToMenu", sender: self)
-        self.MessageLabel.text = self.CreatePasswordDataModel.message
-        
-    }
+   
     
       //MARK: - ResetButton
     
@@ -50,20 +50,20 @@ class CreatePasswordViewController: UIViewController {
         
         if NewPasswordTextField.text == ConfirmPasswordTextField.text{
         
-            let userIdDM = "5191"
+            let userIdDM = "\(RetriveFechData)"
             let isSkipDM = ""
             let passwordDM = ""
-            
-    //        let deviceTypeDM = ""
+            let deviceTypeDM = "ios"
             
             let parms : [String : String] = ["userId" : userIdDM,
                                              "isSkip" : isSkipDM,
+                                             "deviceType" : deviceTypeDM,
                                              "password" : passwordDM]
             
             getData(url: ResetPassword_URL, parameters: parms)
         }else{
             
-           MessageLabel.text = "Password not Match"
+          // MessageLabel.text = "Password not Match"
             
         }
         
@@ -81,20 +81,52 @@ class CreatePasswordViewController: UIViewController {
                 if self.NewPasswordTextField.text != "" && self.ConfirmPasswordTextField.text != ""{
                     
                     if self.CreatePasswordDataModel.isSuccess == true{
-                        self.performSegue(withIdentifier: "GoToMenu", sender: self)
-                        self.MessageLabel.text = self.CreatePasswordDataModel.message
+                        
+                        
+                        let main = UIStoryboard(name: "Main", bundle: nil)
+                        let second = main.instantiateViewController(withIdentifier: "LoginVC")
+                        self.present(second, animated: true, completion: nil)
+                        
+                        self.notification.notificationOccurred(.success)
                     }
                     else{
-                        self.MessageLabel.text = self.CreatePasswordDataModel.message
+                        
+                        let alert = UIAlertController(title: "Error", message: "\(String(describing: self.CreatePasswordDataModel.message!))", preferredStyle: .alert)
+                        
+                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
+                        
+                        self.present(alert, animated: true, completion: nil )
+                        
+                        self.notification.notificationOccurred(.warning)
                     }
                 }
                 else{
-                    self.MessageLabel.text = "Please enter required fields"
+                    
+                    let alert = UIAlertController(title: "Error", message: "\(String(describing: self.CreatePasswordDataModel.message!))", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
                 }
                 
             }
             else{
-                print("Error")
+                
+                let alert = UIAlertController(title: "Error", message: "\(String(describing: self.CreatePasswordDataModel.message!))", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil )
+                
+                self.notification.notificationOccurred(.warning)
             }
         }
         
@@ -112,4 +144,15 @@ class CreatePasswordViewController: UIViewController {
         
     }
     
+    //MARK: - SkipButton
+    
+    @IBAction func Skip(_ sender: Any) {
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "LoginVC")
+        self.present(second, animated: true, completion: nil)
+        
+        self.notification.notificationOccurred(.success)
+        
+    }
 }

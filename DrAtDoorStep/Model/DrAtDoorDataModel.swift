@@ -85,5 +85,5 @@ class DrAtDoorDataModel{
     var particular : String?
     var appointmentDate : Int?
     var patientName : String?
-
+    var confirm : Int?
 }

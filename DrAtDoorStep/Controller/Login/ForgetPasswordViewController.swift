@@ -17,20 +17,21 @@ class ForgetPasswordViewController: UIViewController {
     
     let forgetPasswordDataModel = DrAtDoorDataModel()
     
+    let notification = UINotificationFeedbackGenerator()
+    
     
     // MARK: - URL
     
     let ForgotPassword_URL = "http://dratdoorstep.com/livemob/forgotPassword"
     
     @IBOutlet var EmailMobileTextField: UITextField!
-    @IBOutlet var MessageLabel: UILabel!
+
     @IBOutlet var GifImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeybord()
-        MessageLabel.text = ""
-       // GifImage.loadGif(name: "994ae44a70b1239bd16b99642b7e883e")
+       
     }
     
     
@@ -39,7 +40,7 @@ class ForgetPasswordViewController: UIViewController {
     @IBAction func SendOTP(_ sender: Any) {
         
         let emailMobileDM = EmailMobileTextField.text!
-        let deviceTypeDM = ""
+        let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["emailMobile" : emailMobileDM,
                                          "deviceType" : deviceTypeDM]
@@ -60,28 +61,49 @@ class ForgetPasswordViewController: UIViewController {
                 if self.EmailMobileTextField.text != ""{
                     
                     if self.forgetPasswordDataModel.isSuccess == true{
-                        self.MessageLabel.text = self.forgetPasswordDataModel.message
+                     
+                        let main = UIStoryboard(name: "Main", bundle: nil)
+                        let second = main.instantiateViewController(withIdentifier: "LoginVC")
+                        self.present(second, animated: true, completion: nil)
                         
-                        let alert = UIAlertController(title: "Sent", message: "Password Information Successfully Send to you.", preferredStyle: .alert)
+                        self.notification.notificationOccurred(.success)
+                  
+                    }
+                    else{
+                        let alert = UIAlertController(title: "Error", message: "\(String(describing: self.forgetPasswordDataModel.message!))", preferredStyle: .alert)
                         
                         let action = UIAlertAction(title: "Done", style: .default, handler: nil)
                         
                         alert.addAction(action)
                         
                         self.present(alert, animated: true, completion: nil )
-                  
-                    }
-                    else{
-                        self.MessageLabel.text = self.forgetPasswordDataModel.message
-                    }
+                        
+                        self.notification.notificationOccurred(.warning)                    }
                 }
                 else{
-                    self.MessageLabel.text = "Please enter required fields"
+                    let alert = UIAlertController(title: "Error", message: "\(String(describing: self.forgetPasswordDataModel.message!))", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil )
+                    
+                    self.notification.notificationOccurred(.warning)
                 }
                 
             }
             else{
-                print("Error")
+                
+                let alert = UIAlertController(title: "Error", message: "\(String(describing: self.forgetPasswordDataModel.message!))", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil )
+                
+                self.notification.notificationOccurred(.warning)
             }
         }
         
@@ -100,7 +122,13 @@ class ForgetPasswordViewController: UIViewController {
     // MARK: - CancelButton
     
     @IBAction func CancelBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let second = main.instantiateViewController(withIdentifier: "LoginVC")
+        self.present(second, animated: true, completion: nil)
+        
+        self.notification.notificationOccurred(.success)
+        
     }
     
 }

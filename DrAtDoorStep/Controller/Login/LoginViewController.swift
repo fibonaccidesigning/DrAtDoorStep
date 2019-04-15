@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     let Login_URL = "http://dratdoorstep.com/livemob/login"
     let View_Patient_URL = "http://dratdoorstep.com/livemob/viewPatients"
     
+    let notification = UINotificationFeedbackGenerator()
     
     // MARK: - ViewController
     
@@ -49,9 +50,11 @@ class LoginViewController: UIViewController {
         
         let emailDM = UsernameTextField.text!
         let passwordDM = PasswordTextField.text!
+        let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["emailMobile" : emailDM,
-                                         "password" : passwordDM]
+                                         "password" : passwordDM,
+                                         "deviceType" : deviceTypeDM]
         
         getData(url: Login_URL, parameters: parms)
         
@@ -83,6 +86,8 @@ class LoginViewController: UIViewController {
                             
                         self.present(alert, animated: true, completion: nil )
                         
+                        self.notification.notificationOccurred(.warning)
+                        
                     }
                 }
                 else{
@@ -95,11 +100,20 @@ class LoginViewController: UIViewController {
                     
                     self.present(alert, animated: true, completion: nil )
                     
+                    self.notification.notificationOccurred(.warning)
                 }
                 
             }
             else{
-                print("Error")
+                let alert = UIAlertController(title: "Error", message: "\(String(describing: self.loginDataModel.message!))", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil )
+                
+                self.notification.notificationOccurred(.warning)
             }
         }
         
