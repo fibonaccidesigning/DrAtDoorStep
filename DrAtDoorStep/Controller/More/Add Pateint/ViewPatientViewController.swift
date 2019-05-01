@@ -18,7 +18,9 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
     let loginDataModel = DrAtDoorDataModel()
     var PatientDataDictionary : [PatientDataModel] = []
     
-    //    var selectedProduct : PatientDataModel?
+    var RetriveFechData = 0
+    
+    let notification = UINotificationFeedbackGenerator()
     
     
     // MARK: URL
@@ -34,7 +36,13 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
         
         PatientTableView.tableFooterView = UIView()
         
-        let userIdDM = "5191"
+        
+        //MARK: - UserDefult
+        
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        print(RetriveFechData)
+        
+        let userIdDM = "\(RetriveFechData)"
         let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["userId" : userIdDM,
@@ -63,14 +71,31 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
     func updateLoginData(json : JSON)  {
     
         let pro = json["patients"].array
-        let range = pro!.count
         
-        for i in 0..<range{
+        if pro == nil{
             
-            PatientDataDictionary.append(PatientDataModel(json: (pro![i].dictionaryObject)!))
+            let alert = UIAlertController(title: "Error", message: "No Data Found", preferredStyle: .alert)
             
-            self.PatientTableView.reloadData()
+            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
             
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil )
+            
+            self.notification.notificationOccurred(.warning)
+            
+        }else{
+            
+            let range = pro!.count
+            
+            for i in 0..<range{
+                
+                PatientDataDictionary.append(PatientDataModel(json: (pro![i].dictionaryObject)!))
+                
+                self.PatientTableView.reloadData()
+                
+            }
+
         }
 
     }
@@ -98,6 +123,23 @@ class ViewPatientViewController: UIViewController, UITableViewDelegate, UITableV
         cell.AgeLbl.text = PatientDataDictionary[indexPath.item].age
       
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            PatientDataDictionary.remove(at: indexPath.row)
+            //            NotificationTableView.deleteRows(at: [indexPath], with: .fade)
+            PatientTableView.reloadData()
+            
+            //            print("-------\(t)")
+        }
+    }
+    
+    @IBAction func Back(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
         
     }
     

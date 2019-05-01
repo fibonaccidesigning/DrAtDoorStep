@@ -14,7 +14,8 @@ class BookingHistoryTableViewCell: UITableViewCell {
     @IBOutlet var DateLbl: UILabel!
     @IBOutlet var TitleLbl: UILabel!
     @IBOutlet var CanceledLbl: UILabel!
-
+    @IBOutlet var InvoiceBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

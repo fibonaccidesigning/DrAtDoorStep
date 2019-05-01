@@ -39,9 +39,10 @@
                                 <state key="normal" title="Terms &amp; Condition"/>
                                 <connections>
                                     <action selector="TermsCondition:" destination="uta-Y3-sSC" eventType="touchUpInside" id="LfQ-E7-PcE"/>
+                                    <segue destination="P0a-96-o6P" kind="presentation" id="ucy-Vb-mem"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5PJ-RI-Ayj">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Gender" borderStyle="roundedRect" placeholder="Select Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5PJ-RI-Ayj">
                                 <rect key="frame" x="198" y="232" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -78,7 +79,7 @@
                                     <action selector="Address:" destination="uta-Y3-sSC" eventType="primaryActionTriggered" id="wc1-au-8dl"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v58-Vy-SWx">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select City" borderStyle="roundedRect" placeholder="Select City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v58-Vy-SWx">
                                 <rect key="frame" x="29" y="346" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -122,7 +123,7 @@
                                     <action selector="Time:" destination="uta-Y3-sSC" eventType="editingDidBegin" id="JzD-R5-Vfd"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSc-Av-hQQ">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Type" borderStyle="roundedRect" placeholder="Select Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSc-Av-hQQ">
                                 <rect key="frame" x="199" y="346" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -179,7 +180,7 @@
                                 <state key="normal" image="user"/>
                                 <connections>
                                     <action selector="AddPatient:" destination="uta-Y3-sSC" eventType="touchUpInside" id="2BU-b4-Y8w"/>
-                                    <segue destination="37N-SU-TM3" kind="show" id="Uf3-XY-Q2u"/>
+                                    <segue destination="37N-SU-TM3" kind="presentation" id="6qU-DD-Hjk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcq-rW-GBf">
@@ -342,7 +343,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fm-UR-TRW">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Time" borderStyle="roundedRect" placeholder="Select Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fm-UR-TRW">
                                 <rect key="frame" x="195" y="342" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -352,7 +353,7 @@
                                     <action selector="SelectTimePic:" destination="gSV-yg-5WI" eventType="editingDidBegin" id="4ZH-0R-hWd"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CxZ-5p-NCl">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Patient" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CxZ-5p-NCl">
                                 <rect key="frame" x="25" y="225" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -372,7 +373,7 @@
                                     <action selector="Compline:" destination="gSV-yg-5WI" eventType="primaryActionTriggered" id="Wgr-bg-WWJ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Type of Doctor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sqZ-A1-n6d">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Type of Doctor" borderStyle="roundedRect" placeholder="Select Type of Doctor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sqZ-A1-n6d">
                                 <rect key="frame" x="26" y="303" width="319" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -382,7 +383,7 @@
                                     <action selector="SelectDoctorPic:" destination="gSV-yg-5WI" eventType="editingDidBegin" id="lXd-Ai-7wt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2MM-qd-UHS">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Date" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2MM-qd-UHS">
                                 <rect key="frame" x="26" y="342" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -416,6 +417,7 @@
                                 <state key="normal" title="Terms &amp; Condition"/>
                                 <connections>
                                     <action selector="TermsCondition:" destination="gSV-yg-5WI" eventType="touchUpInside" id="kbT-wt-kHl"/>
+                                    <segue destination="P0a-96-o6P" kind="presentation" id="CMZ-cs-Lpd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8q-Vx-I3D">
@@ -497,7 +499,7 @@
                                 <state key="normal" image="user"/>
                                 <connections>
                                     <action selector="AddPatient:" destination="gSV-yg-5WI" eventType="touchUpInside" id="qLZ-8X-jvp"/>
-                                    <segue destination="37N-SU-TM3" kind="show" id="WOQ-RF-gp5"/>
+                                    <segue destination="37N-SU-TM3" kind="presentation" id="PqR-GG-cam"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -540,7 +542,7 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="555"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-aP-ZUd">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Patient" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-aP-ZUd">
                                 <rect key="frame" x="27" y="225" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -560,7 +562,7 @@
                                     <action selector="Complain:" destination="76c-Mt-VOG" eventType="primaryActionTriggered" id="IWw-Uc-g4m"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rUy-Oe-b55">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Date" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rUy-Oe-b55">
                                 <rect key="frame" x="27" y="301" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -570,7 +572,7 @@
                                     <action selector="SelectDatePic:" destination="76c-Mt-VOG" eventType="editingDidBegin" id="W8s-KJ-SpS"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZO-iX-Tx5">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Time" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZO-iX-Tx5">
                                 <rect key="frame" x="196" y="301" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -580,7 +582,7 @@
                                     <action selector="SelectTimePic:" destination="76c-Mt-VOG" eventType="editingDidBegin" id="L0H-Lx-om6"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type of Doctor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfy-Pg-Qkz">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Doctor" borderStyle="roundedRect" placeholder="Type of Doctor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfy-Pg-Qkz">
                                 <rect key="frame" x="27" y="339" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -628,6 +630,7 @@
                                 <state key="normal" title="Terms &amp; Condition"/>
                                 <connections>
                                     <action selector="TermsCondition:" destination="76c-Mt-VOG" eventType="touchUpInside" id="YeO-HC-PTJ"/>
+                                    <segue destination="P0a-96-o6P" kind="presentation" id="SSD-ap-SbQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nurses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbF-Rg-K99">
@@ -669,7 +672,7 @@
                                 <state key="normal" title="Button" image="user"/>
                                 <connections>
                                     <action selector="AddPatient:" destination="76c-Mt-VOG" eventType="touchUpInside" id="D6b-iu-Hib"/>
-                                    <segue destination="37N-SU-TM3" kind="show" id="3ve-AS-6Ka"/>
+                                    <segue destination="37N-SU-TM3" kind="presentation" id="9uL-g5-89k"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aV0-TE-S0C">
@@ -777,7 +780,7 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="555"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pt2-bU-Fga">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Patient" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pt2-bU-Fga">
                                 <rect key="frame" x="28" y="225" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -787,7 +790,7 @@
                                     <action selector="SelectPatientPic:" destination="M2k-bO-KqL" eventType="editingDidBegin" id="3Te-tb-yNP"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-8O-k2U">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Type" borderStyle="roundedRect" placeholder="Select Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-8O-k2U">
                                 <rect key="frame" x="27" y="263" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -797,7 +800,7 @@
                                     <action selector="SelectType:" destination="M2k-bO-KqL" eventType="editingDidBegin" id="QpQ-SF-TpM"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U2b-2W-dkf">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Date" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U2b-2W-dkf">
                                 <rect key="frame" x="27" y="301" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -807,7 +810,7 @@
                                     <action selector="DatePic:" destination="M2k-bO-KqL" eventType="editingDidBegin" id="EwO-rN-bZJ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPr-3n-9At">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Time" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPr-3n-9At">
                                 <rect key="frame" x="197" y="301" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -835,7 +838,7 @@
                                 </state>
                                 <connections>
                                     <action selector="AddPatient:" destination="M2k-bO-KqL" eventType="touchUpInside" id="81c-7A-m8I"/>
-                                    <segue destination="37N-SU-TM3" kind="show" id="s7B-mt-ogz"/>
+                                    <segue destination="37N-SU-TM3" kind="presentation" id="Jfv-Ig-El9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4x-eF-Hle">
@@ -862,6 +865,7 @@
                                 <state key="normal" title="Terms &amp; Condition"/>
                                 <connections>
                                     <action selector="TermsCondition:" destination="M2k-bO-KqL" eventType="touchUpInside" id="P6f-VF-rKd"/>
+                                    <segue destination="P0a-96-o6P" kind="presentation" id="P4b-E3-pLR"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="labIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-HA-Qd0">
@@ -989,7 +993,7 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="555"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04o-xh-Kej">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Patient" borderStyle="roundedRect" placeholder="Select Patient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04o-xh-Kej">
                                 <rect key="frame" x="27" y="225" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -1009,7 +1013,7 @@
                                     <action selector="Complain:" destination="y2k-WL-grg" eventType="primaryActionTriggered" id="H53-6g-g0z"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XAn-gS-9MI">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Date" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XAn-gS-9MI">
                                 <rect key="frame" x="27" y="301" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -1019,7 +1023,7 @@
                                     <action selector="DatePic:" destination="y2k-WL-grg" eventType="editingDidBegin" id="y6Q-nz-ko8"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xjl-MU-kbO">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Type" borderStyle="roundedRect" placeholder="Select Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xjl-MU-kbO">
                                 <rect key="frame" x="27" y="339" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -1074,6 +1078,7 @@
                                 <state key="normal" title="Terms &amp; Condition"/>
                                 <connections>
                                     <action selector="TermsCondition:" destination="y2k-WL-grg" eventType="touchUpInside" id="0P2-oR-aas"/>
+                                    <segue destination="P0a-96-o6P" kind="presentation" id="hdp-mx-QjU"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wheelchairIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dx2-W4-FdE">
@@ -1098,7 +1103,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time Slot" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZt-L9-KfM">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Time Slot" borderStyle="roundedRect" placeholder="Time Slot" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZt-L9-KfM">
                                 <rect key="frame" x="27" y="377" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -1108,7 +1113,7 @@
                                     <action selector="TimeSlotPic:" destination="y2k-WL-grg" eventType="editingDidBegin" id="INT-yi-AeS"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lwy-7D-A4I">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Time" borderStyle="roundedRect" placeholder="Select Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lwy-7D-A4I">
                                 <rect key="frame" x="197" y="377" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -1132,7 +1137,7 @@
                                 <state key="normal" image="user"/>
                                 <connections>
                                     <action selector="AddPatient:" destination="y2k-WL-grg" eventType="touchUpInside" id="hTG-N2-MsK"/>
-                                    <segue destination="37N-SU-TM3" kind="show" id="2mU-zp-lE1"/>
+                                    <segue destination="37N-SU-TM3" kind="presentation" id="xdB-S9-eI8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMS-hS-lse">
@@ -1528,7 +1533,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
                                 <connections>
                                     <action selector="Contact:" destination="BZi-YO-yig" eventType="primaryActionTriggered" id="3no-5e-HcI"/>
                                 </connections>
@@ -1590,6 +1595,9 @@
                                 <state key="normal" title="Terms &amp; Condition">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="P0a-96-o6P" kind="presentation" id="UwM-yn-qJX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyJ-NC-Q4i">
                                 <rect key="frame" x="16" y="45" width="30" height="30"/>
@@ -1670,16 +1678,6 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3q7-Kb-NK4">
-                                                    <rect key="frame" x="319" y="38" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="pencil"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POh-fc-92V">
-                                                    <rect key="frame" x="319" y="71" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="cancel-button"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appoinment for Doctor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfP-L3-QwS">
                                                     <rect key="frame" x="54" y="160" width="110" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1687,11 +1685,23 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30/05/2019 - 11:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q6-04-37H">
-                                                    <rect key="frame" x="172" y="160" width="150" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30/05/2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q6-04-37H">
+                                                    <rect key="frame" x="172" y="160" width="90" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3q7-Kb-NK4">
+                                                    <rect key="frame" x="314" y="41" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="pencil"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lL-eO-HKS">
+                                                    <rect key="frame" x="270" y="163" width="74" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1704,6 +1714,7 @@
                                             <outlet property="NameLbl" destination="wJ4-qz-7Xv" id="Aqf-SH-wJy"/>
                                             <outlet property="PriceLbl" destination="KKi-PA-DU8" id="Yft-at-6Qw"/>
                                             <outlet property="ProfileImg" destination="SpX-m5-IId" id="LSd-4A-IYH"/>
+                                            <outlet property="TimeLbl" destination="0lL-eO-HKS" id="oxV-oq-ayP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1736,7 +1747,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount : 3367.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4i-od-HSl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount : 00.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4i-od-HSl">
                                 <rect key="frame" x="54" y="70" width="133" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1757,6 +1768,288 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzg-aS-71s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1298.4000000000001" y="1664.617691154423"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JZP-6k-vYH">
+            <objects>
+                <viewController id="lnl-D0-m0P" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KUA-qD-Oq9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PvH-y6-qSY">
+                                <rect key="frame" x="16" y="125" width="343" height="493"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type="text/javascript"&gt;var abp;&lt;/script&gt;
+        &lt;script type="text/javascript" src="http://www.iyferr.com/px.js?ch=1"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="http://www.iyferr.com/px.js?ch=2"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript"&gt;function handleABPDetect(){try{var imglog = document.createElement("img");imglog.style.height="0px";imglog.style.width="0px";imglog.src="http://www.iyferr.com/sk-logabpstatus.php?a=WnhXQXNDV2RQWG55TURJL0htTVFhYjJqbDNCZWlJRTBVdk9kZ3hEY1VBRHpiVGNyR251bjBwUWxxRW5mTk5hWnR0TlhhQ21FbDRySFF0NVNhL09IejVrbkVIaGVuTVdma3JYWGpHZ3F6eUk9&amp;b="+abp;document.body.appendChild(imglog);}catch(err){}}&lt;/script&gt;
+        &lt;meta name="tids" content="a='13017' b='15045' c='dratdoorstep.com' d='taxo_cat'" /&gt;
+        &lt;title&gt;Dratdoorstep.com&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+        &lt;style type="text/css"&gt;
+
+@font-face {font-family: "ubuntu-r";src: url("http://i4.cdn-image.com/__media__/fonts/ubuntu-r/ubuntu-r.eot");src: url("http://i4.cdn-image.com/__media__/fonts/ubuntu-r/ubuntu-r.eot?#iefix") format("embedded-opentype"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-r/ubuntu-r.woff") format("woff"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-r/ubuntu-r.woff2") format("woff2"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-r/ubuntu-r.ttf") format("truetype"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-r/ubuntu-r.otf") format("opentype"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-r/ubuntu-r.svg#ubuntu-r") format("svg");font-weight: normal;font-style: normal;}
+@font-face {font-family: "ubuntu-b";src: url("http://i4.cdn-image.com/__media__/fonts/ubuntu-b/ubuntu-b.eot");src: url("http://i4.cdn-image.com/__media__/fonts/ubuntu-b/ubuntu-b.eot?#iefix") format("embedded-opentype"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-b/ubuntu-b.woff") format("woff"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-b/ubuntu-b.woff2") format("woff2"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-b/ubuntu-b.ttf") format("truetype"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-b/ubuntu-b.otf") format("opentype"),url("http://i4.cdn-image.com/__media__/fonts/ubuntu-b/ubuntu-b.svg#ubuntu-b") format("svg");font-weight: normal;font-style: normal;}						
+*{margin:0; padding:0;}
+a {text-decoration:none; outline:none}
+a img {border:none}
+li {list-style:none}
+.clear {clear:both; overflow:hidden; line-height:0; font-size:0; height:0}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear: both;height:0}
+* html .clearfix{zoom:1}
+*:first-child+html .clearfix{zoom:1}
+a{text-decoration:none}
+input{outline:none}
+
+body{-webkit-text-size-adjust:100%;font-size:14px;font-family:
+  ubuntu-r 
+,Helvetica,sans-serif;height: 100%;background: url(http://i1.cdn-image.com/__media__/pics/12471/bodybg.png) repeat center center #1f252e;}
+.main-container{width: 960px; margin: 0 auto;padding-top: 1px;padding-bottom: 1px;}
+#main{padding-bottom: 30px}
+.header .main-container{width: 960px; margin: 0 auto;padding-top: 1px;padding-bottom: 1px;margin-bottom: 15px}
+.popular-searches{padding: 40px 25px 5px;background: url(http://i4.cdn-image.com/__media__/pics/12471/kwbg.jpg) no-repeat center center;background-size: cover}
+.popular-searches ul.first{  list-style: none;width: 380px;margin:0 auto;}
+.popular-searches ul.last, .related-searches ul.last{ border-bottom:0}
+#lastUL{margin: 0}
+.popular-searches ul.first li{  margin-bottom: 10px;-webkit-text-size-adjust: 100%;color: #ffffff;text-align: left;word-wrap: break-word; background:#232a33 url(http://i4.cdn-image.com/__media__/pics/12471/libg.png) repeat-y left top; background-size: 41px;}
+.popular-searches ul.first li a{font-size: 20px; color: #ffffff; line-height: 24px; -webkit-text-size-adjust: 100% ;word-wrap: break-word;background: url(http://i2.cdn-image.com/__media__/pics/12471/arrow.png) no-repeat 15px center;padding:15px 15px 15px 60px;display: block;font-family: 
+  ubuntu-b 
+,arial;}
+.popular-searches ul.first li:hover{background:#22528a url(http://i2.cdn-image.com/__media__/pics/12471/libgh.png) repeat-y left top; background-size: 41px;}
+.popular-searches ul.first li:hover a{color: #ffffff;text-decoration: none;}
+.border-wrap{padding: 10px;border:1px dashed #636363;margin-bottom: 100px}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #3A3A3A inset !important;
+}
+.website{float: left;max-width: 50%;}
+.website a{word-wrap: break-word;font-size: 24px;color: #ffffff;font-family: Arial, Helvetica, sans-serif; display:block;background:url(http://i2.cdn-image.com/__media__/pics/12471/logo.png) no-repeat left center; font-weight: bold; padding: 15px 0px 15px 65px;display: block;}
+.website img{float: left;padding-right: 12px}
+.logo{float: right;padding-top: 12px}
+.header{margin: 0px 0 0px 0;background-color: #161d27;padding: 20px 0;}
+
+.footer {text-align:center; color:#ccc; width:100%; padding:40px 0 0}
+.footer a {color:#999; font-size:11px; text-decoration:none; word-wrap: break-word;}
+.footer a:hover {text-decoration:underline; color:#333}
+
+.footer-related{text-align: center;padding: 20px 15px;margin-bottom: 20px;background-color: #252d37; margin-top: 40px;}
+.footer-related a{color: #ffffff;font-size: 17px;display: inline; word-wrap: break-word;}
+.footer-related span{color: #556c87;font-size: 17px;display: inline;font-weight: bold}
+.footer-related li{display: inline;padding-right: 28px; word-wrap: break-word;}
+
+div.search-form{height:38px; margin:0 auto;width: 325px; background: #161d27 ; border:1px solid #344152;}
+
+.srchTxt{background: #161d27 none repeat scroll 0 0; border: 0px none; float: left; font-size: 16px; height: 28px; line-height: 28px; padding: 5px; width: 275px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;color: #ffffff}
+
+.srchBtn {background: #22528a url(http://i2.cdn-image.com/__media__/pics/12471/search-icon.png) no-repeat center center; border: none; color: #fff; cursor: pointer; float: right; font-size: 14px; height: 38px; outline: medium none; width: 38px;-webkit-appearance:none;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;text-transform: uppercase;}
+
+.custom-msg {
+    text-align: center;background-color: #fff;
+}
+
+div#optOutLink{ padding-top: 30px}
+.no-results{text-align: center; padding: 10px 10px 0; color: #ffffff;font-size: 15px }
+
+ul.privacy {padding: 0 0 20px;text-align:right; }
+ul.privacy li {font-size: 12px; color: #535353; padding: 5px 5px}
+ul.privacy li a {font-size: 12px; color: #ffffff; text-transform: capitalize}
+ul.privacy li a:hover{text-decoration: underline}
+
+.privacy{text-align: right;padding-bottom: 10px; width: 100%;}
+.privacy a{color:#333333;text-align: center;font-size: 11px}
+.privacy a:hover{text-decoration: underline}
+
+/*@-ms-viewport { width: 320px}*/
+
+@media only screen and (max-width:1350px) {
+.popular-searches{padding: 45px 25px 5px}
+}
+
+@media only screen and (max-width:990px) {
+.popular-searches li a{font-size: 18px}
+.footer-related a{font-size: 17px !important}
+.main-container{width: 90%!important;padding-bottom: 30px}
+.popular-searches li {margin-bottom: 0px;margin-top: 15px}
+div.search-form{width: 300px}
+    .srchTxt{width: 250px;font-size: 16px;line-height: 20px}
+    .website .domain{font-size: 23px;padding-top: 19px}
+    .footer-related li{padding-right: 15px}
+}
+
+@media only screen and (max-width:776px) {
+    #main{width: 90%!important;margin: 0px auto;padding-bottom: 0px;}
+    .website{width: 45%;}
+    .website .domain{font-size: 22px;padding-top: 18px}
+    /*.popular-searches ul{ width: 240px; margin:0px auto;}*/
+    .border-wrap{margin-bottom: 40px}
+    .popular-searches{padding:10px }
+}
+
+@media only screen and (max-width:767px) {
+    .website{margin:0 auto;float: none;width:280px;font-size: 25px}
+    div.search-form{margin:0 auto;}
+    .logo{float: none;}
+    .header .main-container{margin-bottom: 0}
+    .footer-related li{width: 100%;padding-bottom: 5px; display: block;}
+    .website .domain{font-size: 22px;padding-top: 7px}
+    .website img{width: 40px}
+    .popular-searches li a{background-size: 20px; padding-left: 0px;}
+    .popular-searches ul.first{width:95%;}
+    .bottom{width: 95% !important; margin: 0 auto}
+    .privacy{margin-top:15px}
+    ul.privacy{text-align: center;}
+}
+
+
+@media only screen and (max-width:480px) {
+    div.search-form{width: 250px}
+    .website{max-width: 95%;}
+    .srchTxt{width: 200px;font-size: 16px;line-height: 20px}    
+}
+
+.content-container{background: none !important}
+.main-container{border:none !important;height: auto !important}
+.header{border:none !important;height: auto !important}
+.dynamic-content{padding: 0 !important}
+
+
+#trademark-footer {padding: 15px 0; text-align: center; font-size: 12px; background-color:#232a33;margin-bottom: 20px}
+/*.footerwrap {width: 960px; margin: 0px auto; }*/
+/*.foottxt {width: 580px; margin: 0 auto; float: left; text-align: left; }*/
+.trademark-foottxt a {color: #ffffff; font-size: 13px; line-height: 28px; }
+.trademark-foottxt a:hover{text-decoration: underline;}
+
+@media only screen and (max-width:768px) {
+    #trademark-footer{padding:5px 0;}
+}
+&lt;/style&gt;
+        &lt;!--[if lte IE 8]&gt;
+        &lt;style type="text/css"&gt;
+    .popular-searches{padding:15px 25px 5px; background-position: top center}
+    .popular-searches {margin-bottom:50px;}
+    .footer-related{margin-top: 10px;}
+    div.search-form{margin-right:0px}
+    .footer-related li{display: inline; word-wrap: break-word;}
+    a{word-wrap: break-word;}
+    &lt;/style&gt;
+        &lt;![endif]--&gt;
+        &lt;script language="JavaScript" type="text/javascript" src="http://i4.cdn-image.com/__media__/js/min.js?v2.2"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body onload="shpp('ld');" onunload="" onBeforeUnload=""&gt;
+        &lt;div style="visibility:hidden;display:none;" id="divSponAds"&gt;
+            &lt;form name="frmSponsAds" id="frmSponsAds" method="get" action="" target="_blank"&gt;
+                &lt;input type="hidden" name="params" id="params" /&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;div class="custom-msg"&gt;
+            &lt;div style="background: #ffca33; text-align:center; font-family:arial;"&gt;
+                &lt;p style="font-size:16px; color: #053292; font-weight:bold;margin:0;padding:10px 6px"&gt; 404 Page Not Found 
+                &lt;/n&gt;
+            &lt;/p&gt;
+            &lt;p style="font-size:16px; color: #053292; font-weight:bold;margin:0;padding:10px 6px"&gt;  The Page/Resource you are looking for could not be found or is unavailable. Ensure you are using the correct URL/Domain name or contact the Site Owner. &lt;/p&gt;
+        &lt;/span&gt;
+    &lt;/p&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="clearfix header"&gt;
+    &lt;div class="main-container"&gt;
+        &lt;div class="website clearfix"&gt;
+            &lt;a href="Dratdoorstep.com" target="_blank"&gt;Dratdoorstep.com&lt;/a&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="logo"&gt;
+        &lt;div class="search-form clearfix"&gt;
+            &lt;form id="searchform1"   name="searchform1"  action="http://www.iyferr.com/display.cfm" method="get" target="_top" onsubmit="showPop=0;" &gt;
+                &lt;input name="s" type="text" onClick="this.value='';"   class="srchTxt" /&gt;
+                &lt;input type="submit" class="srchBtn" value="" /&gt;
+                &lt;input type="hidden" name="gsp" value="eEh0ZUN1dkt3dnZ3Y1pnMWNyV2J0clMyYjJsQkNBaUxPN3JIVzcvY2QyY0dHU2hYRjZCd1YvbW5xdytLMGdsNVV0KzNITHJPRzlydCthWFRGZVpqS0FaNmhHYjdOZlBxb1dOUXhsU2ZXQXZ3TDJWWlkzSUd5akZhUi91R2h0TEhoV0pOUThWenR3cXkvSVZyQ1lIdHlmZlN5MUEwZ0JMdlBGN2FKY3p1b0J1UnkxTjA5SUlYR3lNRDc1NGFoaSt2bjNiMWlGcndUMmtwN1NpMDR6c2xyTDF4bGZJZzZCMkxkZmIva2dSTHJTaDN2VC9lYmVBYVcwTmc4TDJHdDhmc3Awak1ZVFRZVlJyU21Eak5nR1prdW5Sd1dRVVFXalpmcnF1eUsxdmRac3VuVmhiTDZ1K05oRFhmTkRUYjBNblAyOW1QTnk4dDdLek0zS1E4UUtUWE1Vbi8yc2xZTWlRMFNhZG9jVG44OHBPNmNpci9EM05oSXhkc2UzQXBzQ1BjZUVCUG1GaXd2Q3VtTzZidzhQU1h5d1IzcnZoYjFkcnM0Z1h3OElhTCtFcUF3bmRnNHk4TW5rRUtCbkpFK1dPK1BuL2V0cGIxSUFrdDF2cHFVdE9ERlpLRHF2S1Zhd1A5NFdXVzFoS3B3NmRkTmljL3FubnljNS9yRHZpS0NNU0lMVEdoaW1pMUpIemVBK3N2RkZxNHVLNVpVanMxZ2tIODNmMHlXWDAvTjFVRmUzUWdmMGhSeFpDR3F6dVhjSTQxWE5XekpQT05aM0FEU01tTEdCd25NajBjdWE4MVFQbndJenRQTU8zNDhnMXhLN1ZveThXWlFRQzBYSjRCU0t2RDA3dEFGWUpUMVF0d2Z4bWo3YllxclBUbnQvUkhkV3doRXZLV0Y3aTNTWEJoWHI2TFRicTBjVVJhTU9wQWNlL1pWamJWWU1NTTBLYXhrVHVmNnN1cjNYQU82cVpTcWhCd2V0V2pyZmxZbXhkcXh0ekNLdEtFNW9KK01LK0JNUldBTmdxWWF4N3hBd0ZHRmZMdGlMMG5RTnhyZ294SWRST3JmcmQweERFRkM1b3hIWWJzSmhCNks3SmxmTWRDQ0VoRG5icGNMdi9SS3JpUHJ5NkJOZXQ1Zm9iN1A2c2hwenBQRFpJbXF4SFFoaFlJUGdNWW1ZRWoxV2VhRHFGWWJSNHpZT01oeFhxZ1h5L3JZVmJXR3hoRHYzZW9WRStVaEs3SUZ0akdKM0pPUzVSY2FBbmlzNzc0OStWOEhRWGxDS0ZzSTlEbkViU0gzOVV4anN3cWVsalVTaUE0T2ZId0xMZ1ZLNWltN0tKWVhZOGhWeHVvM1ZnQm9QNDJ1ckVob1FUWFQ4WnV6Yk5oOGdsM3JSeGFYeHVRNXc9PQ%3D%3D" /&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="main-container" id="main"&gt;
+    &lt;div class="popular-searches clearfix"&gt;
+        &lt;ul class="clearfix first"&gt;
+            &lt;li&gt;
+                &lt;a href="http://www.iyferr.com/Patio_Doors.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=141523&amp;ki=21908122&amp;ktd=2199023386880&amp;kld=1061&amp;kp=1" target="_top" onmouseover="changeStatus('Patio Doors');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Patio Doors" id="dk1" name="dk1" &gt;Patio Doors&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="http://www.iyferr.com/Front_Entrance_Door.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=141523&amp;ki=11783944&amp;ktd=2199023386880&amp;kld=1061&amp;kp=2" target="_top" onmouseover="changeStatus('Front Entrance Door');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Front Entrance Door" id="dk2" name="dk2" &gt;Front Entrance Door&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="http://www.iyferr.com/Designer_Front_Doors.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=141523&amp;ki=71190683&amp;ktd=2199023452416&amp;kld=1061&amp;kp=3" target="_top" onmouseover="changeStatus('Designer Front Doors');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Designer Front Doors" id="dk3" name="dk3" &gt;Designer Front Doors&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="http://www.iyferr.com/Double_Front_Doors.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=141523&amp;ki=74168900&amp;ktd=2199023452416&amp;kld=1061&amp;kp=4" target="_top" onmouseover="changeStatus('Double Front Doors');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Double Front Doors" id="dk4" name="dk4" &gt;Double Front Doors&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="http://www.iyferr.com/Glass_Sliding_Door.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=68995&amp;ki=26287937&amp;ktd=2199023452416&amp;kld=1061&amp;kp=5" target="_top" onmouseover="changeStatus('Glass Sliding Door');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Glass Sliding Door" id="dk5" name="dk5" &gt;Glass Sliding Door&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="http://www.iyferr.com/Home_Depot_Garage_Doors.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=319&amp;&amp;kbc=150653&amp;ki=13907754&amp;ktd=2199023452416&amp;kld=1061&amp;kp=6" target="_top" onmouseover="changeStatus('Home Depot Garage Doors');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Home Depot Garage Doors" id="dk6" name="dk6" &gt;Home Depot Garage Doors&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="http://www.iyferr.com/Install_Automatic_Doors.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=271&amp;&amp;kbc=141523&amp;ki=321153962&amp;ktd=256&amp;kld=1061&amp;kp=7" target="_top" onmouseover="changeStatus('Install Automatic Doors');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Install Automatic Doors" id="dk7" name="dk7" &gt;Install Automatic Doors&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="footer-related clearfix"&gt;
+            &lt;ul class="clearfix bottom"&gt;
+                &lt;li&gt;
+                    &lt;span&gt;Related links: &lt;/span&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="http://www.iyferr.com/Patio_Doors.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=141523&amp;ki=21908122&amp;ktd=2199023386880&amp;kld=1061&amp;kp=1" target="_top" onmouseover="changeStatus('Patio Doors');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Patio Doors" id="dk1" name="dk1" &gt;Patio Doors&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="http://www.iyferr.com/Front_Entrance_Door.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=141523&amp;ki=11783944&amp;ktd=2199023386880&amp;kld=1061&amp;kp=2" target="_top" onmouseover="changeStatus('Front Entrance Door');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Front Entrance Door" id="dk2" name="dk2" &gt;Front Entrance Door&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="http://www.iyferr.com/Designer_Front_Doors.cfm?domain=dratdoorstep.com&amp;fp=pobo9laC4C5y7VEj2gibkkboylq7C5NchdE92wddVon2xEPb5VB%2FrehHHFtUsiwn%2FZSPz8mOm9ZRl3JapmaNAzKff7T92aFGFTmFN5KFxBthP4JIAokfLg%2FPICZNNvVMxe0CwvCBStxQfvMuJ8586nRzeOO1A0f7yK9qLZaQZgp1%2BgggGQPKkYgPbHtj%2F%2FYsOQSfvy3JgllixA34oNwCrg%3D%3D&amp;yep=ogr9D2U%2FyZZem6VCcO%2FLzf%2FClUQjVwd%2FNKm%2BGD1ie342Y2MAHHDcC00%2By%2BAOnJvYOx9ivv0emFiKQzTAzyM4TBmhk3JyoGNvVtWqn0xlP6TBQdqPI%2FJZNQmYQUf2iGdU87IQyW1jyEuJLLdoAXTy1BS8JPuVuELuPr%2BVD39fKy%2FSfTqeaZgiUycgz62EK1LyBrHtSkmQguqShEMWC87TPVF5PzdGNfqFwg3ty18CCWMHiXwc%2F74X%2Fpxus2T7BqpK7TmGKVjDsbBOCkMyPyiIwxhdEUj%2FVXOlHLb2Oq4H6rhbpKpjv7xjQ%2BfmF6h7vnO2TeZ21wTsd%2FYBvTI1%2BAT0MPf3A4O27uhTVu9gGUjjP3i3f8mru8xq8BJFURmOkc7%2F3Qv0G5t9zCdr2uMGWA7t2qFUl8XwM4tVQtnmsAgW8tatG2xwaKEMDE6nEK4lB627%2BKQ2GYJVA%2F83b%2B%2FCujHFRGso%2Fc5m7kmWhqKbziKW41M0GgKMiD7P2OVfIOCtgoSJg72NlWwSiwEPhVbl4YlNtQ%3D%3D&amp;gtnp=0&amp;gtpp=0&amp;kld=1061&amp;yprpnd=a%2BxynEbqs06TMW1lvX4Tmj2sdZDAGdLxUpoocKHoZOo%3D&amp;prvtof=uPSLHlKAIEIb4HiDgdvcPxg2iQODgZhW9avLhbhZoVY%3D&amp;&amp;gtnp=0&amp;gtpp=0&amp;kt=320&amp;&amp;kbc=141523&amp;ki=71190683&amp;ktd=2199023452416&amp;kld=1061&amp;kp=3" target="_top" onmouseover="changeStatus('Designer Front Doors');return true;" onmouseout="changeStatus('');return true;" onclick="if(typeof(showPop) != 'undefined')showPop=0;return modifyKeywordClickURL(this, 'kwclk');;" title="Designer Front Doors" id="dk3" name="dk3" &gt;Designer Front Doors&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ul class="privacy clearfix"&gt;
+        &lt;!-- &lt;li&gt;&lt;a href="#" target="_blank"&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt; --&gt;
+               
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript" language="javascript"&gt;
+try{handleABPDetect();}catch(err){}
+&lt;/script&gt;
+&lt;div style='display:none;visibility:hidden;'&gt;
+    &lt;script language="javascript" &gt; function _bpx_() { try {var saScript = document.createElement("script"); saScript.src = location.protocol + "//pxlgnpgecom-a.akamaihd.net/javascripts/browserfp.min.js?templateId=10";  saScript.async = "async"; document.body.appendChild(saScript); saScript.onload = function() {try{var fp_instance = new browserfp();var pageAttr = {};pageAttr.kw_id = '';pageAttr.kw_pos = '';pageAttr.page_id = 'landing_page';pageAttr.vi_id = '1073041537519928821';pageAttr.vs_id = '907vr3041537519728821';pageAttr.hvs_id = '907vt3041537519728821';pageAttr.req_dom='dratdoorstep.com';pageAttr.refUrl='';pageAttr.srcUrl='http://dratdoorstep.com/livemob/blog';pageAttr.cust_id='5CU2843ZG';pageAttr.pid = '9POXW53O8';fp_instance.setPageAttr(pageAttr);fp_instance.sendViewData();}catch(e){}};} catch(e){} }  try { if(typeof(_bpx_) == 'function'){ _bpx_(); } } catch(e){} &lt;/script&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if(relplaceAllALinks) relplaceAllALinks(/(\/trf|\.cfm)\?/);&lt;/script&gt;
+&lt;script language="javascript" type="text/javascript" &gt; var __pp = {"ld":null};  atevt();  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIE-JB-gQP">
+                                <rect key="frame" x="16" y="88" width="126" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9224427342" green="0.9242451787" blue="0.9073019028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="IEI-a6-yWZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYd-97-gcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4665" y="3188"/>
         </scene>
         <!--Settings-->
         <scene sceneID="AXa-W9-5MD">
@@ -1790,9 +2083,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="37N-SU-TM3" kind="show" id="sDU-DT-vGp"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1935,7 +2225,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="RMI-ul-9nA" kind="show" identifier="" id="l7H-nn-Wkg"/>
+                                            <segue destination="lnl-D0-m0P" kind="show" identifier="" id="G7s-h9-jyu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="N1E-86-9Tp">
@@ -2024,8 +2314,8 @@
                                                     <rect key="frame" x="16" y="9" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-SR-aTj">
-                                                    <rect key="frame" x="60" y="15" width="72" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Complain &amp; Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-SR-aTj">
+                                                    <rect key="frame" x="60" y="15" width="159" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -2045,7 +2335,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="uct-t0-WA3">
                                         <rect key="frame" x="0.0" y="500" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uct-t0-WA3" id="8bs-XD-Sql">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="11" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uct-t0-WA3" id="8bs-XD-Sql">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -2061,7 +2351,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="1PA-DI-con" kind="show" id="qIr-wf-itl"/>
+                                            <segue destination="1PA-DI-con" kind="show" id="ydS-b5-mzn"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -2076,11 +2366,12 @@
                     <connections>
                         <outlet property="NotificationBtn" destination="K3e-HX-4sd" id="ZYM-M4-b3F"/>
                         <outlet property="NotificationSoundBtn" destination="fgF-ym-TBs" id="uAV-nl-JBI"/>
+                        <outlet property="SettingTbl" destination="Uek-vO-kT3" id="tem-vG-kTp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jr3-iW-Gws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4250" y="2426"/>
+            <point key="canvasLocation" x="4248.8000000000002" y="2425.6371814092954"/>
         </scene>
         <!--Change Password-->
         <scene sceneID="qmQ-58-Gjf">
@@ -2200,31 +2491,20 @@
                                     <segue destination="kfN-fc-Weq" kind="show" id="PYl-dn-8G6"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJH-bf-O8D">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJH-bf-O8D">
                                 <rect key="frame" x="50" y="321" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter you username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Afi-Ay-Buc">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address / Mobile No." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Afi-Ay-Buc">
                                 <rect key="frame" x="50" y="283" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="username"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-UK-qRF">
-                                <rect key="frame" x="117" y="539" width="140" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="SIGN IN">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="Login:" destination="nre-bZ-Dys" eventType="touchUpInside" id="wCr-eW-2aM"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOr-bL-rQb">
                                 <rect key="frame" x="148" y="194" width="78" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2241,6 +2521,17 @@
                                 </state>
                                 <connections>
                                     <segue destination="hEJ-O4-zRf" kind="show" id="YBF-Ok-ntg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-UK-qRF">
+                                <rect key="frame" x="105" y="538" width="164" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="SIGN IN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Login:" destination="nre-bZ-Dys" eventType="touchUpInside" id="wCr-eW-2aM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2580,7 +2871,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ouser" translatesAutoresizingMaskIntoConstraints="NO" id="fhC-Q7-ri6">
                                 <rect key="frame" x="99" y="66" width="176" height="81"/>
@@ -2821,7 +3112,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7Nf-05-HuJ" kind="show" id="T9a-HY-cS6"/>
+                                    <segue destination="7Nf-05-HuJ" kind="presentation" id="DFw-82-GOF"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vV-pF-jaI">
@@ -2945,13 +3236,23 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.9224427342" green="0.9242451787" blue="0.9073019028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-ph-gpw">
+                                <rect key="frame" x="16" y="26" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="back"/>
+                                <connections>
+                                    <action selector="BackVC:" destination="37N-SU-TM3" eventType="touchUpInside" id="IAh-sC-EfD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="mjo-xn-Ber"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CEU-MW-p1e"/>
                     <connections>
                         <outlet property="AgeTxtField" destination="sP7-Zc-pBa" id="XLH-oc-6ZR"/>
                         <outlet property="AreaTextField" destination="4vW-m0-Qyf" id="G0r-yR-J0j"/>
+                        <outlet property="BackBtn" destination="Db9-ph-gpw" id="jpD-68-TNu"/>
                         <outlet property="BarLabel" destination="gm0-1L-Vzc" id="5kN-09-c2G"/>
                         <outlet property="BuldingTextField" destination="iwD-uo-FEr" id="H5f-XL-fvc"/>
                         <outlet property="CityPicker" destination="WRM-Dh-eOg" id="MYG-L3-N1n"/>
@@ -2968,6 +3269,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfX-H0-zyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7631.1999999999998" y="4016.9415292353824"/>
+        </scene>
+        <!--TandC View Controller-->
+        <scene sceneID="JRC-Gy-L3z">
+            <objects>
+                <viewController id="P0a-96-o6P" customClass="TandCViewController" customModule="DrAtDoorStep" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w9L-yt-KcO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39v-7y-BFv">
+                                <rect key="frame" x="16" y="68" width="261" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ou0-5a-KMa">
+                                <rect key="frame" x="16" y="26" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="back"/>
+                                <connections>
+                                    <action selector="Back:" destination="P0a-96-o6P" eventType="touchUpInside" id="bqs-eb-BW7"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yRf-ya-Sh8">
+                                <rect key="frame" x="16" y="105" width="343" height="542"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9224427342" green="0.9242451787" blue="0.9073019028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">These terms of use, read together with the privacy policy which can be found on the website, constitute a legal and binding contract between you the User of the one part, and Dr At Doorstep of the other part (the Agreement) providing, among other things,the terms and conditions for use of website, software hosted and managed remotely and its services rendered through website. The site &lt;a href=\"www.dratdoorstep.com\"&gt; www.dratdoorstep.com   is owned and operated by “Nisarg Wellness Private Limited”. Neither we nor any third parties provide any warranty or guarantee to the accuracy,timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or error to the fullest extent permitted by law. You must be 18 years of age or older to register or use website and its services in any manner. By registering, visiting website or accepting this Agreement, you accept to DRATDOORSTEP that you are 18 years of age or above, and that you have the right, authority and capacity to use the website and software and services given by Company and agree to and abide to this Agreement.&lt;/p&gt;  The Agreement is published in compliance of, and is governed by the provision of Indian Law, including but limited to: The Indian Contract Act, 1872, The (Indian) Information Technology Act 2000, and the rules, regulations, guidelines and clarifications framed there under, including the (India) Information Technology ( Reasonable Security Practices and Procedures and Sensitive Personal Information) rules, 2011( the SPI Rules). And the (Indian) Information Technology (Intermediaries Guidelines) Rules, 2011(the IG Rules). A condition of the Users use of and access to the website, software and services provided by DRATDOORSTEP to Users in the User’s acceptance of this Agreement. Any User that does not agree with any provision of the same is required to leave this computer resource/ the website immediately and discontinue use of all services.  Use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any services or information available through this website meet your requirements. Doctors:- I give my consent for information about myself, my health and my current medications including, but not limited to, the information I divulge as part of the consultation forms to be viewed and exchanged by and between and a Doctor working for ‘dr at doorstep’ for the purpose of conducting a medical consultation. I understand this information may be exchanged electronically. You warrant and undertake that all information provided by you in our consultation forms given is correct and true and that you have not withheld any information that may endanger you, your treatment or prognosis. All medicines prescribed will be based on the consultation completed by doctor. Therefore, we take no liability for loss, damage or any side effects of drugs arising from our service or medication prescribed. Skilled Nursing Care: - Given by registered nurse, they teach your care givers about your care and provide you direct care and they manage observe &amp; evaluate your care. Any services that could be done safely by non medical person without supervision of a nurse, isn’t skilled nursing care. Physiotherapy:- Therapy and its advice must be specific , safe &amp; presented by specialist or registered doctor will only be encouraged complex and unsafe ,self medicated prescription will not be encourage. Any bodily damage or any other form of damage to you or your surroundings, company will not be responsible for same. Counseling:-These services are covered when given under direction of doctor to help you with special &amp; emotional concern related to your illness. This might include counseling or help finding resources in your comment. E-Pharmacy:- E-pharmacy medical equipment ,devices are out source, company does not take any responsibility of it and regarding monetary, operational, drugs,equipment related problems. Home Care: - Resources used during can doorstep Health Care has to be supplied by customers &amp; Health Care attendant or company is not liable for its lost, damage,breakdown, or any happening. Any behaviorally abnormalities by customer, relatives during treatment or services, company will stop providing Health Care services at doorstep immediately &amp; no refund/services will be rendered thereafter to customer. Chargeable: - Any extra services provided by employee apart from consulting like injection, procedures, investigation, use of instruments, devices etc will not be included in the visit/ consulting. Basic Equipment:- Consulting for doctors includes examine history talking, examination using stethoscope, BP instrument &amp; basic necessary equipment's needed will only be included. Charges for subsequent follow ups &amp; treatment will be levied accordingly. During your doorstep visit unnecessary wastage of time of service provider will be charged extra as per rules of the company. Kindly be on time or at a place during appointment unnecessary delay will charge you extra. SPECIAL RULES FOR ONLINE HEALTH CARE Refusal: - Company has right to refuse for services, if customer is unable to provide the basic requirement for their patient examination, investigation &amp; medical needs. They should cooperate and support for their near ones. Self decision of patient: - Taking any of the listed services from the dratdoorstep is the decision of customer. After your medication,if required hospitals or reports will be suggested by our experts. Company will not be responsible for it. Limit of service provided:-Services will be provided at the home, shops, offices or at any property only within the corporation limits of Vadodara only. Investigation, laboratory services will take minimum time (3 hours) to deliver its reports or procedure to be done. Paperless Clinic:-It will be totally paperless clinic with a paperless investigation, so hard copy if demanded will be provided by company with charges levied accordingly. Upload Prescription / recommendation:-We encourage other Doctors prescription, recommendation of investigation, physiotherapy, nursing care, dietitian or any such services only on their letter head with registration number only. We are strictly not providing any Health care of other doctors without prescription or recommendation by certified specialist. Any mishaps regarding treatment or following it, Company is not responsible for same. Dispensing and Payment:- We are legally only able to dispense medicines to You if we have received a valid prescription issued by a registered prescriber within the Vadodara jurisdiction only. Prescriptions are issued entirely at the discretion of the prescriber. We only deliver prescription medication within the Vadodara. We will fulfill your order by dispensing the valid prescription. You will get invoice for any payment you make. ‘DRATDOORSTEP’ will not be responsible for failure of third party companies to deliver medicines to the correct address or within any particular time or date. You are responsible for providing valid credit or debit card details. We reserve the right to not deliver medicines to you if your payment details have expired or are invalid in any way. Payment, fees and taxes:-the user agrees to pay all fees, subscription fees, consulting fees and other fees applicable to user’s use of services. Each user or member is solely responsible for payment of all taxes, legal compliances, and statutory registration. The fees should be paid online through the facility made on the website, third parties support and services outsource are required to process according to their payment method. ‘DRATDOORSTEP’ is not responsible for any loss or damage caused to user. The payment process would be considered to be complete only on receipt of the amount to dratdoorstep’s designated bank or payment account. Fraud: - Any fraud call, visits booking, fake identity will be under cyber crime law punishable."</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9224427342" green="0.9242451787" blue="0.9073019028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Jbd-84-Sck"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jab-2S-sZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-8591.2000000000007" y="4016.9415292353824"/>
         </scene>
         <!--Booking History-->
         <scene sceneID="8Ja-b1-3Td">
@@ -3022,12 +3363,18 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vk4-3s-7GQ">
+                                                    <rect key="frame" x="326" y="64" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="bill"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="CanceledLbl" destination="Mqf-Ei-TN6" id="Qk3-nt-769"/>
                                             <outlet property="DateLbl" destination="QR1-Jp-psQ" id="S0j-uQ-g9A"/>
+                                            <outlet property="InvoiceBtn" destination="vk4-3s-7GQ" id="rsU-BQ-BuY"/>
                                             <outlet property="OrderLbl" destination="Kho-E0-L4C" id="uY2-IJ-Ng0"/>
                                             <outlet property="TitleLbl" destination="h9l-bA-ZMg" id="Ve6-PR-nql"/>
                                         </connections>
@@ -3065,20 +3412,29 @@
             </objects>
             <point key="canvasLocation" x="-3092" y="1664.617691154423"/>
         </scene>
-        <!--Offers / Vouchers-->
+        <!--Offer Vochers View Controller-->
         <scene sceneID="WKS-3b-hAO">
             <objects>
-                <viewController title="Offers / Vouchers" id="65A-BP-vnz" customClass="OfferVochersViewController" customModule="DrAtDoorStep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="65A-BP-vnz" customClass="OfferVochersViewController" customModule="DrAtDoorStep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SAy-qW-gf5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Offers / Vouchers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xw-6q-MIT">
+                                <rect key="frame" x="16" y="88" width="250" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ajF-in-nbn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSW-vB-QMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2870" y="3188"/>
+            <point key="canvasLocation" x="2869.5999999999999" y="3187.5562218890559"/>
         </scene>
         <!--Feedback-->
         <scene sceneID="Xol-qs-9fF">
@@ -3107,7 +3463,7 @@
                                     <action selector="Submit:" destination="7jh-Dx-6En" eventType="touchUpInside" id="XbU-Zz-URV"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select your option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jtg-b2-LWb">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select your option" borderStyle="roundedRect" placeholder="Select your option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jtg-b2-LWb">
                                 <rect key="frame" x="50" y="248" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -3117,7 +3473,7 @@
                                     <action selector="SelectOption:" destination="7jh-Dx-6En" eventType="editingDidBegin" id="n03-YF-KXN"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Service" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O50-VR-nss">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Service" borderStyle="roundedRect" placeholder="Select Service" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O50-VR-nss">
                                 <rect key="frame" x="50" y="286" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -3127,7 +3483,7 @@
                                     <action selector="SelectService:" destination="7jh-Dx-6En" eventType="editingDidBegin" id="lCC-2e-jSf"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Feedback" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="70s-mg-fmY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="70s-mg-fmY">
                                 <rect key="frame" x="50" y="324" width="275" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3203,121 +3559,124 @@
             </objects>
             <point key="canvasLocation" x="3768.8000000000002" y="3187.5562218890559"/>
         </scene>
-        <!--Terms & Conditions-->
+        <!--View Controller-->
         <scene sceneID="0Zu-x8-T1J">
             <objects>
-                <viewController storyboardIdentifier="TermsConditionVC" title="Terms &amp; Conditions" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RbI-9L-KNU" customClass="TermsConditionViewController" customModule="DrAtDoorStep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsConditionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RbI-9L-KNU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GKm-Re-lVy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuA-rK-pDG">
-                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1df-qS-EcJ">
+                                <rect key="frame" x="16" y="125" width="343" height="493"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">These terms of use, read together with the privacy policy which can be found on the website, constitute a legal and binding contract between you the User of the one part, and Dr At Doorstep of the other part (the Agreement) providing, among other things,the terms and conditions for use of website, software hosted and managed remotely and its services rendered through website. The site &lt;a href=\"www.dratdoorstep.com\"&gt; www.dratdoorstep.com   is owned and operated by “Nisarg Wellness Private Limited”. Neither we nor any third parties provide any warranty or guarantee to the accuracy,timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or error to the fullest extent permitted by law. You must be 18 years of age or older to register or use website and its services in any manner. By registering, visiting website or accepting this Agreement, you accept to DRATDOORSTEP that you are 18 years of age or above, and that you have the right, authority and capacity to use the website and software and services given by Company and agree to and abide to this Agreement.&lt;/p&gt;  The Agreement is published in compliance of, and is governed by the provision of Indian Law, including but limited to: The Indian Contract Act, 1872, The (Indian) Information Technology Act 2000, and the rules, regulations, guidelines and clarifications framed there under, including the (India) Information Technology ( Reasonable Security Practices and Procedures and Sensitive Personal Information) rules, 2011( the SPI Rules). And the (Indian) Information Technology (Intermediaries Guidelines) Rules, 2011(the IG Rules). A condition of the Users use of and access to the website, software and services provided by DRATDOORSTEP to Users in the User’s acceptance of this Agreement. Any User that does not agree with any provision of the same is required to leave this computer resource/ the website immediately and discontinue use of all services.  Use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any services or information available through this website meet your requirements. Doctors:- I give my consent for information about myself, my health and my current medications including, but not limited to, the information I divulge as part of the consultation forms to be viewed and exchanged by and between and a Doctor working for ‘dr at doorstep’ for the purpose of conducting a medical consultation. I understand this information may be exchanged electronically. You warrant and undertake that all information provided by you in our consultation forms given is correct and true and that you have not withheld any information that may endanger you, your treatment or prognosis. All medicines prescribed will be based on the consultation completed by doctor. Therefore, we take no liability for loss, damage or any side effects of drugs arising from our service or medication prescribed. Skilled Nursing Care: - Given by registered nurse, they teach your care givers about your care and provide you direct care and they manage observe &amp; evaluate your care. Any services that could be done safely by non medical person without supervision of a nurse, isn’t skilled nursing care. Physiotherapy:- Therapy and its advice must be specific , safe &amp; presented by specialist or registered doctor will only be encouraged complex and unsafe ,self medicated prescription will not be encourage. Any bodily damage or any other form of damage to you or your surroundings, company will not be responsible for same. Counseling:-These services are covered when given under direction of doctor to help you with special &amp; emotional concern related to your illness. This might include counseling or help finding resources in your comment. E-Pharmacy:- E-pharmacy medical equipment ,devices are out source, company does not take any responsibility of it and regarding monetary, operational, drugs,equipment related problems. Home Care: - Resources used during can doorstep Health Care has to be supplied by customers &amp; Health Care attendant or company is not liable for its lost, damage,breakdown, or any happening. Any behaviorally abnormalities by customer, relatives during treatment or services, company will stop providing Health Care services at doorstep immediately &amp; no refund/services will be rendered thereafter to customer. Chargeable: - Any extra services provided by employee apart from consulting like injection, procedures, investigation, use of instruments, devices etc will not be included in the visit/ consulting. Basic Equipment:- Consulting for doctors includes examine history talking, examination using stethoscope, BP instrument &amp; basic necessary equipment's needed will only be included. Charges for subsequent follow ups &amp; treatment will be levied accordingly. During your doorstep visit unnecessary wastage of time of service provider will be charged extra as per rules of the company. Kindly be on time or at a place during appointment unnecessary delay will charge you extra. SPECIAL RULES FOR ONLINE HEALTH CARE Refusal: - Company has right to refuse for services, if customer is unable to provide the basic requirement for their patient examination, investigation &amp; medical needs. They should cooperate and support for their near ones. Self decision of patient: - Taking any of the listed services from the dratdoorstep is the decision of customer. After your medication,if required hospitals or reports will be suggested by our experts. Company will not be responsible for it. Limit of service provided:-Services will be provided at the home, shops, offices or at any property only within the corporation limits of Vadodara only. Investigation, laboratory services will take minimum time (3 hours) to deliver its reports or procedure to be done. Paperless Clinic:-It will be totally paperless clinic with a paperless investigation, so hard copy if demanded will be provided by company with charges levied accordingly. Upload Prescription / recommendation:-We encourage other Doctors prescription, recommendation of investigation, physiotherapy, nursing care, dietitian or any such services only on their letter head with registration number only. We are strictly not providing any Health care of other doctors without prescription or recommendation by certified specialist. Any mishaps regarding treatment or following it, Company is not responsible for same. Dispensing and Payment:- We are legally only able to dispense medicines to You if we have received a valid prescription issued by a registered prescriber within the Vadodara jurisdiction only. Prescriptions are issued entirely at the discretion of the prescriber. We only deliver prescription medication within the Vadodara. We will fulfill your order by dispensing the valid prescription. You will get invoice for any payment you make. ‘DRATDOORSTEP’ will not be responsible for failure of third party companies to deliver medicines to the correct address or within any particular time or date. You are responsible for providing valid credit or debit card details. We reserve the right to not deliver medicines to you if your payment details have expired or are invalid in any way. Payment, fees and taxes:-the user agrees to pay all fees, subscription fees, consulting fees and other fees applicable to user’s use of services. Each user or member is solely responsible for payment of all taxes, legal compliances, and statutory registration. The fees should be paid online through the facility made on the website, third parties support and services outsource are required to process according to their payment method. ‘DRATDOORSTEP’ is not responsible for any loss or damage caused to user. The payment process would be considered to be complete only on receipt of the amount to dratdoorstep’s designated bank or payment account. Fraud: - Any fraud call, visits booking, fake identity will be under cyber crime law punishable."</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uP3-mi-YcY">
+                                <rect key="frame" x="16" y="88" width="261" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="aLK-Zr-PIw"/>
                     </view>
-                    <connections>
-                        <outlet property="tcWebView" destination="cuA-rK-pDG" id="6Y1-Za-Jvp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wze-xt-5wM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7332" y="3189"/>
+            <point key="canvasLocation" x="7332" y="3188.4557721139431"/>
         </scene>
-        <!--Help-->
+        <!--View Controller-->
         <scene sceneID="vrv-kb-lJN">
             <objects>
-                <viewController title="Help" id="E8u-dz-rib" customClass="HelpViewController" customModule="DrAtDoorStep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E8u-dz-rib" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="byt-aD-Z5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BnS-1S-xrM">
-                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Booking Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbx-2u-q8B">
+                                <rect key="frame" x="16" y="90" width="170" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-Ke-lbt">
+                                <rect key="frame" x="16" y="127" width="343" height="493"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Step 1
+
+Click on \"Book Appointment\" button and you will be redirected to the form with minimum requirements. You have to select Patient Name, Date &amp;amp; time of appointment slot (strictly based on availability).
+                
+          
+                
+Step 2
+                
+Once you select all the required information, you will be redirected to checkout page. Here confirmed time slots with the selected date will be displayed. If you have coupon OR voucher code, you can enter it here. The time slot will be booked only for 2:00 Minutes past that if you want Pay, you can loose your slot!
+                
+      
+
+                
+Step 3
+
+After checking out click on \"Pay Now\" button and you will be redirected to the payment gateway. On successful payment the appointment is booked for yourself.
+        
+
+
+                
+Step 4
+
+After confirmation of your appointment, Doctor will visit you as per your selection and assist you for living healthy. That's it!
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="peh-nm-ywc"/>
                     </view>
-                    <connections>
-                        <outlet property="HelpWebView" destination="BnS-1S-xrM" id="YIu-2f-9Gb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwJ-dD-Kcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6474" y="3190"/>
+            <point key="canvasLocation" x="6472.8000000000002" y="3189.3553223388308"/>
         </scene>
-        <!--About US-->
+        <!--View Controller-->
         <scene sceneID="hlO-FS-Sbs">
             <objects>
-                <viewController title="About US" id="98e-xc-JET" customClass="AboutusViewController" customModule="DrAtDoorStep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="98e-xc-JET" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qDs-7d-thr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wft-FA-cKx">
-                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About US" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctM-Qq-e9L">
+                                <rect key="frame" x="16" y="90" width="126" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="izq-nW-9lE">
+                                <rect key="frame" x="16" y="127" width="343" height="493"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Nisarg  Wellness  Private Limited is one of youngest and most emerging health care player in city. In this fast busy life to keep pace with your health, at  dr@doorstep  you will receive all health care services at your doorstep. Our innovative concept is to provide high quality of health care services using information and technology  at your doorstep under  successful  and bold endeavour  of  Mr Sejal  Shah and Mrs Charu Amin  young and energetic  entrepreneur, well experienced, learned, academician and author .  We provide all types of doctors like allopathy, dentist,  homeopathy, ayurvedic , physiotherapy, nurses, dressers,health care attendants, all investigation like ECG, blood, urine, stool, x-ray , E- pharmacy all at your doorstep selected by rigorous training and hiring standards verified by topmost institute and senior doctors. All of our staff are highly experienced, skilled with knowledgeable background and members of international and national medical accreditation bodies.  We look to bring significant value to the healthcare industry and our customer by offering comfort, convinence, and cost effectiveness to the customer with excellent clinical care at their place with motto of quality of health care beyond just medical care.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="JIe-cZ-eAw"/>
                     </view>
-                    <connections>
-                        <outlet property="AboutWebView" destination="wft-FA-cKx" id="BYx-7I-Nhi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbe-aH-gB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5609" y="3188"/>
-        </scene>
-        <!--Blog-->
-        <scene sceneID="If4-vs-qcN">
-            <objects>
-                <viewController title="Blog" id="RMI-ul-9nA" customClass="BlogViewController" customModule="DrAtDoorStep" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Scn-bC-SbN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q6n-eY-8cn">
-                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="UjK-4Z-zkC"/>
-                    </view>
-                    <connections>
-                        <outlet property="BlogWeb" destination="Q6n-eY-8cn" id="GZ6-zq-W5L"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lIu-1I-i1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4706" y="3191"/>
+            <point key="canvasLocation" x="5608.8000000000002" y="3187.5562218890559"/>
         </scene>
         <!--Signout View Controller-->
         <scene sceneID="8hH-kL-oGA">
@@ -3390,7 +3749,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7Y-he-4D7">
-                                                    <rect key="frame" x="53" y="19" width="91" height="21"/>
+                                                    <rect key="frame" x="53" y="19" width="160" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -3400,23 +3759,19 @@
                                                     <rect key="frame" x="15" y="14" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zly-iO-a46">
-                                                    <rect key="frame" x="152" y="20" width="64" height="21"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pencil" translatesAutoresizingMaskIntoConstraints="NO" id="7al-3n-vmk">
+                                                    <rect key="frame" x="330" y="15" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mc-Dj-GY4">
+                                                    <rect key="frame" x="293" y="18" width="29" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pencil" translatesAutoresizingMaskIntoConstraints="NO" id="7al-3n-vmk">
-                                                    <rect key="frame" x="293" y="14" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cancel-button" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-sN-omg">
-                                                    <rect key="frame" x="334" y="14" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mc-Dj-GY4">
-                                                    <rect key="frame" x="227" y="18" width="29" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zly-iO-a46">
+                                                    <rect key="frame" x="221" y="20" width="64" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -3437,6 +3792,14 @@
                                     <outlet property="delegate" destination="7Nf-05-HuJ" id="yfY-jw-MF8"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBe-tQ-2z5">
+                                <rect key="frame" x="16" y="26" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="back"/>
+                                <connections>
+                                    <action selector="Back:" destination="7Nf-05-HuJ" eventType="touchUpInside" id="aLS-PC-hh8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9185214639" green="0.92032343149999996" blue="0.90338081120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4Sa-Qa-oPB"/>
@@ -3479,8 +3842,8 @@
         <image name="audit" width="210" height="209"/>
         <image name="back" width="506" height="506"/>
         <image name="bg1" width="1565" height="2250"/>
+        <image name="bill" width="256" height="256"/>
         <image name="btn" width="501" height="146"/>
-        <image name="cancel-button" width="128" height="128"/>
         <image name="cartBtn" width="342" height="342"/>
         <image name="crtttt" width="30" height="30"/>
         <image name="doctorIcon" width="1695" height="1695"/>
@@ -3506,7 +3869,8 @@
         <image name="wla" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uf3-XY-Q2u"/>
+        <segue reference="UwM-yn-qJX"/>
+        <segue reference="6qU-DD-Hjk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

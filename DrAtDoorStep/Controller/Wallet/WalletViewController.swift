@@ -45,7 +45,7 @@ class WalletViewController: UIViewController{
         RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
         print(RetriveFechData)
         
-        let userIdDM = "5191" //"\(RetriveFechData)"
+        let userIdDM = "\(RetriveFechData)"
         let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["userId" : userIdDM,

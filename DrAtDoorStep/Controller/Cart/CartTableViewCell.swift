@@ -17,6 +17,7 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet var DateLbl: UILabel!
     @IBOutlet var AppoinmentForLbl: UILabel!
     @IBOutlet var AppoinmentTypeLbl: UILabel!
+    @IBOutlet var TimeLbl: UILabel!
     
     @IBOutlet var EditBt: UIImageView!
     @IBOutlet var DeleteBtn: UIImageView!

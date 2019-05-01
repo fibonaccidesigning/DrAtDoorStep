@@ -28,7 +28,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //MARK: - Arrays
     
-    let TimeS = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
+    let TimeS = ["Select Time","08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
     
     let DoctorS = ["XRAY(Portable)","ECG", "Blood Test","Other Test"]
     
@@ -58,6 +58,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var isToEditFlag = ""
     var isForBookFlag = ""
     
+    var PID = ""
     
     //MARK: - IBOulets
     
@@ -98,7 +99,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         //MARK: - UserDefult
         
-        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userId")
         print(RetriveFechData)
         
     }
@@ -296,7 +297,8 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == PickerViewController{
-            SelectPatientTextField.text = selectedItem
+            SelectPatientTextField.text = pickData[row]["name"]
+            PID = pickData[row]["patientId"] as Any as! String
             self.view.endEditing(false)
         }else if pickerView == PickerView1{
             SelectTypeTextField.text = DoctorS[row]
@@ -375,7 +377,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         let userIdDM = "\(RetriveFechData)"
         let appointmentTypeDM = "lab"
-        let patientDM = "1845"//selectedPatientId
+        let patientDM = "\(PID)"
         let selectDrDM = selectDrType
         let dateDM = "\(UNIXDate)"
         let timeDM = selectI
@@ -487,9 +489,7 @@ class LabViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     // MARK: - TermsCondition
     
     @IBAction func TermsCondition(_ sender: Any) {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
-        self.present(second, animated: true, completion: nil)
+  
     }
     
     // MARK: - HideVC

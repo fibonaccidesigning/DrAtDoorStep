@@ -45,7 +45,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
         print(RetriveFechData)
         
-        let userIdDM = "\(RetriveFechData)"
+        let userIdDM = "6" // "\(RetriveFechData)"
         
         let parms : [String : String] = ["userId" : userIdDM ]
         
@@ -119,9 +119,10 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BookingHistoryTableViewCell
         
-        
+       // BookingHistoryDataDictionary[indexPath.item].confirm
         cell.OrderLbl.text = BookingHistoryDataDictionary[indexPath.item].orderNo
         cell.TitleLbl.text = BookingHistoryDataDictionary[indexPath.item].title
+        
         
         let DateResult = BookingHistoryDataDictionary[indexPath.row].date!
         
@@ -129,7 +130,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         let SdateFormatter = DateFormatter()
         SdateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
         SdateFormatter.locale = NSLocale.current
-        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM:SS aa" //Specify your format that you want
+        SdateFormatter.dateFormat = "dd/MM/yyyy hh:mm aa" //Specify your format that you want
         let SstrDate = SdateFormatter.string(from: Sdate)
         
         print(SstrDate)
@@ -137,18 +138,22 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         cell.DateLbl.text = "\(SstrDate)"
         
         cell.CanceledLbl.text = BookingHistoryDataDictionary[indexPath.item].flagcancel
-
         
-        if BookingHistoryDataDictionary[indexPath.item].confirm == nil{
+
+        print("\(String(describing: BookingHistoryDataDictionary[indexPath.item].confirm))")
+        
+        if BookingHistoryDataDictionary[indexPath.item].confirm == "1"{
             cell.CanceledLbl.text = "Cancelled"
+            cell.InvoiceBtn.isHidden = true
         }
         else{
             cell.CanceledLbl.text = ""
+            cell.InvoiceBtn.isHidden = false
         }
         
         return cell
     }
-    
+   
 
 }
 

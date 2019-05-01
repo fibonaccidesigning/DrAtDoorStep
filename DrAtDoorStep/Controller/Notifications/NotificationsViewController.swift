@@ -74,16 +74,34 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     func updateNotificationData(json : JSON)  {
         
         let pro = json["notifications"].array
-        let range = pro!.count
         
-        for i in 0..<range{
+        if pro != nil{
             
-            NotificationDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
+            let range = pro!.count
             
-            self.NotificationTableView.reloadData()
+            if range == 0{
+                
+                let alert = UIAlertController(title: "Error", message: "No Older Notifications", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil )
+                
+                self.notification.notificationOccurred(.warning)
+            }
+            
+            for i in 0..<range{
+                
+                NotificationDataDictionary.append(NotificationDataModel(json: (pro![i].dictionaryObject)!))
+                
+                self.NotificationTableView.reloadData()
+                
+            }
             
         }
-        
+    
     }
     
     
@@ -116,6 +134,19 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            NotificationDataDictionary.remove(at: indexPath.row)
+//            NotificationTableView.deleteRows(at: [indexPath], with: .fade)
+            NotificationTableView.reloadData()
+            
+//            print("-------\(t)")
+        }
+    }
+    
+    
     
     
     // MARK: - Clear All Notification

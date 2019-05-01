@@ -7,19 +7,22 @@
 //
 
 import UIKit
-import  WebKit
+import WebKit
+import Foundation
 
 class BlogViewController: UIViewController {
 
     @IBOutlet var BlogWeb: WKWebView!
-    
-    let urlMy = URL(string: "http://dratdoorstep.com/livemob/blogs")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let urlMy = URL(string: "http://www.google.com")
+
         let request = URLRequest(url: urlMy!)
+
         BlogWeb.load(request)
+
     }
     
 

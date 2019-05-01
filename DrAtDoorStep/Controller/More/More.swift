@@ -11,8 +11,11 @@ import UIKit
 
 class More: UITableViewController {
     
+    
+    
     @IBOutlet var NotificationBtn: UISwitch!
     @IBOutlet var NotificationSoundBtn: UISwitch!
+    @IBOutlet var SettingTbl: UITableView!
     
     
     
@@ -42,9 +45,29 @@ class More: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
+//
+//        func signOut()  {
+////
+////            if [indexPath.section][indexPath.item] == 4{
+////                let main = UIStoryboard(name: "Main", bundle: nil)
+////                let second = main.instantiateViewController(withIdentifier: "LoginVC")
+////                self.present(second, animated: true, completion: nil)
+////            }
+////            else{
+////
+////            }
+//        }
+//
+//       do {
+//        signOut()
+//       } catch  {
+//            print("------Error")
+//        }
+//
+//
+//
+//    }
     
-    
-    
+}
 }
 

@@ -24,5 +24,3 @@ class AboutusViewController: UIViewController {
     }
 }
 
-
-//UITextField.resignFirstResponder()

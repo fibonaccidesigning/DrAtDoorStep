@@ -23,7 +23,11 @@ class LoginViewController: UIViewController {
     let Login_URL = "http://dratdoorstep.com/livemob/login"
     let View_Patient_URL = "http://dratdoorstep.com/livemob/viewPatients"
     
+    var reachability : Reachability?
+    
     let notification = UINotificationFeedbackGenerator()
+    
+    var flag : Int?
     
     // MARK: - ViewController
     
@@ -40,7 +44,28 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.HideKeybord()
         
+        InternetConnection()
        
+    }
+    
+    
+    //MARK: - Check Internet Connection
+    
+    func InternetConnection()  {
+        
+        self.reachability = Reachability.init()
+        
+        if((self.reachability!.connection) != .none){
+            print("Internet Availabel")
+            
+            LoginBtn.setTitle("SIGN IN", for: .normal)
+            
+            flag = 1
+        }else{
+            print("Inter Not Availabel")
+            flag = 0
+            
+        }
     }
     
     
@@ -56,7 +81,38 @@ class LoginViewController: UIViewController {
                                          "password" : passwordDM,
                                          "deviceType" : deviceTypeDM]
         
-        getData(url: Login_URL, parameters: parms)
+        InternetConnection()
+        
+        if flag == 1{
+            
+             if self.UsernameTextField.text != "" && self.PasswordTextField.text != ""{
+                
+                getData(url: Login_URL, parameters: parms)
+            
+             }else{
+                
+                let alert = UIAlertController(title: "Error", message: "Required Field Missing", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil )
+                
+                self.notification.notificationOccurred(.warning)
+            }
+            
+            
+            
+        }else if flag == 0{
+            
+            self.notification.notificationOccurred(.error)
+            
+            LoginBtn.setTitle("Internet Not Availabel", for: .normal)
+            
+        }
+        
+       
         
     }
     
@@ -69,29 +125,13 @@ class LoginViewController: UIViewController {
                 let LoginJSON : JSON = JSON(respondse.result.value!)
                 self.updateLoginData(json: LoginJSON)
                 
-                if self.UsernameTextField.text != "" && self.PasswordTextField.text != ""{
+                if self.loginDataModel.isSuccess == true{
                     
-                    if self.loginDataModel.isSuccess == true{
-                        
-                        self.performSegue(withIdentifier: "goToAppoinment", sender: self)
-                  
-                    }
-                    else{
-            
-                        let alert = UIAlertController(title: "Error", message: "\(self.loginDataModel.message!)", preferredStyle: .alert)
-                            
-                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
-                            
-                        alert.addAction(action)
-                            
-                        self.present(alert, animated: true, completion: nil )
-                        
-                        self.notification.notificationOccurred(.warning)
-                        
-                    }
+                    self.performSegue(withIdentifier: "goToAppoinment", sender: self)
+                    
                 }
                 else{
-                  
+                    
                     let alert = UIAlertController(title: "Error", message: "\(self.loginDataModel.message!)", preferredStyle: .alert)
                     
                     let action = UIAlertAction(title: "Done", style: .default, handler: nil)
@@ -101,6 +141,7 @@ class LoginViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil )
                     
                     self.notification.notificationOccurred(.warning)
+                    
                 }
                 
             }
@@ -137,8 +178,9 @@ class LoginViewController: UIViewController {
         
         let dataUserId = "\(loginDataModel.userId!)"
         
-        let y =  UserDefaults.standard.set(dataUserId, forKey: "userID")
-
+        UserDefaults.standard.set(dataUserId, forKey: "userId")
+      
+         UserDefaults.standard.synchronize()
         
     }
     

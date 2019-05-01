@@ -28,10 +28,10 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let Time_URL = "http://dratdoorstep.com/livemob/timeSlotsTime"
     
     
+    
     // MARK: - Arrays
     
-    
-    let TimeS = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
+    let TimeS = ["Select Time","08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
     
     let DoctorS = ["One Way","With Return (Within 1 hour)"]
     
@@ -58,7 +58,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var latitAdd : Double = 0
     
     var flag = 0
-    var appoinmetnFlag = 0
+    var appoinmetnFlag : Int?
     
     var UNIXDate : Double = 0
     
@@ -106,7 +106,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         //MARK: - UserDefult
         
-        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
+        RetriveFechData = UserDefaults.standard.integer(forKey: "userId")
         print(RetriveFechData)
         
         // MARK: - Current Location
@@ -377,7 +377,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             GenderTextField.text = GenderS[row]
             self.view.endEditing(false)
         }else if pickerView == CityPicker{
-            SelectCityTextField.text = selectedItem
+            SelectCityTextField.text = cityPickData[row]["cityName"]
             self.view.endEditing(false)
         }else if pickerView == TimePicker{
             SelectTimeTextField.text = TimeS[row]
@@ -484,7 +484,7 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                                          "deviceType" : deviceTypeDM,
                                          "isToEdit" : isToEditDM ]
         
-        getData(url: CallAmbulance_URL, parameters: parms)
+        self.getData(url: CallAmbulance_URL, parameters: parms)
         
         print(parms)
         
@@ -623,9 +623,6 @@ class AmbulanceViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // MARK: - TermsCondition
     
     @IBAction func TermsCondition(_ sender: Any) {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
-        self.present(second, animated: true, completion: nil)
 
     }
     

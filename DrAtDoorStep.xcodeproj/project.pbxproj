@@ -10,7 +10,7 @@
 		0E28ADA0A82E71ECB507B0B3 /* Pods_DrAtDoorStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76176DC87206888026BE86F7 /* Pods_DrAtDoorStep.framework */; };
 		B20EAA942226581400DBCD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAA932226581400DBCD04 /* AppDelegate.swift */; };
 		B20EAA962226581400DBCD04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAA952226581400DBCD04 /* ViewController.swift */; };
-		B20EAA992226581400DBCD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA972226581400DBCD04 /* Main.storyboard */; };
+		B20EAA992226581400DBCD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA972226581400DBCD04 /* Main.storyboard */; settings = {ASSET_TAGS = (Blog, ); }; };
 		B20EAA9B2226581600DBCD04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA9A2226581600DBCD04 /* Assets.xcassets */; };
 		B20EAA9E2226581600DBCD04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20EAA9C2226581600DBCD04 /* LaunchScreen.storyboard */; };
 		B20EAAAE22269D0F00DBCD04 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20EAAAD22269D0E00DBCD04 /* More.swift */; };
@@ -33,8 +33,11 @@
 		B23EC0FF2226B0E000DDB908 /* AddPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC0FE2226B0E000DDB908 /* AddPatientViewController.swift */; };
 		B23EC1012226B19B00DDB908 /* ViewPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC1002226B19B00DDB908 /* ViewPatientViewController.swift */; };
 		B23EC1032226B35700DDB908 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */; };
+		B2562F75227970C7009D5B90 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2562F74227970C7009D5B90 /* Reachability.swift */; };
+		B2562F7722799C5A009D5B90 /* TandCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2562F7622799C5A009D5B90 /* TandCViewController.swift */; };
 		B26DE20A225736D6006E7A9F /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DE209225736D6006E7A9F /* CartTableViewCell.swift */; };
 		B26DE20C22573955006E7A9F /* CartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DE20B22573955006E7A9F /* CartDataModel.swift */; };
+		B293BF962278258D00007722 /* BlogWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B293BF952278258D00007722 /* BlogWebViewController.swift */; };
 		B2A235C02227AEE700546FF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235BF2227AEE600546FF7 /* LoginViewController.swift */; };
 		B2A235C22227AEF100546FF7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C12227AEF100546FF7 /* RegisterViewController.swift */; };
 		B2A235C42227AF1F00546FF7 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */; };
@@ -84,8 +87,11 @@
 		B23EC0FE2226B0E000DDB908 /* AddPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientViewController.swift; sourceTree = "<group>"; };
 		B23EC1002226B19B00DDB908 /* ViewPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPatientViewController.swift; sourceTree = "<group>"; };
 		B23EC1022226B35700DDB908 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		B2562F74227970C7009D5B90 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		B2562F7622799C5A009D5B90 /* TandCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TandCViewController.swift; sourceTree = "<group>"; };
 		B26DE209225736D6006E7A9F /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		B26DE20B22573955006E7A9F /* CartDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDataModel.swift; sourceTree = "<group>"; };
+		B293BF952278258D00007722 /* BlogWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogWebViewController.swift; sourceTree = "<group>"; };
 		B2A235BF2227AEE600546FF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B2A235C12227AEF100546FF7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				B2CF723B224E0B6C00C23804 /* Appoinment.swift */,
+				B2562F7622799C5A009D5B90 /* TandCViewController.swift */,
 				B20EAAB72226A01000DBCD04 /* Doctor */,
 				B23EC0DE2226A61800DDB908 /* Nurses */,
 				B23EC0E12226A74B00DDB908 /* Lab */,
@@ -304,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				B23EC0F52226AFCE00DDB908 /* BlogViewController.swift */,
+				B293BF952278258D00007722 /* BlogWebViewController.swift */,
 			);
 			path = Blog;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				B2A235BF2227AEE600546FF7 /* LoginViewController.swift */,
+				B2562F74227970C7009D5B90 /* Reachability.swift */,
 				B2A235C32227AF1F00546FF7 /* ForgetPasswordViewController.swift */,
 				B2A235C12227AEF100546FF7 /* RegisterViewController.swift */,
 				B2AC95CA2230EB2F00713B1B /* AuthenticateViewController.swift */,
@@ -425,6 +434,10 @@
 		B20EAA882226581400DBCD04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					Blog,
+					"import WebKit",
+				);
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Parth Mandaviya";
@@ -523,6 +536,7 @@
 				B20EAAAE22269D0F00DBCD04 /* More.swift in Sources */,
 				B23EC0EA2226AE6C00DDB908 /* PharmacyViewController.swift in Sources */,
 				B23EC0E62226A8D100DDB908 /* CaretakerViewController.swift in Sources */,
+				B2562F75227970C7009D5B90 /* Reachability.swift in Sources */,
 				B2A235C22227AEF100546FF7 /* RegisterViewController.swift in Sources */,
 				B2BCEB4A224B3C34004B11E8 /* CardView.swift in Sources */,
 				B2A235C02227AEE700546FF7 /* LoginViewController.swift in Sources */,
@@ -542,6 +556,7 @@
 				B2AC95CB2230EB2F00713B1B /* AuthenticateViewController.swift in Sources */,
 				B23EC0E02226A63400DDB908 /* NursesViewController.swift in Sources */,
 				B23EC0F62226AFCE00DDB908 /* BlogViewController.swift in Sources */,
+				B293BF962278258D00007722 /* BlogWebViewController.swift in Sources */,
 				B20EAA962226581400DBCD04 /* ViewController.swift in Sources */,
 				B23EC0FF2226B0E000DDB908 /* AddPatientViewController.swift in Sources */,
 				B23EC1032226B35700DDB908 /* ChangePasswordViewController.swift in Sources */,
@@ -558,6 +573,7 @@
 				B23EC0F82226AFE900DDB908 /* TermsConditionViewController.swift in Sources */,
 				B2D320CA223132E1005DF272 /* NotificationsViewController.swift in Sources */,
 				B21F4DBF22606A0A00FBB28D /* SignoutViewController.swift in Sources */,
+				B2562F7722799C5A009D5B90 /* TandCViewController.swift in Sources */,
 				B20EAA942226581400DBCD04 /* AppDelegate.swift in Sources */,
 				B23EC0E32226A76E00DDB908 /* LabViewController.swift in Sources */,
 			);

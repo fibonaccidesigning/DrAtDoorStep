@@ -19,14 +19,14 @@ class SignoutViewController: UIViewController {
         super.viewDidLoad()
 
         
-       
-        
     }
     
 
     @IBAction func Signout(_ sender: Any) {
         
-      UserDefaults.standard.removeObject(forKey: "userID")
+      UserDefaults.standard.removeObject(forKey: "userId")
+        
+        UserDefaults.standard.synchronize()
         
         let main = UIStoryboard(name: "Main", bundle: nil)
         let second = main.instantiateViewController(withIdentifier: "LoginVC")

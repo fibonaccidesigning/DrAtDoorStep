@@ -65,6 +65,7 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var PickerViewVC: UIPickerView!
     @IBOutlet var CityPicker: UIPickerView!
     @IBOutlet var BarLabel: UILabel!
+    @IBOutlet var BackBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -350,5 +351,10 @@ class AddPatientViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.view.endEditing(true)
         
     }
-
+    @IBAction func BackVC(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
 }

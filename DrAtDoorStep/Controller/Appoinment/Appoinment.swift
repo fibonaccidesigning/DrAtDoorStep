@@ -30,7 +30,7 @@ class Appoinment: UIViewController {
         
         let userIdDM = "\(RetriveFechData)"
         
-        if userIdDM == "" {
+        if userIdDM == "0" {
             
             let main = UIStoryboard(name: "Main", bundle: nil)
             let second = main.instantiateViewController(withIdentifier: "LoginVC")
@@ -84,6 +84,8 @@ class Appoinment: UIViewController {
         let dataPatientId = "\(apoinmentDataModel.patientId!)"
         
         let y =  UserDefaults.standard.set(dataPatientId, forKey: "patientId")
+        
+         UserDefaults.standard.synchronize()
         
         print("----\(y)")
  

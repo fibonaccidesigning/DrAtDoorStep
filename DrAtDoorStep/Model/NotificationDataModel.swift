@@ -31,18 +31,19 @@ class NotificationDataModel{
     var typeDM = "type"
     var totalAmountDM = "totalAmount"
     var confirmDM = "confirm"
+    var timeDM = "time"
     
     
     var type : String?
     var totalAmount : Int?
     var appointmentDate : Int?
-       var patientName : String?
+    var patientName : String?
     var notificationId : Int?
-     var amount : String?
+    var amount : String?
     var title : String?
-      var bookingtype : String?
+    var bookingtype : String?
     var description : String?
-      var particular : String?
+    var particular : String?
     var orderNo : String?
     var date : Int?
     var userId : Int?
@@ -51,15 +52,19 @@ class NotificationDataModel{
     var invoiceUrl : String?
     var id : Int?
     var orderNumber : Int?
-    var confirm : Int?
+    var confirm : String?
+    var time : String?
     
     
     init(json: [String : Any?]) {
         
+        if let value = json[timeDM] as? String {
+            self.time = value
+        }
         if let value = json[NotifiIdDM] as? Int {
             self.notificationId = value
         }
-        if let value = json[confirmDM] as? Int {
+        if let value = json[confirmDM] as? String {
             self.confirm = value
         }
         if let value = json[totalAmountDM] as? Int {

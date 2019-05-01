@@ -60,60 +60,67 @@ class RegisterViewController: UIViewController {
     
     func getData(url : String, parameters: [String : String]) {
         
-        Alamofire.request(url, method: .post, parameters : parameters).responseJSON {
-            respondse in
-            if respondse.result.isSuccess {
-                
-                let RegisterJSON : JSON = JSON(respondse.result.value!)
-                self.updateRegisterData(json: RegisterJSON)
-                
-                if self.EmailTextField.text != "" && self.MobileTextField.text != ""{
-                    
-                    if self.registerDataModel.isSuccess == true{
-                        
-                        let main = UIStoryboard(name: "Main", bundle: nil)
-                        let second = main.instantiateViewController(withIdentifier: "GoToAuthenticate")
-                        self.present(second, animated: true, completion: nil)
-                        
-                        self.notification.notificationOccurred(.success)
-                        
-                    }
-                    else{
-                        let alert = UIAlertController(title: "Error", message: "\(String(describing: self.registerDataModel.message!))", preferredStyle: .alert)
-                        
-                        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
-                        
-                        alert.addAction(action)
-                        
-                        self.present(alert, animated: true, completion: nil )
-                        
-                        self.notification.notificationOccurred(.warning)
-                    }
-                }
-                else{
-                    let alert = UIAlertController(title: "Error", message: "\(String(describing: self.registerDataModel.message!))", preferredStyle: .alert)
-                    
-                    let action = UIAlertAction(title: "Done", style: .default, handler: nil)
-                    
-                    alert.addAction(action)
-                    
-                    self.present(alert, animated: true, completion: nil )
-                    
-                    self.notification.notificationOccurred(.warning)
-                }
+        if EmailTextField.text != "" && MobileTextField.text != "" {
             
+            do {
+                
+                Alamofire.request(url, method: .post, parameters : parameters).responseJSON {
+                    respondse in
+                    if respondse.result.isSuccess {
+                        
+                        let RegisterJSON : JSON = JSON(respondse.result.value!)
+                        self.updateRegisterData(json: RegisterJSON)
+                        
+                        if self.EmailTextField.text != "" && self.MobileTextField.text != ""{
+                            
+                            if self.registerDataModel.isSuccess == true{
+                                
+                                let main = UIStoryboard(name: "Main", bundle: nil)
+                                let second = main.instantiateViewController(withIdentifier: "GoToAuthenticate")
+                                self.present(second, animated: true, completion: nil)
+                                
+                                self.notification.notificationOccurred(.success)
+                                
+                            }
+                            else{
+                                let alert = UIAlertController(title: "Error", message: "Required Field missing", preferredStyle: .alert)
+                                
+                                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                                
+                                alert.addAction(action)
+                                
+                                self.present(alert, animated: true, completion: nil )
+                                
+                                self.notification.notificationOccurred(.warning)
+                            }
+                        }
+                        else{
+                            let alert = UIAlertController(title: "Error", message: "\(String(describing: self.registerDataModel.message!))", preferredStyle: .alert)
+                            
+                            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                            
+                            alert.addAction(action)
+                            
+                            self.present(alert, animated: true, completion: nil )
+                            
+                            self.notification.notificationOccurred(.warning)
+                        }
+                        
+                    }
+                }
+                
             }
-            else{
-                let alert = UIAlertController(title: "Error", message: "\(String(describing: self.registerDataModel.message!))", preferredStyle: .alert)
-                
-                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
-                
-                alert.addAction(action)
-                
-                self.present(alert, animated: true, completion: nil )
-                
-                self.notification.notificationOccurred(.warning)
-            }
+        }
+        else{
+            let alert = UIAlertController(title: "Error", message: "Required Field missing", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil )
+            
+            self.notification.notificationOccurred(.warning)
         }
         
     }

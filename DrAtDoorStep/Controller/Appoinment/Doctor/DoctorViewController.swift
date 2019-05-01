@@ -30,7 +30,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     // MARK: - Arrays
     
-    let TimeS = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
+    let TimeS = ["Select Time","08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00"]
     
     let DoctorS = ["Allopathy","Dentist", "Nutritionist","Homeopathy", "Physiotherapy"]
     
@@ -47,7 +47,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var selectTime = ""
     var selectI = ""
     
-    var RetriveFechData = 0
+    var RetriveFechDataID = 0
+    var RetriveFechDataPID = 0
     
     var languAdd : Double = 0
     var latitAdd : Double = 0
@@ -59,6 +60,10 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     var isToEditFlag = ""
     var isForBookFlag = ""
+    
+    var PID = ""
+    
+    var sd = ""
     
     
     // MARK: - IBOutles
@@ -95,8 +100,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         //MARK: - UserDefult
         
-        RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
-        print(RetriveFechData)
+        RetriveFechDataID = UserDefaults.standard.integer(forKey: "userId")
+   
    
     }
 
@@ -146,7 +151,7 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func PatientloadData(){
         
-        let userIdDM = "\(RetriveFechData)"
+        let userIdDM = "\(RetriveFechDataID)"
         let parms : [String : String] = ["userId" : userIdDM]
         getPatientData(url: Patient_URL, parameters: parms)
         
@@ -258,7 +263,9 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         dateFormatter.dateFormat = "dd/M/yyyy"
         let selectedDate = dateFormatter.string(from: DatePic.date)
     
-        DateTextField.text = selectedDate
+        sd = selectedDate
+        
+       // DateTextField.text = selectedDate
         
          // MARK: - Date to UNIXTime
     
@@ -307,7 +314,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == PickerViewController{
-            SelectPatientTextField.text = selectedItem
+            SelectPatientTextField.text = pickData[row]["name"]
+            PID = pickData[row]["patientId"] as Any as! String
             self.view.endEditing(false)
         }else if pickerView == PickerView1{
             SelectDecotorTextField.text = DoctorS[row]
@@ -327,6 +335,9 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func Done(_ sender: Any) {
         
         HideVC()
+        
+        DateTextField.text = sd
+        
     
     }
     
@@ -335,7 +346,12 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func BookAppoinment(_ sender: Any) {
         
+        
+        
         if SelectPatientTextField.text != "" && ComplainTextField.text != "" && SelectDecotorTextField.text != "" && DateTextField.text != "" && TimeTextField.text != "" && AddressTextField.text != ""{
+            
+            CheckCity()
+            
             isToEditFlag = "false"
             isForBookFlag = "true"
             appoinmetnFlag = 1
@@ -356,12 +372,32 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
+    //MARK: - Check City
+    
+    func CheckCity() {
+        
+        if AddressTextField.text != "Ahmedabad" && AddressTextField.text != "Vadodara" && AddressTextField.text != "ahmedabad" && AddressTextField.text != "vadodara"{
+            
+            let alert = UIAlertController(title: "Error", message: "We are providing our services in 'Ahmedabad' and 'Vadodara'", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil )
+            
+            self.notification.notificationOccurred(.warning)
+        }
+
+    }
+    
     
     // MARK: - AddToCart
     
     @IBAction func AddToCart(_ sender: Any) {
         
         if SelectPatientTextField.text != "" && ComplainTextField.text != "" && SelectDecotorTextField.text != "" && DateTextField.text != "" && TimeTextField.text != "" && AddressTextField.text != ""{
+            CheckCity()
             isToEditFlag = "false"
             isForBookFlag = "false"
             self.dataSend()
@@ -397,9 +433,10 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             selectDrType = "10"
         }
         
-        let userIdDM = "\(RetriveFechData)"
+        
+        let userIdDM = "\(RetriveFechDataID)"
         let appointmentTypeDM = "doctor"
-        let patientDM = "1845"
+        let patientDM = "\(PID)"
         let complainDM = ComplainTextField.text!
         let selectDrDM = selectDrType
         let dateDM = "\(UNIXDate)"
@@ -525,7 +562,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         
          notification.notificationOccurred(.error)
-      //determineMyCurrentLocation()
+      
+        determineMyCurrentLocation()
     }
     
     func determineMyCurrentLocation() {
@@ -544,8 +582,8 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
         
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
+        print("\(userLocation.coordinate.latitude)")
+        print("\(userLocation.coordinate.longitude)")
         
         languAdd = userLocation.coordinate.longitude
         latitAdd = userLocation.coordinate.latitude
@@ -573,10 +611,10 @@ class DoctorViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func TermsCondition(_ sender: Any) {
         
-       let main = UIStoryboard(name: "Main", bundle: nil)
-        let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
-        self.present(second, animated: true, completion: nil)
-        
+//       let main = UIStoryboard(name: "Main", bundle: nil)
+//        let second = main.instantiateViewController(withIdentifier: "TermsConditionVC")
+//        self.present(second, animated: true, completion: nil)
+//        
     }
     
     

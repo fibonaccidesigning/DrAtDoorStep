@@ -52,7 +52,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         RetriveFechData = UserDefaults.standard.integer(forKey: "userID")
         print(RetriveFechData)
         
-        let userIdDM = "5191"//"\(RetriveFechData)"
+        let userIdDM = "6"//"\(RetriveFechData)"
         let deviceTypeDM = "ios"
         
         let parms : [String : String] = ["userId" : userIdDM,
@@ -118,11 +118,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
-        
-        
-        
-        
-        
     }
     
     
@@ -145,7 +140,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let SdateFormatter = DateFormatter()
         SdateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
         SdateFormatter.locale = NSLocale.current
-        SdateFormatter.dateFormat = "dd/mm/yyyy HH:MM aa" //Specify your format that you want
+        SdateFormatter.dateFormat = "dd/MM/yyyy" //Specify your format that you want
         let SstrDate = SdateFormatter.string(from: Sdate)
         
         print(SstrDate)
@@ -154,10 +149,27 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.AppoinmentForLbl.text = CartDataDictionary[indexPath.item].bookingtype
         cell.AppoinmentTypeLbl.text = CartDataDictionary[indexPath.item].particular
+        cell.TimeLbl.text = CartDataDictionary[indexPath.item].time
         
         return cell
     }
-    
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+////        let gh = CartDataDictionary[indexPath.item].
+////        print(gh)
+//    }
+//    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            CartDataDictionary.remove(at: indexPath.row)
+            CartTable.deleteRows(at: [indexPath], with: .fade)
+            CartTable.reloadData()
+            
+            
+        }
+    }
+
     
     @IBAction func Back(_ sender: Any) {
         
